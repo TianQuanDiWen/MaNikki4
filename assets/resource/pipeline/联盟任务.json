@@ -1,0 +1,566 @@
+{
+    "$__mpe_config_联盟任务": {
+        "$__mpe_code": {
+            "prefix": "",
+            "coordinateMode": "absolute-v1",
+            "savedViewport": {
+                "x": -3308,
+                "y": 11,
+                "zoom": 1.03
+            },
+            "filename": "联盟任务",
+            "version": "v1.7.4"
+        }
+    },
+    "$__mpe_group_联盟捐献_联盟任务": {
+        "$__mpe_code": {
+            "position": {
+                "x": 4929,
+                "y": -122
+            },
+            "color": "blue",
+            "childrenLabels": [
+                "联盟_后面四次",
+                "联盟_免费捐献",
+                "联盟_捐献",
+                "联盟_退出捐献",
+                "联盟_捐献上限"
+            ],
+            "width": 1174,
+            "height": 820
+        }
+    },
+    "$__mpe_group_机密任务_联盟任务": {
+        "$__mpe_code": {
+            "position": {
+                "x": 6153,
+                "y": -126
+            },
+            "color": "blue",
+            "childrenLabels": [
+                "机密任务_执行五次",
+                "机密任务",
+                "机密任务_返回",
+                "联盟_确认在机密任务"
+            ],
+            "width": 1084,
+            "height": 701
+        }
+    },
+    "$__mpe_group_联盟福利_联盟任务": {
+        "$__mpe_code": {
+            "position": {
+                "x": 7349,
+                "y": -104
+            },
+            "color": "blue",
+            "childrenLabels": [
+                "联盟福利_一键领取",
+                "联盟福利",
+                "联盟福利_返回",
+                "联盟福利_确认已在",
+                "联盟福利_领完了"
+            ],
+            "width": 1453,
+            "height": 671
+        }
+    },
+    "联盟福利_一键领取": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    224,
+                    897,
+                    286,
+                    145
+                ],
+                "expected": [
+                    "领取"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "repeat": 2,
+        "repeat_delay": 200,
+        "next": [
+            "联盟福利_领完了",
+            "联盟福利_一键领取"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 7967,
+                "y": -28
+            }
+        }
+    },
+    "联盟_后面四次": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    79,
+                    788,
+                    149,
+                    79
+                ],
+                "expected": [
+                    "2000"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "repeat": 2,
+        "repeat_delay": 1000,
+        "next": [
+            "联盟_捐献上限",
+            "联盟_后面四次"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 5300,
+                "y": 341
+            }
+        }
+    },
+    "机密任务_执行五次": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    212,
+                    1126,
+                    192,
+                    127
+                ],
+                "expected": [
+                    "执行五次"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "repeat": 2,
+        "repeat_delay": 1000,
+        "next": [
+            "机密任务_返回"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 6729,
+                "y": -50
+            }
+        }
+    },
+    "机密任务": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    322,
+                    757,
+                    180,
+                    189
+                ],
+                "expected": [
+                    "机密任务"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "timeout": 5000,
+        "next": [
+            "联盟_确认在机密任务"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 6193,
+                "y": 238
+            }
+        }
+    },
+    "联盟_点击联盟": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    615,
+                    540,
+                    101,
+                    102
+                ],
+                "expected": [
+                    "联盟"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    9,
+                    -45,
+                    -14,
+                    17
+                ]
+            }
+        },
+        "next": [
+            "联盟_捐献"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 4572,
+                "y": 323
+            }
+        }
+    },
+    "联盟_免费捐献": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    79,
+                    788,
+                    149,
+                    79
+                ],
+                "expected": [
+                    "免费"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "repeat": 2,
+        "repeat_delay": 1000,
+        "next": [
+            "联盟_后面四次"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 5304,
+                "y": -46
+            }
+        }
+    },
+    "结束": {
+        "$__mpe_code": {
+            "position": {
+                "x": 8892,
+                "y": 319
+            }
+        }
+    },
+    "联盟_开始": {
+        "next": [
+            "联盟_确认在主菜单"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 3848,
+                "y": 298
+            }
+        }
+    },
+    "联盟_捐献": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    502,
+                    785,
+                    197,
+                    152
+                ],
+                "expected": [
+                    "联盟捐献"
+                ],
+                "threshold": 0.4
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "联盟_免费捐献",
+            "联盟_后面四次"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 4969,
+                "y": 202
+            }
+        }
+    },
+    "联盟福利": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    20,
+                    1025,
+                    113,
+                    101
+                ],
+                "expected": [
+                    "联盟福利"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 500,
+        "timeout": 5000,
+        "next": [
+            "联盟福利_确认已在",
+            "联盟福利"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 7389,
+                "y": 223
+            }
+        }
+    },
+    "机密任务_返回": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    0,
+                    14,
+                    128,
+                    131
+                ],
+                "template": [
+                    "暖暖/闪暖-返回箭头.png"
+                ],
+                "green_mask": true,
+                "threshold": [
+                    0.6
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "联盟福利"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 6978,
+                "y": 210
+            }
+        }
+    },
+    "联盟_退出捐献": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    8,
+                    997,
+                    139,
+                    130
+                ],
+                "expected": [
+                    "联盟福利"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "机密任务"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 5843,
+                "y": 166
+            }
+        }
+    },
+    "联盟_捐献上限": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    236,
+                    603,
+                    157,
+                    50
+                ],
+                "expected": [
+                    "已达上限"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "联盟_退出捐献"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 5566,
+                "y": 171
+            }
+        }
+    },
+    "联盟_确认在机密任务": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    257,
+                    65,
+                    205,
+                    61
+                ],
+                "expected": [
+                    "机密任务"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "timeout": 5000,
+        "next": [
+            "机密任务_执行五次",
+            "机密任务_返回"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 6468,
+                "y": 240
+            }
+        }
+    },
+    "联盟福利_返回": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    0,
+                    14,
+                    128,
+                    131
+                ],
+                "template": [
+                    "暖暖/闪暖-返回箭头.png"
+                ],
+                "green_mask": true,
+                "threshold": [
+                    0.6
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "联盟福利_返回",
+            "结束"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 8542,
+                "y": 201
+            }
+        }
+    },
+    "联盟福利_确认已在": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    296,
+                    249,
+                    131,
+                    48
+                ],
+                "expected": [
+                    "联盟福利"
+                ]
+            }
+        },
+        "timeout": 5000,
+        "next": [
+            "联盟福利_一键领取",
+            "联盟福利_领完了"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 7699,
+                "y": 245
+            }
+        }
+    },
+    "联盟福利_领完了": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    90,
+                    365,
+                    541,
+                    561
+                ],
+                "expected": [
+                    "当前暂无"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "联盟福利_返回"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 8231,
+                "y": 244
+            }
+        }
+    },
+    "联盟_确认在主菜单": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    302,
+                    1112,
+                    133,
+                    110
+                ],
+                "expected": [
+                    "开始"
+                ]
+            }
+        },
+        "next": [
+            "联盟_点击联盟"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 4215,
+                "y": 346
+            }
+        }
+    }
+}

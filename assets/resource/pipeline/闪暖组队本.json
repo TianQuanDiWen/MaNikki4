@@ -1,0 +1,786 @@
+{
+    "$__mpe_config_闪暖组队本": {
+        "$__mpe_code": {
+            "prefix": "",
+            "coordinateMode": "absolute-v1",
+            "savedViewport": {
+                "x": -1454,
+                "y": -60,
+                "zoom": 0.43
+            },
+            "filename": "闪暖组队本",
+            "version": "v1.7.4"
+        }
+    },
+    "结伴_开始": {
+        "next": [
+            "结伴_确认在主菜单"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 3948,
+                "y": 348
+            }
+        }
+    },
+    "结伴_确认在主菜单": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    302,
+                    1112,
+                    133,
+                    110
+                ],
+                "expected": [
+                    "开始"
+                ]
+            }
+        },
+        "next": [
+            "结伴_点击主菜单"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 4297,
+                "y": 342
+            }
+        }
+    },
+    "结伴_点击主菜单": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    302,
+                    1112,
+                    133,
+                    110
+                ],
+                "expected": [
+                    "开始"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "结伴_点击结伴",
+            "结伴_点击主菜单"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 4636,
+                "y": 338
+            }
+        }
+    },
+    "结伴_点击结伴": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    403,
+                    1135,
+                    203,
+                    104
+                ],
+                "expected": [
+                    "结伴"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "结伴_时光钟表铺次数",
+            "结伴_不落的帷幕次数",
+            "结伴_印象航旅次数",
+            "结伴_返回",
+            "结伴_点击结伴"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 4944,
+                "y": 347
+            }
+        }
+    },
+    "结伴_时光钟表铺": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    162,
+                    311,
+                    243,
+                    130
+                ],
+                "expected": [
+                    "时光钟表铺"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "时光钟表铺_快速组队",
+            "时光钟表铺_点击04"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 5562,
+                "y": 310
+            }
+        }
+    },
+    "时光钟表铺_快速组队": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    511,
+                    1132,
+                    171,
+                    62
+                ],
+                "expected": [
+                    "快速组队"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "时光钟表铺_返回"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 6247,
+                "y": 312
+            }
+        }
+    },
+    "时光钟表铺_点击04": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    492,
+                    686,
+                    213,
+                    176
+                ],
+                "expected": [
+                    "04"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "时光钟表铺_快速组队",
+            "时光钟表铺_点击04"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 5895,
+                "y": 479
+            }
+        }
+    },
+    "时光钟表铺_返回": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    0,
+                    14,
+                    128,
+                    131
+                ],
+                "template": [
+                    "暖暖/闪暖-返回箭头.png"
+                ],
+                "green_mask": true,
+                "threshold": [
+                    0.6
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 300,
+        "next": [
+            "时光钟表铺_结束",
+            "时光钟表铺_返回"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 6628,
+                "y": 294
+            }
+        }
+    },
+    "时光钟表铺_结束": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    403,
+                    1135,
+                    203,
+                    104
+                ],
+                "expected": [
+                    "结伴"
+                ]
+            }
+        },
+        "post_wait_freezes": 500,
+        "focus": {
+            "Node.Recognition.Succeeded": "时光钟表铺_结束"
+        },
+        "next": [
+            "结伴_不落的帷幕次数"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 7009,
+                "y": 328
+            }
+        }
+    },
+    "结伴_时光钟表铺次数": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    172,
+                    274,
+                    190,
+                    43
+                ],
+                "expected": [
+                    "0/9"
+                ]
+            }
+        },
+        "inverse": true,
+        "post_wait_freezes": 500,
+        "focus": {
+            "Node.Recognition.Failed": "时光钟表铺次数不足"
+        },
+        "next": [
+            "结伴_时光钟表铺"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 5283,
+                "y": 316
+            }
+        }
+    },
+    "结伴_不落的帷幕": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    299,
+                    509,
+                    248,
+                    118
+                ],
+                "expected": [
+                    "不落的帷幕"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "不落的帷幕_选择上演中"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 5571,
+                "y": 960
+            }
+        }
+    },
+    "结伴_不落的帷幕次数": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    323,
+                    458,
+                    199,
+                    53
+                ],
+                "expected": [
+                    "0/9"
+                ]
+            }
+        },
+        "inverse": true,
+        "post_wait_freezes": 500,
+        "focus": {
+            "Node.Recognition.Failed": "不落的帷幕次数不足"
+        },
+        "next": [
+            "结伴_不落的帷幕"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 5304,
+                "y": 948
+            }
+        }
+    },
+    "不落的帷幕_选择上演中": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    186,
+                    123,
+                    352,
+                    1094
+                ],
+                "expected": [
+                    "上演中"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    -139,
+                    -105,
+                    337,
+                    45
+                ]
+            }
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "不落的帷幕_快速组队",
+            "不落的帷幕_高难度"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 5898,
+                "y": 968
+            }
+        }
+    },
+    "不落的帷幕_高难度": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    338,
+                    678,
+                    180,
+                    83
+                ],
+                "expected": [
+                    "高难度"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 200,
+        "next": [
+            "不落的帷幕_第八幕"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 6226,
+                "y": 876
+            }
+        }
+    },
+    "不落的帷幕_第八幕": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    558,
+                    737,
+                    124,
+                    113
+                ],
+                "expected": [
+                    "第八幕"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 200,
+        "next": [
+            "不落的帷幕_快速组队"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 6539,
+                "y": 883
+            }
+        }
+    },
+    "不落的帷幕_快速组队": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    510,
+                    1140,
+                    175,
+                    54
+                ],
+                "expected": [
+                    "快速组队"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 200,
+        "next": [
+            "不落的帷幕_返回"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 6837,
+                "y": 1019
+            }
+        }
+    },
+    "不落的帷幕_返回": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    0,
+                    14,
+                    128,
+                    131
+                ],
+                "template": [
+                    "暖暖/闪暖-返回箭头.png"
+                ],
+                "green_mask": true,
+                "threshold": [
+                    0.6
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 300,
+        "next": [
+            "不落的帷幕_结束",
+            "不落的帷幕_返回"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 7163,
+                "y": 932
+            }
+        }
+    },
+    "不落的帷幕_结束": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    403,
+                    1135,
+                    203,
+                    104
+                ],
+                "expected": [
+                    "结伴"
+                ]
+            }
+        },
+        "post_wait_freezes": 500,
+        "focus": {
+            "Node.Recognition.Succeeded": "不落的帷幕_结束"
+        },
+        "next": [
+            "结伴_印象航旅次数"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 7514,
+                "y": 957
+            }
+        }
+    },
+    "结伴_印象航旅": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    279,
+                    732,
+                    259,
+                    118
+                ],
+                "expected": [
+                    "印象旅航"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "印象航旅_快速组队",
+            "印象航旅_高难度"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 5573,
+                "y": 1546
+            }
+        }
+    },
+    "结伴_印象航旅次数": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    304,
+                    668,
+                    226,
+                    62
+                ],
+                "expected": [
+                    "0/9"
+                ]
+            }
+        },
+        "inverse": true,
+        "post_wait_freezes": 500,
+        "focus": {
+            "Node.Recognition.Failed": "次数不足"
+        },
+        "next": [
+            "结伴_印象航旅"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 5302,
+                "y": 1534
+            }
+        }
+    },
+    "印象航旅_高难度": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    338,
+                    678,
+                    180,
+                    83
+                ],
+                "expected": [
+                    "高难度"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 200,
+        "next": [
+            "印象航旅_虚渊·险"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 5959,
+                "y": 1466
+            }
+        }
+    },
+    "印象航旅_虚渊·险": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    558,
+                    737,
+                    124,
+                    113
+                ],
+                "expected": [
+                    "虚渊·险"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 200,
+        "next": [
+            "印象航旅_快速组队"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 6318,
+                "y": 1472
+            }
+        }
+    },
+    "印象航旅_快速组队": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    510,
+                    1140,
+                    175,
+                    54
+                ],
+                "expected": [
+                    "快速组队"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 200,
+        "next": [
+            "印象航旅_返回"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 6709,
+                "y": 1671
+            }
+        }
+    },
+    "印象航旅_返回": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    0,
+                    14,
+                    128,
+                    131
+                ],
+                "template": [
+                    "暖暖/闪暖-返回箭头.png"
+                ],
+                "green_mask": true,
+                "threshold": [
+                    0.6
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 300,
+        "next": [
+            "印象航旅_结束",
+            "印象航旅_返回"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 7034,
+                "y": 1584
+            }
+        }
+    },
+    "印象航旅_结束": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    403,
+                    1135,
+                    203,
+                    104
+                ],
+                "expected": [
+                    "结伴"
+                ]
+            }
+        },
+        "post_wait_freezes": 500,
+        "focus": {
+            "Node.Recognition.Succeeded": "印象航旅_结束"
+        },
+        "next": [
+            "结伴_返回"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 7422,
+                "y": 1632
+            }
+        }
+    },
+    "结伴_返回": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    0,
+                    14,
+                    128,
+                    131
+                ],
+                "template": [
+                    "暖暖/闪暖-返回箭头.png"
+                ],
+                "green_mask": true,
+                "threshold": [
+                    0.4
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 300,
+        "focus": {
+            "Node.Recognition.Succeeded": ""
+        },
+        "$__mpe_code": {
+            "position": {
+                "x": 5317,
+                "y": 2021
+            }
+        }
+    }
+}

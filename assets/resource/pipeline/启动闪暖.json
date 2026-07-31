@@ -1,0 +1,67 @@
+{
+    "$__mpe_config_启动闪暖": {
+        "$__mpe_code": {
+            "prefix": "",
+            "coordinateMode": "absolute-v1",
+            "savedViewport": {
+                "x": -8542,
+                "y": -418,
+                "zoom": 1.93
+            },
+            "filename": "启动闪暖",
+            "version": "v1.7.4"
+        }
+    },
+    "启动闪暖": {
+        "recognition": {
+            "type": "FeatureMatch",
+            "param": {
+                "template": [
+                    "闪耀暖暖.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "timeout": 50000,
+        "next": [
+            "点击开始"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 4519,
+                "y": 291
+            }
+        }
+    },
+    "点击开始": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    99,
+                    1541,
+                    904,
+                    214
+                ],
+                "expected": [
+                    "点击开始"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "rate_limit": 2000,
+        "next": [
+            "点击开始"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 4856,
+                "y": 300
+            }
+        }
+    }
+}

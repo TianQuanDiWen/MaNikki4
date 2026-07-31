@@ -1,0 +1,67 @@
+{
+    "$__mpe_config_以闪排位": {
+        "$__mpe_code": {
+            "coordinateMode": "absolute-v1",
+            "filename": "以闪排位",
+            "prefix": "",
+            "savedViewport": {
+                "x": -7124,
+                "y": -201,
+                "zoom": 1.5
+            },
+            "version": "v1.7.4"
+        }
+    },
+    "以闪排位_开始": {
+        "$__mpe_code": {
+            "position": {
+                "x": 4487,
+                "y": 321
+            }
+        },
+        "next": [
+            "以闪排位_菜单"
+        ]
+    },
+    "以闪排位_时尚对决": {
+        "$__mpe_code": {
+            "position": {
+                "x": 5221,
+                "y": 330
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "recognition": {
+            "param": {
+                "expected": [
+                    "时尚对决"
+                ]
+            },
+            "type": "OCR"
+        }
+    },
+    "以闪排位_菜单": {
+        "$__mpe_code": {
+            "position": {
+                "x": 4890,
+                "y": 310
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "以闪排位_时尚对决"
+        ],
+        "recognition": {
+            "param": {
+                "template": [
+                    "以闪/以闪主菜单.png"
+                ]
+            },
+            "type": "TemplateMatch"
+        }
+    }
+}

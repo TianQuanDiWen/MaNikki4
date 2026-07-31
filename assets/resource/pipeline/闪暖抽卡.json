@@ -1,0 +1,623 @@
+{
+    "$__mpe_config_闪暖抽卡": {
+        "$__mpe_code": {
+            "prefix": "",
+            "coordinateMode": "absolute-v1",
+            "savedViewport": {
+                "x": -2223,
+                "y": -80,
+                "zoom": 0.55
+            },
+            "filename": "闪暖抽卡",
+            "version": "v1.7.4"
+        }
+    },
+    "抽卡_开始": {
+        "next": [
+            "抽阁_确认在主菜单"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 4149,
+                "y": 448
+            }
+        }
+    },
+    "抽阁_确认在主菜单": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    302,
+                    1112,
+                    133,
+                    110
+                ],
+                "expected": [
+                    "开始"
+                ]
+            }
+        },
+        "next": [
+            "抽阁_心之门"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 4497,
+                "y": 442
+            }
+        }
+    },
+    "抽阁_心之门": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    17,
+                    125,
+                    110,
+                    465
+                ],
+                "expected": [
+                    "心之门"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 200,
+        "next": [
+            "抽阁_确认心之门",
+            "抽阁_心之门"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 4892,
+                "y": 430
+            }
+        }
+    },
+    "抽阁_免费": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    8,
+                    1054,
+                    703,
+                    122
+                ],
+                "expected": [
+                    "免费"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    -43,
+                    -76,
+                    94,
+                    20
+                ]
+            }
+        },
+        "post_wait_freezes": 200,
+        "next": [
+            "抽阁_确认分享粉钻",
+            "抽阁_单抽退出"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 6120,
+                "y": 395
+            }
+        }
+    },
+    "抽阁_确认心之门": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    539,
+                    55,
+                    180,
+                    76
+                ],
+                "expected": [
+                    "感应详情"
+                ]
+            }
+        },
+        "post_wait_freezes": 200,
+        "next": [
+            "抽阁_左滑"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 5205,
+                "y": 435
+            }
+        }
+    },
+    "抽阁_左滑": {
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    104,
+                    517,
+                    50,
+                    60
+                ],
+                "end": [
+                    [
+                        519,
+                        537,
+                        73,
+                        73
+                    ]
+                ]
+            }
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "抽阁_确认在谜之海",
+            "抽阁_左滑"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 5507,
+                "y": 405
+            }
+        }
+    },
+    "抽阁_确认在谜之海": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "谜之海"
+                ]
+            }
+        },
+        "next": [
+            "抽阁_免费",
+            "抽阁_退出"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 5809,
+                "y": 405
+            }
+        }
+    },
+    "抽阁_分享": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    598,
+                    1143,
+                    107,
+                    107
+                ],
+                "expected": [
+                    "分享"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 200,
+        "next": [
+            "抽阁_分享选择社交软件"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 6747,
+                "y": 89
+            }
+        }
+    },
+    "抽阁_分享选择社交软件": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    26,
+                    1163,
+                    507,
+                    99
+                ],
+                "expected": [
+                    "小红书"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    -72,
+                    3,
+                    -27,
+                    -4
+                ]
+            }
+        },
+        "post_wait_freezes": 200,
+        "next": [
+            "抽阁_分享退出"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 7038,
+                "y": 96
+            }
+        }
+    },
+    "抽阁_分享退出": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    169,
+                    385,
+                    398,
+                    124
+                ],
+                "expected": [
+                    "恭喜获得"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    -14,
+                    -333,
+                    76,
+                    11
+                ]
+            }
+        },
+        "repeat": 3,
+        "repeat_delay": 200,
+        "post_wait_freezes": 200,
+        "next": [
+            "抽阁_左滑寻找其他免费"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 7387,
+                "y": 81
+            }
+        }
+    },
+    "抽阁_确认分享粉钻": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    478,
+                    1133,
+                    236,
+                    123
+                ],
+                "template": [
+                    "暖暖/粉钻.png"
+                ],
+                "threshold": [
+                    0.8
+                ]
+            }
+        },
+        "post_wait_freezes": 200,
+        "next": [
+            "抽阁_分享"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 6420,
+                "y": 95
+            }
+        }
+    },
+    "抽阁_单抽退出": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    598,
+                    1143,
+                    107,
+                    107
+                ],
+                "expected": [
+                    "分享"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    -395,
+                    -948,
+                    216,
+                    312
+                ]
+            }
+        },
+        "repeat": 2,
+        "post_wait_freezes": 200,
+        "next": [
+            "抽阁_左滑寻找其他免费"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 6455,
+                "y": 474
+            }
+        }
+    },
+    "抽阁_其他免费的": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    8,
+                    1054,
+                    703,
+                    122
+                ],
+                "expected": [
+                    "免费"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    -43,
+                    -76,
+                    94,
+                    20
+                ]
+            }
+        },
+        "post_wait_freezes": 200,
+        "next": [
+            "抽阁_免费单抽退出",
+            "抽阁_其他免费的"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 5961,
+                "y": 809
+            }
+        }
+    },
+    "抽阁_左滑寻找其他免费": {
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    104,
+                    517,
+                    50,
+                    60
+                ],
+                "end": [
+                    [
+                        519,
+                        537,
+                        73,
+                        73
+                    ]
+                ]
+            }
+        },
+        "post_wait_freezes": 1500,
+        "next": [
+            "抽阁_其他免费的",
+            "抽阁_确认回到谜之海",
+            "抽阁_左滑寻找其他免费"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 5509,
+                "y": 834
+            }
+        }
+    },
+    "抽阁_确认回到谜之海": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "谜之海"
+                ]
+            }
+        },
+        "next": [
+            "抽阁_谜之海金币单抽"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 5994,
+                "y": 1186
+            }
+        }
+    },
+    "抽阁_免费单抽退出": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    598,
+                    1143,
+                    107,
+                    107
+                ],
+                "expected": [
+                    "分享"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    -395,
+                    -948,
+                    216,
+                    312
+                ]
+            }
+        },
+        "repeat": 2,
+        "post_wait_freezes": 200,
+        "next": [
+            "抽阁_左滑寻找其他免费"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 6370,
+                "y": 806
+            }
+        }
+    },
+    "抽阁_谜之海金币单抽": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    8,
+                    1054,
+                    703,
+                    122
+                ],
+                "expected": [
+                    "感应一次"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 200,
+        "next": [
+            "抽阁_谜之海金币单抽退出"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 6372,
+                "y": 1209
+            }
+        }
+    },
+    "抽阁_谜之海金币单抽退出": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    598,
+                    1143,
+                    107,
+                    107
+                ],
+                "expected": [
+                    "分享"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    -395,
+                    -948,
+                    216,
+                    312
+                ]
+            }
+        },
+        "repeat": 2,
+        "post_wait_freezes": 200,
+        "next": [
+            "抽阁_退出"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 6765,
+                "y": 1193
+            }
+        }
+    },
+    "抽阁_退出": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    0,
+                    14,
+                    128,
+                    131
+                ],
+                "template": [
+                    "暖暖/闪暖-返回箭头.png"
+                ],
+                "green_mask": true,
+                "threshold": [
+                    0.4
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 300,
+        "focus": {
+            "Node.Recognition.Succeeded": ""
+        },
+        "next": [
+            "抽阁_结束",
+            "抽阁_退出"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 7146,
+                "y": 1182
+            }
+        }
+    },
+    "抽阁_结束": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    302,
+                    1112,
+                    133,
+                    110
+                ],
+                "expected": [
+                    "开始"
+                ]
+            }
+        },
+        "$__mpe_code": {
+            "position": {
+                "x": 7535,
+                "y": 1259
+            }
+        }
+    }
+}

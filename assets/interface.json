@@ -1,0 +1,67 @@
+{
+    "interface_version": 2,
+    "name": "MaNikki4",
+    "description": "基于 MaaFramework 的暖暖系列游戏自动化项目。",
+    "contact": "",
+    "license": "MIT",
+    "welcome": "欢迎使用 MaNikki4。",
+    "version": "0.1.0",
+    "controller": [
+        {
+            "name": "MuMu模拟器",
+            "description": "通过 ADB 连接并操作 MuMu 模拟器",
+            "type": "Adb",
+            "display_short_side": 1080
+        }
+    ],
+    "resource": [
+        {
+            "name": "官服",
+            "path": [
+                "./resource"
+            ]
+        }
+    ],
+    "task": [
+        {
+            "name": "启动闪暖",
+            "entry": "启动闪暖",
+            "description": "启动闪耀暖暖并进入游戏"
+        },
+        {
+            "name": "闪暖送礼",
+            "entry": "送礼_开始",
+            "description": "完成好友送心、领取体力与日常采购"
+        },
+        {
+            "name": "闪暖组队本",
+            "entry": "结伴_开始",
+            "description": "完成不落的帷幕、印象航旅与时光钟表铺"
+        },
+        {
+            "name": "闪暖竞技场",
+            "entry": "竞技场_开始",
+            "description": "完成钻石竞技场任务"
+        },
+        {
+            "name": "闪暖抽卡",
+            "entry": "抽卡_开始",
+            "description": "领取心之门免费抽取与分享奖励"
+        },
+        {
+            "name": "联盟任务",
+            "entry": "联盟_开始",
+            "description": "完成联盟捐献、机密任务与联盟福利"
+        },
+        {
+            "name": "以闪思绪漫步",
+            "entry": "思绪漫步_开始",
+            "description": "完成以闪亮之名思绪漫步任务"
+        },
+        {
+            "name": "以闪排位",
+            "entry": "以闪排位_开始",
+            "description": "进入以闪亮之名时尚对决"
+        }
+    ]
+}

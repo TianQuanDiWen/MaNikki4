@@ -1,0 +1,33 @@
+{
+    "projectName": "MaNikki4",
+    "defaultTarget": "win-x86_64",
+    "targets": [
+        {
+            "platform": "win",
+            "arch": "x86_64"
+        }
+    ],
+    "dependencies": {
+        "maaFramework": {
+            "repository": "MaaXYZ/MaaFramework",
+            "release": "latest",
+            "assetPattern": "MAA-{platform}-{arch}-*.zip"
+        },
+        "mxu": {
+            "repository": "MistEO/MXU",
+            "release": "latest",
+            "assetPattern": "MXU-{platform}-{arch}-*.zip"
+        }
+    },
+    "toolchain": {
+        "pythonVersion": "3.13",
+        "uvIndex": "https://pypi.org/simple"
+    },
+    "directories": {
+        "output": "install",
+        "dependencies": "deps",
+        "downloads": "downloads",
+        "cache": "cache/downloads"
+    },
+    "packageName": "MaNikki4-{version}-{platform}-{arch}.zip"
+}

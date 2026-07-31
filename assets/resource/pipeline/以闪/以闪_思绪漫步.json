@@ -1,0 +1,181 @@
+{
+    "$__mpe_config_以闪_思绪漫步": {
+        "$__mpe_code": {
+            "coordinateMode": "absolute-v1",
+            "filename": "以闪_思绪漫步",
+            "prefix": "",
+            "savedViewport": {
+                "x": -5804,
+                "y": -91,
+                "zoom": 1.03
+            },
+            "version": "v1.7.4"
+        }
+    },
+    "思绪漫步_已领取": {
+        "$__mpe_code": {
+            "position": {
+                "x": 6313,
+                "y": 224
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "思绪漫步_返回"
+        ],
+        "recognition": {
+            "param": {
+                "expected": [
+                    "已领取"
+                ]
+            },
+            "type": "OCR"
+        }
+    },
+    "思绪漫步_开始": {
+        "$__mpe_code": {
+            "position": {
+                "x": 4587,
+                "y": 371
+            }
+        },
+        "next": [
+            "思绪漫步_菜单"
+        ]
+    },
+    "思绪漫步_每日练习": {
+        "$__mpe_code": {
+            "position": {
+                "x": 5786,
+                "y": 438
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "思绪漫步_领取"
+        ],
+        "rate_limit": 3000,
+        "recognition": {
+            "param": {
+                "expected": [
+                    "每日练习"
+                ]
+            },
+            "type": "OCR"
+        },
+        "timeout": 200000
+    },
+    "思绪漫步_结束": {
+        "$__mpe_code": {
+            "position": {
+                "x": 6939,
+                "y": 530
+            }
+        }
+    },
+    "思绪漫步_菜单": {
+        "$__mpe_code": {
+            "position": {
+                "x": 4971,
+                "y": 366
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "思绪漫步_进入",
+            "思绪漫步_菜单"
+        ],
+        "recognition": {
+            "param": {
+                "template": [
+                    "以闪/以闪主菜单.png"
+                ]
+            },
+            "type": "TemplateMatch"
+        }
+    },
+    "思绪漫步_返回": {
+        "$__mpe_code": {
+            "position": {
+                "x": 6656,
+                "y": 398
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "思绪漫步_返回",
+            "思绪漫步_结束"
+        ],
+        "recognition": {
+            "param": {
+                "green_mask": true,
+                "template": [
+                    "以闪/以闪_返回箭头.png"
+                ]
+            },
+            "type": "TemplateMatch"
+        }
+    },
+    "思绪漫步_进入": {
+        "$__mpe_code": {
+            "position": {
+                "x": 5363,
+                "y": 402
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "思绪漫步_每日练习",
+            "思绪漫步_已领取",
+            "思绪漫步_进入"
+        ],
+        "recognition": {
+            "param": {
+                "expected": [
+                    "思绪漫步"
+                ],
+                "roi": [
+                    474,
+                    16,
+                    448,
+                    619
+                ]
+            },
+            "type": "OCR"
+        }
+    },
+    "思绪漫步_领取": {
+        "$__mpe_code": {
+            "position": {
+                "x": 6088,
+                "y": 451
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "思绪漫步_已领取"
+        ],
+        "recognition": {
+            "param": {
+                "expected": [
+                    "领取奖励"
+                ]
+            },
+            "type": "OCR"
+        },
+        "repeat": 4,
+        "repeat_delay": 500
+    }
+}
