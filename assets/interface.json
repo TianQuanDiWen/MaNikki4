@@ -58,13 +58,25 @@
             "entry": "联盟_开始",
             "description": "完成联盟捐献、机密任务与联盟福利",
             "default_check": true
+        },
+        {
+            "name": "忆海心阶",
+            "entry": "忆海_开始",
+            "description": "完成忆海心阶挑战",
+            "default_check": true
+        },
+        {
+            "name": "美甲",
+            "entry": "美甲_开始",
+            "description": "完成美甲店铺店员雇佣与收益提取",
+            "default_check": true
         }
     ],
     "preset": [
         {
             "name": "日常任务",
             "label": "推荐日常",
-            "description": "自动勾选已就绪的日常任务（送礼、组队本、抽卡、联盟任务）",
+            "description": "自动勾选已就绪的日常任务（送礼、组队本、抽卡、联盟任务、忆海心阶、美甲）",
             "task": [
                 {
                     "name": "启动闪暖",
@@ -88,6 +100,14 @@
                 },
                 {
                     "name": "联盟任务",
+                    "enabled": true
+                },
+                {
+                    "name": "忆海心阶",
+                    "enabled": true
+                },
+                {
+                    "name": "美甲",
                     "enabled": true
                 }
             ]
