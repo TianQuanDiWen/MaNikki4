@@ -214,7 +214,6 @@
         "post_wait_freezes": 300,
         "recognition": {
             "param": {
-                "green_mask": true,
                 "roi": [
                     0,
                     14,
@@ -222,10 +221,7 @@
                     131
                 ],
                 "template": [
-                    "暖暖/闪暖-返回箭头.png"
-                ],
-                "threshold": [
-                    0.4
+                    "闪暖-返回箭头.png"
                 ]
             },
             "type": "TemplateMatch"

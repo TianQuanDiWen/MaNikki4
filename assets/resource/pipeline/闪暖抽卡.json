@@ -310,7 +310,7 @@
                     123
                 ],
                 "template": [
-                    "暖暖/粉钻.png"
+                    "粉钻.png"
                 ],
                 "threshold": [
                     0.8
@@ -572,11 +572,7 @@
                     131
                 ],
                 "template": [
-                    "暖暖/闪暖-返回箭头.png"
-                ],
-                "green_mask": true,
-                "threshold": [
-                    0.4
+                    "闪暖-返回箭头.png"
                 ]
             }
         },

@@ -11,7 +11,7 @@
             "name": "MuMu模拟器",
             "description": "通过 ADB 连接并操作 MuMu 模拟器",
             "type": "Adb",
-            "display_short_side": 1080
+            "display_short_side": 720
         }
     ],
     "resource": [
@@ -26,42 +26,71 @@
         {
             "name": "启动闪暖",
             "entry": "启动闪暖",
-            "description": "启动闪耀暖暖并进入游戏"
+            "description": "启动闪耀暖暖并进入游戏",
+            "default_check": false
         },
         {
             "name": "闪暖送礼",
             "entry": "送礼_开始",
-            "description": "完成好友送心、领取体力与日常采购"
+            "description": "完成好友送心、领取体力与日常采购",
+            "default_check": true
         },
         {
             "name": "闪暖组队本",
             "entry": "结伴_开始",
-            "description": "完成不落的帷幕、印象航旅与时光钟表铺"
+            "description": "完成不落的帷幕、印象航旅与时光钟表铺",
+            "default_check": true
         },
         {
             "name": "闪暖竞技场",
             "entry": "竞技场_开始",
-            "description": "完成钻石竞技场任务"
+            "description": "完成钻石竞技场任务",
+            "default_check": false
         },
         {
             "name": "闪暖抽卡",
             "entry": "抽卡_开始",
-            "description": "领取心之门免费抽取与分享奖励"
+            "description": "领取心之门免费抽取与分享奖励",
+            "default_check": true
         },
         {
             "name": "联盟任务",
             "entry": "联盟_开始",
-            "description": "完成联盟捐献、机密任务与联盟福利"
-        },
+            "description": "完成联盟捐献、机密任务与联盟福利",
+            "default_check": true
+        }
+    ],
+    "preset": [
         {
-            "name": "以闪思绪漫步",
-            "entry": "思绪漫步_开始",
-            "description": "完成以闪亮之名思绪漫步任务"
-        },
-        {
-            "name": "以闪排位",
-            "entry": "以闪排位_开始",
-            "description": "进入以闪亮之名时尚对决"
+            "name": "日常任务",
+            "label": "推荐日常",
+            "description": "自动勾选已就绪的日常任务（送礼、组队本、抽卡、联盟任务）",
+            "task": [
+                {
+                    "name": "启动闪暖",
+                    "enabled": false
+                },
+                {
+                    "name": "闪暖送礼",
+                    "enabled": true
+                },
+                {
+                    "name": "闪暖组队本",
+                    "enabled": true
+                },
+                {
+                    "name": "闪暖竞技场",
+                    "enabled": false
+                },
+                {
+                    "name": "闪暖抽卡",
+                    "enabled": true
+                },
+                {
+                    "name": "联盟任务",
+                    "enabled": true
+                }
+            ]
         }
     ]
 }

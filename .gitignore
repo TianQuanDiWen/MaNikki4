@@ -25,6 +25,7 @@ build-*
 *.mod
 *.smod
 !go.mod
+!go.sum
 
 # Compiled Static libraries
 *.lai
