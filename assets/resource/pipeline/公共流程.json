@@ -2,95 +2,31 @@
     "$__mpe_config_公共流程": {
         "$__mpe_code": {
             "prefix": "",
-            "filePath": "D:\\Projects\\Go\\MaNikki4\\assets\\resource\\pipeline\\公共流程.json",
-            "lastSyncTime": 1788875882598,
             "coordinateMode": "absolute-v1",
+            "lastSyncTime": 1788952103247,
+            "isModifiedExternally": false,
+            "isDeleted": false,
+            "filePath": "D:\\Projects\\Go\\MaNikki4\\assets\\resource\\pipeline\\公共流程.json",
             "savedViewport": {
-                "x": -3408,
-                "y": 135,
-                "zoom": 0.55
+                "x": -4839,
+                "y": 53,
+                "zoom": 0.8
             },
             "filename": "公共流程",
             "version": "v1.9.3"
         }
     },
-    "公共：返回主菜单": {
-        "next": [
-            "主菜单_中继节点"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 6616,
-                "y": 288
-            }
-        }
-    },
-    "主菜单_返回": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "roi": [
-                    0,
-                    14,
-                    128,
-                    131
-                ],
-                "template": [
-                    "闪暖-返回箭头.png"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_wait_freezes": 300,
-        "focus": {
-            "Node.Recognition.Succeeded": ""
-        },
-        "next": [
-            "主菜单_中继节点"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 7342,
-                "y": -139
-            }
-        }
-    },
     "主菜单_中继节点": {
         "next": [
             "主菜单_返回",
-            "主菜单_检查开始"
+            "主菜单_点击取消",
+            "主菜单_检查开始",
+            "主菜单_确认个人简介"
         ],
         "$__mpe_code": {
             "position": {
                 "x": 6964,
                 "y": 295
-            }
-        }
-    },
-    "主菜单_检查开始": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    302,
-                    1112,
-                    133,
-                    110
-                ],
-                "expected": [
-                    "开始"
-                ]
-            }
-        },
-        "next": [
-            "主菜单_打开个人简介"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 7346,
-                "y": 312
             }
         }
     },
@@ -130,6 +66,31 @@
             }
         }
     },
+    "主菜单_检查开始": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    302,
+                    1112,
+                    133,
+                    110
+                ],
+                "expected": [
+                    "开始"
+                ]
+            }
+        },
+        "next": [
+            "主菜单_打开个人简介"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 7346,
+                "y": 312
+            }
+        }
+    },
     "主菜单_确认个人简介": {
         "recognition": {
             "type": "OCR",
@@ -161,16 +122,84 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 7987,
-                "y": 292
+                "x": 7359,
+                "y": 651
             }
         }
     },
     "主菜单_结束": {
         "$__mpe_code": {
             "position": {
-                "x": 8308,
-                "y": 295
+                "x": 8158,
+                "y": 569
+            }
+        }
+    },
+    "主菜单_返回": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    0,
+                    14,
+                    128,
+                    131
+                ],
+                "template": [
+                    "闪暖-返回箭头.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 300,
+        "focus": {
+            "Node.Recognition.Succeeded": ""
+        },
+        "next": [
+            "主菜单_中继节点"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 7352,
+                "y": -482
+            }
+        }
+    },
+    "公共：返回主菜单": {
+        "next": [
+            "主菜单_中继节点"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 6616,
+                "y": 288
+            }
+        }
+    },
+    "主菜单_点击取消": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    99,
+                    664,
+                    242,
+                    85
+                ],
+                "expected": [
+                    "取消"
+                ]
+            }
+        },
+        "next": [
+            "主菜单_中继节点"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 7347,
+                "y": -36
             }
         }
     }

@@ -1,218 +1,423 @@
 {
     "$__mpe_config_闪暖竞技场": {
         "$__mpe_code": {
-            "coordinateMode": "absolute-v1",
-            "filename": "闪暖竞技场",
             "prefix": "",
+            "coordinateMode": "absolute-v1",
+            "lastSyncTime": 1788951998356,
+            "isModifiedExternally": false,
+            "isDeleted": false,
+            "filePath": "D:\\Projects\\Go\\MaNikki4\\assets\\resource\\pipeline\\闪暖竞技场.json",
             "savedViewport": {
-                "x": -6113,
-                "y": -824,
-                "zoom": 1.17
+                "x": -8529,
+                "y": -401,
+                "zoom": 1.32
             },
-            "version": "v1.7.4"
+            "filename": "闪暖竞技场",
+            "version": "v1.9.3"
         }
     },
-    "竞技场_前往搭配": {
+    "$__mpe_external_公共：返回主菜单_闪暖竞技场": {
         "$__mpe_code": {
             "position": {
-                "x": 5560,
-                "y": 489
+                "x": 9298,
+                "y": 20
+            }
+        }
+    },
+    "$__mpe_group_竞技场搭配_闪暖竞技场": {
+        "$__mpe_code": {
+            "position": {
+                "x": 5694,
+                "y": -360
+            },
+            "color": "blue",
+            "childrenLabels": [
+                "竞技场_前往搭配",
+                "竞技场_推荐搭配",
+                "竞技场_推荐搭配下一步",
+                "竞技场_推荐搭配下一步确定",
+                "竞技场_推荐搭配完成",
+                "竞技场_推荐搭配确认",
+                "竞技场_搭配退出",
+                "竞技场_赛季第一次进入"
+            ],
+            "width": 1490,
+            "height": 831
+        }
+    },
+    "竞技场_体力不足": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    111,
+                    654,
+                    218,
+                    94
+                ],
+                "expected": [
+                    "取消"
+                ]
             }
         },
         "action": {
             "type": "Click"
         },
         "next": [
-            "竞技场_推荐搭配"
+            "竞技场_结束"
         ],
-        "post_wait_freezes": 200,
+        "$__mpe_code": {
+            "position": {
+                "x": 8726,
+                "y": 180
+            }
+        }
+    },
+    "竞技场_前往搭配": {
         "recognition": {
+            "type": "OCR",
             "param": {
-                "expected": [
-                    "前往搭配"
-                ],
                 "roi": [
                     220,
                     692,
                     299,
                     183
+                ],
+                "expected": [
+                    "前往搭配"
                 ]
-            },
-            "type": "OCR"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 200,
+        "next": [
+            "竞技场_推荐搭配"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 5742,
+                "y": 54
+            }
         }
     },
     "竞技场_开始": {
+        "next": [
+            "竞技场_确认在主菜单"
+        ],
         "$__mpe_code": {
             "position": {
                 "x": 4249,
                 "y": 498
             }
+        }
+    },
+    "竞技场_循环检查": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    35,
+                    578,
+                    509,
+                    139
+                ],
+                "expected": [
+                    "竞技场战力"
+                ]
+            }
         },
         "next": [
-            "竞技场_确认在主菜单"
-        ]
-    },
-    "竞技场_推荐搭配": {
+            "竞技场_次数已用尽",
+            "竞技场_选择对手"
+        ],
         "$__mpe_code": {
             "position": {
-                "x": 5949,
-                "y": 436
+                "x": 7371,
+                "y": 479
+            }
+        }
+    },
+    "竞技场_挑战对手1": {
+        "recognition": {
+            "type": "Custom",
+            "param": {
+                "custom_recognition": "ArenaCanBeat",
+                "roi": [
+                    24,
+                    1046,
+                    193,
+                    28
+                ]
             }
         },
         "action": {
-            "type": "Click"
-        },
-        "next": [
-            "竞技场_推荐搭配确认",
-            "竞技场_推荐搭配"
-        ],
-        "post_wait_freezes": 200,
-        "recognition": {
+            "type": "Click",
             "param": {
-                "expected": [
-                    "推荐搭配"
-                ],
+                "target": [
+                    28,
+                    779,
+                    187,
+                    114
+                ]
+            }
+        },
+        "post_wait_freezes": 1000,
+        "next": [
+            "竞技场_挑战结算"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 8169,
+                "y": 221
+            }
+        }
+    },
+    "竞技场_挑战对手2": {
+        "recognition": {
+            "type": "Custom",
+            "param": {
+                "custom_recognition": "ArenaCanBeat",
+                "roi": [
+                    256,
+                    1037,
+                    209,
+                    40
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    293,
+                    799,
+                    141,
+                    96
+                ]
+            }
+        },
+        "post_wait_freezes": 1000,
+        "next": [
+            "竞技场_挑战结算"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 8171,
+                "y": 549
+            }
+        }
+    },
+    "竞技场_挑战对手3": {
+        "recognition": {
+            "type": "Custom",
+            "param": {
+                "custom_recognition": "ArenaCanBeat",
+                "roi": [
+                    498,
+                    1042,
+                    202,
+                    39
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    511,
+                    773,
+                    195,
+                    96
+                ]
+            }
+        },
+        "post_wait_freezes": 1000,
+        "next": [
+            "竞技场_挑战结算"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 8169,
+                "y": 853
+            }
+        }
+    },
+    "竞技场_挑战结算": {
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    142,
+                    144,
+                    155,
+                    59
+                ]
+            }
+        },
+        "post_wait_freezes": 1000,
+        "next": [
+            "竞技场_体力不足",
+            "竞技场_循环检查",
+            "竞技场_挑战结算"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 8580,
+                "y": 507
+            }
+        }
+    },
+    "竞技场_推荐搭配": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
                 "roi": [
                     571,
                     1158,
                     147,
                     82
+                ],
+                "expected": [
+                    "推荐搭配"
                 ]
-            },
-            "type": "OCR"
-        }
-    },
-    "竞技场_推荐搭配下一步": {
-        "$__mpe_code": {
-            "position": {
-                "x": 6576,
-                "y": -10
             }
         },
         "action": {
             "type": "Click"
         },
+        "post_wait_freezes": 200,
         "next": [
-            "竞技场_推荐搭配下一步确定",
-            "竞技场_推荐搭配完成"
+            "竞技场_推荐搭配确认",
+            "竞技场_推荐搭配"
         ],
-        "post_wait_freezes": 2000,
+        "$__mpe_code": {
+            "position": {
+                "x": 6053,
+                "y": -283
+            }
+        }
+    },
+    "竞技场_推荐搭配下一步": {
         "recognition": {
+            "type": "OCR",
             "param": {
-                "expected": [
-                    "下一步"
-                ],
                 "roi": [
                     37,
                     1160,
                     209,
                     87
+                ],
+                "expected": [
+                    "下一步"
                 ]
-            },
-            "type": "OCR"
-        }
-    },
-    "竞技场_推荐搭配下一步确定": {
-        "$__mpe_code": {
-            "position": {
-                "x": 6861,
-                "y": -9
             }
         },
         "action": {
             "type": "Click"
         },
+        "post_wait_freezes": 2000,
         "next": [
-            "竞技场_推荐搭配下一步",
+            "竞技场_推荐搭配下一步确定",
             "竞技场_推荐搭配完成"
         ],
-        "post_wait_freezes": 2000,
+        "$__mpe_code": {
+            "position": {
+                "x": 6322,
+                "y": -79
+            }
+        }
+    },
+    "竞技场_推荐搭配下一步确定": {
         "recognition": {
+            "type": "OCR",
             "param": {
-                "expected": [
-                    "确定"
-                ],
                 "roi": [
                     248,
                     1078,
                     223,
                     76
+                ],
+                "expected": [
+                    "确定"
                 ]
-            },
-            "type": "OCR"
-        },
-        "timeout": 60000
-    },
-    "竞技场_推荐搭配完成": {
-        "$__mpe_code": {
-            "position": {
-                "x": 6839,
-                "y": 346
             }
         },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 2000,
+        "timeout": 60000,
         "next": [
-            "竞技场_搭配退出"
+            "竞技场_推荐搭配下一步",
+            "竞技场_推荐搭配完成"
         ],
-        "post_wait_freezes": 200,
+        "$__mpe_code": {
+            "position": {
+                "x": 6613,
+                "y": -280
+            }
+        }
+    },
+    "竞技场_推荐搭配完成": {
         "recognition": {
+            "type": "OCR",
             "param": {
-                "expected": [
-                    "更换搭配"
-                ],
                 "roi": [
                     37,
                     722,
                     211,
                     128
+                ],
+                "expected": [
+                    "更换搭配"
                 ]
-            },
-            "type": "OCR"
+            }
+        },
+        "post_wait_freezes": 200,
+        "next": [
+            "竞技场_搭配退出"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 6622,
+                "y": 113
+            }
         }
     },
     "竞技场_推荐搭配确认": {
-        "$__mpe_code": {
-            "position": {
-                "x": 6297,
-                "y": 437
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "竞技场_推荐搭配下一步"
-        ],
-        "post_wait_freezes": 2000,
         "recognition": {
+            "type": "OCR",
             "param": {
-                "expected": [
-                    "确认"
-                ],
                 "roi": [
                     353,
                     655,
                     262,
                     104
+                ],
+                "expected": [
+                    "确认"
                 ]
-            },
-            "type": "OCR"
-        }
-    },
-    "竞技场_搭配退出": {
-        "$__mpe_code": {
-            "position": {
-                "x": 7212,
-                "y": 185
             }
         },
         "action": {
             "type": "Click"
         },
-        "focus": {
-            "Node.Recognition.Succeeded": ""
-        },
-        "post_wait_freezes": 300,
+        "post_wait_freezes": 2000,
+        "next": [
+            "竞技场_推荐搭配下一步"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 6049,
+                "y": 67
+            }
+        }
+    },
+    "竞技场_搭配退出": {
         "recognition": {
+            "type": "TemplateMatch",
             "param": {
                 "roi": [
                     0,
@@ -223,148 +428,240 @@
                 "template": [
                     "闪暖-返回箭头.png"
                 ]
-            },
-            "type": "TemplateMatch"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 300,
+        "focus": {
+            "Node.Recognition.Succeeded": ""
+        },
+        "next": [
+            "竞技场_记录自身战力"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 6923,
+                "y": 104
+            }
+        }
+    },
+    "竞技场_次数已用尽": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    470,
+                    1100,
+                    220,
+                    60
+                ],
+                "expected": [
+                    "0/"
+                ]
+            }
+        },
+        "next": [
+            "竞技场_结束"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 7945,
+                "y": -23
+            }
         }
     },
     "竞技场_点击主菜单": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    302,
+                    1112,
+                    133,
+                    110
+                ],
+                "expected": [
+                    "开始"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 200,
+        "next": [
+            "竞技场_钻石竞技场"
+        ],
         "$__mpe_code": {
             "position": {
                 "x": 4901,
                 "y": 476
             }
+        }
+    },
+    "竞技场_点击换一批": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    147,
+                    1100,
+                    103,
+                    52
+                ],
+                "expected": [
+                    "换一批"
+                ]
+            }
         },
         "action": {
             "type": "Click"
         },
+        "post_wait_freezes": 800,
         "next": [
-            "竞技场_钻石竞技场"
+            "竞技场_循环检查"
         ],
-        "post_wait_freezes": 200,
+        "$__mpe_code": {
+            "position": {
+                "x": 8172,
+                "y": 1176
+            }
+        }
+    },
+    "竞技场_确认在主菜单": {
         "recognition": {
+            "type": "OCR",
             "param": {
-                "expected": [
-                    "开始"
-                ],
                 "roi": [
                     302,
                     1112,
                     133,
                     110
+                ],
+                "expected": [
+                    "开始"
                 ]
-            },
-            "type": "OCR"
-        }
-    },
-    "竞技场_确认在主菜单": {
-        "$__mpe_code": {
-            "position": {
-                "x": 4579,
-                "y": 477
             }
         },
         "next": [
             "竞技场_点击主菜单"
         ],
+        "$__mpe_code": {
+            "position": {
+                "x": 4579,
+                "y": 477
+            }
+        }
+    },
+    "竞技场_结束": {
+        "next": [
+            "公共：返回主菜单"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 8955,
+                "y": -2
+            }
+        }
+    },
+    "竞技场_记录自身战力": {
         "recognition": {
+            "type": "Custom",
             "param": {
-                "expected": [
-                    "开始"
-                ],
+                "custom_recognition": "ArenaRecordSelfPower",
                 "roi": [
-                    302,
-                    1112,
-                    133,
-                    110
+                    230,
+                    670,
+                    220,
+                    35
                 ]
-            },
-            "type": "OCR"
+            }
+        },
+        "pre_wait_freezes": 500,
+        "next": [
+            "竞技场_循环检查"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 6934,
+                "y": 486
+            }
         }
     },
     "竞技场_赛季第一次进入": {
-        "$__mpe_code": {
-            "position": {
-                "x": 5532,
-                "y": 48
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "竞技场_前往搭配"
-        ],
-        "post_wait_freezes": 200,
         "recognition": {
+            "type": "OCR",
             "param": {
-                "expected": [
-                    "我知道了"
-                ],
                 "roi": [
                     196,
                     866,
                     325,
                     144
+                ],
+                "expected": [
+                    "我知道了"
                 ]
-            },
-            "type": "OCR"
-        }
-    },
-    "竞技场_进入先换一批": {
-        "$__mpe_code": {
-            "position": {
-                "x": 5560,
-                "y": 1047
             }
         },
         "action": {
             "type": "Click"
         },
-
-        "recognition": {
-            "param": {
-                "expected": [
-                    "换一批"
-                ],
-                "roi": [
-                    141,
-                    1102,
-                    119,
-                    48
-                ]
-            },
-            "type": "OCR"
+        "post_wait_freezes": 200,
+        "next": [
+            "竞技场_前往搭配"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 5734,
+                "y": -284
+            }
+        }
+    },
+    "竞技场_选择对手": {
+        "next": [
+            "竞技场_挑战对手1",
+            "竞技场_挑战对手2",
+            "竞技场_挑战对手3",
+            "竞技场_点击换一批"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 7771,
+                "y": 545
+            }
         }
     },
     "竞技场_钻石竞技场": {
-        "$__mpe_code": {
-            "position": {
-                "x": 5178,
-                "y": 484
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "竞技场_前往搭配",
-            "竞技场_赛季第一次进入",
-            "竞技场_进入先换一批"
-        ],
-        "post_wait_freezes": 200,
         "recognition": {
+            "type": "OCR",
             "param": {
-                "expected": [
-                    "钻石竞技场"
-                ],
                 "roi": [
                     334,
                     635,
                     269,
                     102
+                ],
+                "expected": [
+                    "钻石竞技场"
                 ]
-            },
-            "type": "OCR"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 200,
+        "next": [
+            "竞技场_前往搭配",
+            "竞技场_赛季第一次进入",
+            "竞技场_记录自身战力"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 5233,
+                "y": 474
+            }
         }
     }
 }

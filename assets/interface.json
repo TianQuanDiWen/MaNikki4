@@ -6,6 +6,16 @@
     "license": "MIT",
     "welcome": "欢迎使用 MaNikki4。",
     "version": "0.1.0",
+    "agent": {
+        "child_exec": "go",
+        "child_args": [
+            "run",
+            "../agent/cmd/manikki-agent",
+            "agent",
+            "--root",
+            ".."
+        ]
+    },
     "controller": [
         {
             "name": "MuMu模拟器",

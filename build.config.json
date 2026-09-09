@@ -14,14 +14,19 @@
             "assetPattern": "MAA-{platform}-{arch}-*.zip"
         },
         "mxu": {
-            "repository": "MistEO/MXU",
+            "repository": "TianQuanDiWen/MXU_tqdw",
             "release": "latest",
-            "assetPattern": "MXU-{platform}-{arch}-*.zip"
+            "assetPattern": "*{platform}-{arch}*"
         }
     },
     "toolchain": {
+        "goVersion": "1.24.x",
         "pythonVersion": "3.13",
         "uvIndex": "https://pypi.org/simple"
+    },
+    "agent": {
+        "source": "./agent/cmd/manikki-agent",
+        "output": "agent/MaNikki4.Agent{exe}"
     },
     "directories": {
         "output": "install",
