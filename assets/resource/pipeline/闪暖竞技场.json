@@ -3,17 +3,17 @@
         "$__mpe_code": {
             "prefix": "",
             "coordinateMode": "absolute-v1",
-            "lastSyncTime": 1788951998356,
+            "lastSyncTime": 1789720021519,
             "isModifiedExternally": false,
             "isDeleted": false,
             "filePath": "D:\\Projects\\Go\\MaNikki4\\assets\\resource\\pipeline\\闪暖竞技场.json",
             "savedViewport": {
-                "x": -8529,
-                "y": -401,
-                "zoom": 1.32
+                "x": -5967,
+                "y": -288,
+                "zoom": 0.8
             },
             "filename": "闪暖竞技场",
-            "version": "v1.9.3"
+            "version": "v1.10.1"
         }
     },
     "$__mpe_external_公共：返回主菜单_闪暖竞技场": {
@@ -256,7 +256,7 @@
                 ]
             }
         },
-        "post_wait_freezes": 1000,
+        "post_delay": 300,
         "next": [
             "竞技场_体力不足",
             "竞技场_循环检查",
@@ -458,7 +458,7 @@
                     60
                 ],
                 "expected": [
-                    "0/"
+                    "(^|\\\\D)0/"
                 ]
             }
         },
@@ -520,13 +520,10 @@
             "type": "Click"
         },
         "post_wait_freezes": 800,
-        "next": [
-            "竞技场_循环检查"
-        ],
         "$__mpe_code": {
             "position": {
-                "x": 8172,
-                "y": 1176
+                "x": 8169,
+                "y": 1427
             }
         }
     },
@@ -624,7 +621,8 @@
             "竞技场_挑战对手1",
             "竞技场_挑战对手2",
             "竞技场_挑战对手3",
-            "竞技场_点击换一批"
+            "[JumpBack]竞技场_名次变化",
+            "[JumpBack]竞技场_点击换一批"
         ],
         "$__mpe_code": {
             "position": {
@@ -661,6 +659,32 @@
             "position": {
                 "x": 5233,
                 "y": 474
+            }
+        }
+    },
+    "竞技场_名次变化": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    245,
+                    660,
+                    263,
+                    85
+                ],
+                "expected": [
+                    "OK"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 800,
+        "$__mpe_code": {
+            "position": {
+                "x": 8168,
+                "y": 1169
             }
         }
     }

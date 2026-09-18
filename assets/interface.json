@@ -1,7 +1,7 @@
 {
     "interface_version": 2,
     "name": "MaNikki4",
-    "description": "基于 MaaFramework 的暖暖系列游戏自动化项目。",
+    "description": "基于 MaaFramework 的闪耀暖暖游戏自动化项目。",
     "contact": "",
     "license": "MIT",
     "welcome": "欢迎使用 MaNikki4。",
@@ -61,7 +61,7 @@
             "name": "登陆游戏",
             "entry": "登陆游戏",
             "description": "启动闪耀暖暖并进入游戏",
-            "default_check": false
+            "default_check": true
         },
         {
             "name": "闪暖送礼",
@@ -79,7 +79,7 @@
             "name": "闪暖竞技场",
             "entry": "竞技场_开始",
             "description": "完成钻石竞技场任务",
-            "default_check": false
+            "default_check": true
         },
         {
             "name": "闪暖抽卡",
@@ -106,6 +106,18 @@
             "default_check": true
         },
         {
+            "name": "分享",
+            "entry": "分享_开始",
+            "description": "分享到外部APP拿分享粉钻",
+            "default_check": false
+        },
+        {
+            "name": "任务",
+            "entry": "任务_开始",
+            "description": "领取每日任务奖励",
+            "default_check": true
+        },
+        {
             "name": "退出模拟器",
             "entry": "退出模拟器",
             "description": "全部日常任务执行完毕后，安全退出 MuMu 模拟器",
@@ -129,7 +141,7 @@
     "preset": [
         {
             "name": "默认配置",
-            "label": "推荐日常",
+            "label": "默认配置",
             "description": "自动勾选已就绪的日常任务（启动模拟器与游戏、送礼、组队本、抽卡、联盟任务、忆海心阶、美甲）",
             "task": [
                 {
@@ -138,7 +150,7 @@
                 },
                 {
                     "name": "登陆游戏",
-                    "enabled": false
+                    "enabled": true
                 },
                 {
                     "name": "闪暖送礼",
@@ -166,6 +178,14 @@
                 },
                 {
                     "name": "美甲",
+                    "enabled": true
+                },
+                {
+                    "name": "分享",
+                    "enabled": false
+                },
+                {
+                    "name": "任务",
                     "enabled": true
                 },
                 {

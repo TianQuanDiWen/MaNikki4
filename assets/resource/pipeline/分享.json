@@ -1,0 +1,211 @@
+{
+    "$__mpe_config_分享": {
+        "$__mpe_code": {
+            "prefix": "",
+            "filePath": "D:\\Projects\\Go\\MaNikki4\\assets\\resource\\pipeline\\分享.json",
+            "lastSyncTime": 1789750362801,
+            "coordinateMode": "absolute-v1",
+            "savedViewport": {
+                "x": -4585,
+                "y": 561,
+                "zoom": 0.78
+            },
+            "filename": "分享",
+            "version": "v1.10.1"
+        }
+    },
+    "分享_点击分享": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    598,
+                    1143,
+                    107,
+                    107
+                ],
+                "expected": [
+                    "分享"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 200,
+        "next": [
+            "抽阁_分享选择社交软件"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 7211,
+                "y": -408
+            }
+        }
+    },
+    "抽阁_分享未安装": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    237,
+                    509,
+                    279,
+                    183
+                ],
+                "expected": [
+                    "未安装"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    -14,
+                    -333,
+                    76,
+                    11
+                ]
+            }
+        },
+        "repeat": 3,
+        "repeat_delay": 200,
+        "post_wait_freezes": 200,
+        "next": [
+            "分享_结束"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 7845,
+                "y": -655
+            }
+        }
+    },
+    "分享_结束": {
+        "$__mpe_code": {
+            "position": {
+                "x": 8304,
+                "y": -354
+            }
+        }
+    },
+    "抽阁_分享退出": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    169,
+                    385,
+                    398,
+                    124
+                ],
+                "expected": [
+                    "恭喜获得"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    -14,
+                    -333,
+                    76,
+                    11
+                ]
+            }
+        },
+        "repeat": 3,
+        "repeat_delay": 200,
+        "post_wait_freezes": 200,
+        "next": [
+            "分享_结束"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 7845,
+                "y": -271
+            }
+        }
+    },
+    "抽阁_分享选择社交软件": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    26,
+                    1163,
+                    507,
+                    99
+                ],
+                "expected": [
+                    "小红书"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    -72,
+                    3,
+                    -27,
+                    -4
+                ]
+            }
+        },
+        "post_wait_freezes": 200,
+        "next": [
+            "抽阁_分享退出",
+            "抽阁_分享未安装"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 7502,
+                "y": -401
+            }
+        }
+    },
+    "分享_确认分享粉钻_副本1": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    478,
+                    1133,
+                    236,
+                    123
+                ],
+                "template": [
+                    "粉钻.png"
+                ],
+                "threshold": [
+                    0.8
+                ]
+            }
+        },
+        "post_wait_freezes": 200,
+        "next": [
+            "分享_点击分享"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 6786,
+                "y": -437
+            }
+        }
+    },
+    "分享_开始": {
+        "anchor": "任务入口",
+        "next": [
+            "分享_确认分享粉钻_副本1"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 6432,
+                "y": -372
+            }
+        }
+    }
+}

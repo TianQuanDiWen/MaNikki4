@@ -1,0 +1,279 @@
+{
+    "$__mpe_config_任务": {
+        "$__mpe_code": {
+            "prefix": "",
+            "filePath": "D:\\Projects\\Go\\MaNikki4\\assets\\resource\\pipeline\\任务.json",
+            "lastSyncTime": 1789749951881,
+            "coordinateMode": "absolute-v1",
+            "savedViewport": {
+                "x": -4201,
+                "y": 112,
+                "zoom": 0.8
+            },
+            "filename": "任务",
+            "version": "v1.10.1"
+        }
+    },
+    "任务_开始": {
+        "anchor": "任务入口",
+        "next": [
+            "任务_确认在主菜单"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 4918,
+                "y": 366
+            }
+        }
+    },
+    "任务_确认在主菜单": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    302,
+                    1112,
+                    133,
+                    110
+                ],
+                "expected": [
+                    "开始"
+                ]
+            }
+        },
+        "next": [
+            "任务_点击任务"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 5272,
+                "y": 360
+            }
+        }
+    },
+    "任务_点击任务": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    620,
+                    365,
+                    96,
+                    246
+                ],
+                "expected": [
+                    "任务"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 200,
+        "next": [
+            "任务_确认已在任务界面"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 5574,
+                "y": 361
+            }
+        }
+    },
+    "任务_一键领取": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    176,
+                    1174,
+                    377,
+                    92
+                ],
+                "expected": [
+                    "一键领取",
+                    "领取"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "repeat": 2,
+        "repeat_delay": 300,
+        "$__mpe_code": {
+            "position": {
+                "x": 6779,
+                "y": 173
+            }
+        }
+    },
+    "任务_检查存在可领取": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    462,
+                    706,
+                    180,
+                    493
+                ],
+                "expected": [
+                    "领取"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "任务_一键领取"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 6484,
+                "y": 188
+            }
+        }
+    },
+    "任务_每日签到": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    462,
+                    706,
+                    180,
+                    493
+                ],
+                "expected": [
+                    "(^|[^已])签到"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "repeat": 2,
+        "repeat_delay": 300,
+        "$__mpe_code": {
+            "position": {
+                "x": 6495,
+                "y": 450
+            }
+        }
+    },
+    "任务_确认已在任务界面": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "今日日程"
+                ]
+            }
+        },
+        "next": [
+            "[JumpBack]任务_检查存在可领取",
+            "[JumpBack]任务_每日签到",
+            "任务_领取总奖励"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 5983,
+                "y": 348
+            }
+        }
+    },
+    "任务_领取总奖励": {
+        "next": [
+            "任务_领取每日奖励"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 6496,
+                "y": 791
+            }
+        }
+    },
+    "任务_领取每日奖励": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "今日活跃"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    630,
+                    525,
+                    61,
+                    40
+                ]
+            }
+        },
+        "next": [
+            "任务_领取每日奖励",
+            "任务_领取每日奖励点击空白"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 6870,
+                "y": 758
+            }
+        }
+    },
+    "任务_领取每日奖励点击空白": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "今日活跃"
+                ]
+            }
+        },
+        "inverse": true,
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    288,
+                    58,
+                    131,
+                    50
+                ]
+            }
+        },
+        "next": [
+            "任务_结束"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 7215,
+                "y": 745
+            }
+        }
+    },
+    "任务_结束": {
+        "next": [
+            "公共：返回主菜单"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 7701,
+                "y": 591
+            }
+        }
+    },
+    "$__mpe_external_公共：返回主菜单_任务": {
+        "$__mpe_code": {
+            "position": {
+                "x": 8031,
+                "y": 617
+            }
+        }
+    }
+}

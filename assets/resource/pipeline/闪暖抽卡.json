@@ -3,17 +3,25 @@
         "$__mpe_code": {
             "prefix": "",
             "coordinateMode": "absolute-v1",
-            "lastSyncTime": 1788876282001,
+            "lastSyncTime": 1789718047728,
             "isModifiedExternally": false,
             "isDeleted": false,
             "filePath": "D:\\Projects\\Go\\MaNikki4\\assets\\resource\\pipeline\\闪暖抽卡.json",
             "savedViewport": {
-                "x": -9289,
-                "y": -1286,
-                "zoom": 1.32
+                "x": -4282,
+                "y": -113,
+                "zoom": 0.8
             },
             "filename": "闪暖抽卡",
-            "version": "v1.9.3"
+            "version": "v1.10.1"
+        }
+    },
+    "$__mpe_external_公共：返回主菜单_闪暖抽卡": {
+        "$__mpe_code": {
+            "position": {
+                "x": 7892,
+                "y": 839
+            }
         }
     },
     "抽卡_开始": {
@@ -55,13 +63,12 @@
         },
         "post_wait_freezes": 200,
         "next": [
-            "抽阁_确认分享粉钻",
             "抽阁_单抽退出"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 6120,
-                "y": 395
+                "x": 6211,
+                "y": 249
             }
         }
     },
@@ -93,13 +100,10 @@
         },
         "repeat": 2,
         "post_wait_freezes": 200,
-        "next": [
-            "抽阁_左滑寻找其他免费"
-        ],
         "$__mpe_code": {
             "position": {
-                "x": 6370,
-                "y": 806
+                "x": 6350,
+                "y": 813
             }
         }
     },
@@ -136,164 +140,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 5961,
-                "y": 809
-            }
-        }
-    },
-    "抽阁_分享": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    598,
-                    1143,
-                    107,
-                    107
-                ],
-                "expected": [
-                    "分享"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_wait_freezes": 200,
-        "next": [
-            "抽阁_分享选择社交软件"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 6747,
-                "y": 89
-            }
-        }
-    },
-    "抽阁_分享未安装": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    237,
-                    509,
-                    279,
-                    183
-                ],
-                "expected": [
-                    "未安装"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click",
-            "param": {
-                "target_offset": [
-                    -14,
-                    -333,
-                    76,
-                    11
-                ]
-            }
-        },
-        "repeat": 3,
-        "repeat_delay": 200,
-        "post_wait_freezes": 200,
-        "next": [
-            "抽阁_分享结束"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 7381,
-                "y": -158
-            }
-        }
-    },
-    "抽阁_分享结束": {
-        "next": [
-            "抽阁_左滑寻找其他免费"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 7840,
-                "y": 143
-            }
-        }
-    },
-    "抽阁_分享退出": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    169,
-                    385,
-                    398,
-                    124
-                ],
-                "expected": [
-                    "恭喜获得"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click",
-            "param": {
-                "target_offset": [
-                    -14,
-                    -333,
-                    76,
-                    11
-                ]
-            }
-        },
-        "repeat": 3,
-        "repeat_delay": 200,
-        "post_wait_freezes": 200,
-        "next": [
-            "抽阁_分享结束"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 7381,
-                "y": 226
-            }
-        }
-    },
-    "抽阁_分享选择社交软件": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    26,
-                    1163,
-                    507,
-                    99
-                ],
-                "expected": [
-                    "小红书"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click",
-            "param": {
-                "target_offset": [
-                    -72,
-                    3,
-                    -27,
-                    -4
-                ]
-            }
-        },
-        "post_wait_freezes": 200,
-        "next": [
-            "抽阁_分享退出",
-            "抽阁_分享未安装"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 7038,
-                "y": 96
+                "x": 5973,
+                "y": 801
             }
         }
     },
@@ -330,8 +178,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 6455,
-                "y": 474
+                "x": 6554,
+                "y": 291
             }
         }
     },
@@ -381,7 +229,7 @@
         },
         "post_wait_freezes": 1500,
         "next": [
-            "抽阁_其他免费的",
+            "[JumpBack]抽阁_其他免费的",
             "抽阁_确认回到谜之海",
             "抽阁_左滑寻找其他免费"
         ],
@@ -417,8 +265,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 4702,
-                "y": 383
+                "x": 4705,
+                "y": 394
             }
         }
     },
@@ -446,37 +294,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 5289,
-                "y": 351
-            }
-        }
-    },
-    "抽阁_确认分享粉钻": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "roi": [
-                    478,
-                    1133,
-                    236,
-                    123
-                ],
-                "template": [
-                    "粉钻.png"
-                ],
-                "threshold": [
-                    0.8
-                ]
-            }
-        },
-        "post_wait_freezes": 200,
-        "next": [
-            "抽阁_分享"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 6420,
-                "y": 95
+                "x": 5278,
+                "y": 381
             }
         }
     },
@@ -539,8 +358,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 5809,
-                "y": 405
+                "x": 5815,
+                "y": 438
             }
         }
     },
@@ -593,8 +412,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 7535,
-                "y": 1259
+                "x": 7559,
+                "y": 843
             }
         }
     },
@@ -693,16 +512,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 7146,
-                "y": 1182
-            }
-        }
-    },
-    "$__mpe_external_公共：返回主菜单_闪暖抽卡": {
-        "$__mpe_code": {
-            "position": {
-                "x": 7843,
-                "y": 1290
+                "x": 7162,
+                "y": 813
             }
         }
     }
