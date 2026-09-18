@@ -16,6 +16,20 @@
             ".."
         ]
     },
+    "pretask": {
+        "name": "启动模拟器与游戏",
+        "exec": "go",
+        "args": [
+            "run",
+            "../agent/cmd/manikki-agent",
+            "pretask",
+            "--root",
+            ".."
+        ],
+        "option": [
+            "MuMuConfig"
+        ]
+    },
     "controller": [
         {
             "name": "MuMu模拟器",
@@ -33,6 +47,16 @@
         }
     ],
     "task": [
+        {
+            "name": "__MXU_PRETASK__启动模拟器与游戏",
+            "label": "启动模拟器与游戏",
+            "entry": "启动闪暖",
+            "option": [
+                "MuMuConfig"
+            ],
+            "description": "启动 MuMu 模拟器并拉起闪耀暖暖应用",
+            "default_check": true
+        },
         {
             "name": "启动闪暖",
             "entry": "启动闪暖",
@@ -82,12 +106,30 @@
             "default_check": true
         }
     ],
+    "option": {
+        "MuMuConfig": {
+            "type": "input",
+            "label": "MuMu模拟器路径",
+            "description": "MuMu 模拟器主程序路径。留空会自动检测；首次选定后会自动保存回显在此处",
+            "inputs": [
+                {
+                    "name": "mumu_path",
+                    "label": "模拟器路径",
+                    "default": ""
+                }
+            ]
+        }
+    },
     "preset": [
         {
             "name": "日常任务",
             "label": "推荐日常",
-            "description": "自动勾选已就绪的日常任务（送礼、组队本、抽卡、联盟任务、忆海心阶、美甲）",
+            "description": "自动勾选已就绪的日常任务（启动模拟器与游戏、送礼、组队本、抽卡、联盟任务、忆海心阶、美甲）",
             "task": [
+                {
+                    "name": "__MXU_PRETASK__启动模拟器与游戏",
+                    "enabled": true
+                },
                 {
                     "name": "启动闪暖",
                     "enabled": false

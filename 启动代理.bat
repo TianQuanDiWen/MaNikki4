@@ -1,0 +1,1 @@
+go run ./agent/cmd/manikki-agent agent --root . manikki_agent

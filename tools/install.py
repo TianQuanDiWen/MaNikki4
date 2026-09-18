@@ -144,6 +144,19 @@ def install_resource():
         interface["agent"]["child_exec"] = f"./{agent_exec_path}"
         interface["agent"]["child_args"] = ["agent", "--root", "."]
 
+    if "pretask" in interface:
+        agent_output = build_config.get("agent", {}).get("output", "agent/MaNikki4.Agent{exe}")
+        agent_exec_path = expand_agent_output(agent_output).replace("\\", "/")
+        interface["pretask"]["exec"] = f"./{agent_exec_path}"
+        interface["pretask"]["args"] = ["pretask", "--root", "."]
+
+    if (working_dir / "assets" / "config").exists():
+        shutil.copytree(
+            working_dir / "assets" / "config",
+            install_path / "config",
+            dirs_exist_ok=True,
+        )
+
     with open(install_path / "interface.json", "w", encoding="utf-8") as f:
         jsonc.dump(interface, f, ensure_ascii=False, indent=4)
 
