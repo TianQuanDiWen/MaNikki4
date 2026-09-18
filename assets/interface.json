@@ -50,7 +50,7 @@
         {
             "name": "__MXU_PRETASK__启动模拟器与游戏",
             "label": "启动模拟器与游戏",
-            "entry": "启动闪暖",
+            "entry": "登陆游戏",
             "option": [
                 "MuMuConfig"
             ],
@@ -58,8 +58,8 @@
             "default_check": true
         },
         {
-            "name": "启动闪暖",
-            "entry": "启动闪暖",
+            "name": "登陆游戏",
+            "entry": "登陆游戏",
             "description": "启动闪耀暖暖并进入游戏",
             "default_check": false
         },
@@ -128,7 +128,7 @@
     },
     "preset": [
         {
-            "name": "日常任务",
+            "name": "默认配置",
             "label": "推荐日常",
             "description": "自动勾选已就绪的日常任务（启动模拟器与游戏、送礼、组队本、抽卡、联盟任务、忆海心阶、美甲）",
             "task": [
@@ -137,7 +137,7 @@
                     "enabled": true
                 },
                 {
-                    "name": "启动闪暖",
+                    "name": "登陆游戏",
                     "enabled": false
                 },
                 {
@@ -150,7 +150,7 @@
                 },
                 {
                     "name": "闪暖竞技场",
-                    "enabled": false
+                    "enabled": true
                 },
                 {
                     "name": "闪暖抽卡",

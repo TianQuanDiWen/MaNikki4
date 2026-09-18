@@ -1,0 +1,177 @@
+{
+    "$__mpe_config_登陆游戏": {
+        "$__mpe_code": {
+            "prefix": "",
+            "coordinateMode": "absolute-v1",
+            "lastSyncTime": 1789714377392,
+            "isModifiedExternally": false,
+            "isDeleted": false,
+            "filePath": "D:\\Projects\\Go\\MaNikki4\\assets\\resource\\pipeline\\登陆游戏.json",
+            "savedViewport": {
+                "x": -4208,
+                "y": 128,
+                "zoom": 0.91
+            },
+            "filename": "登陆游戏",
+            "version": "v1.10.1"
+        }
+    },
+    "登陆游戏": {
+        "timeout": 50000,
+        "next": [
+            "登陆_中继"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 4486,
+                "y": 316
+            }
+        }
+    },
+    "登陆_中继": {
+        "next": [
+            "[JumpBack]登陆_关闭公告",
+            "登陆_打开个人简介",
+            "[JumpBack]登陆_点击空白"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 4900,
+                "y": 228
+            }
+        }
+    },
+    "登陆_打开个人简介": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    302,
+                    1112,
+                    133,
+                    110
+                ],
+                "expected": [
+                    "开始"
+                ]
+            }
+        },
+        "pre_wait_freezes": 200,
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    20,
+                    22,
+                    86,
+                    63
+                ]
+            }
+        },
+        "next": [
+            "登陆_确认个人简介"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 5411,
+                "y": 122
+            }
+        }
+    },
+    "登陆_确认个人简介": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    520,
+                    914,
+                    102,
+                    41
+                ],
+                "expected": [
+                    "收集度"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    20,
+                    22,
+                    86,
+                    63
+                ]
+            }
+        },
+        "next": [
+            "登陆_结束"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 5717,
+                "y": 137
+            }
+        }
+    },
+    "登陆_结束": {
+        "$__mpe_code": {
+            "position": {
+                "x": 6075,
+                "y": 179
+            }
+        }
+    },
+    "登陆_点击空白": {
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    288,
+                    58,
+                    131,
+                    50
+                ]
+            }
+        },
+        "$__mpe_code": {
+            "position": {
+                "x": 5421,
+                "y": 659
+            }
+        }
+    },
+    "登陆_关闭公告": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    557,
+                    1017,
+                    145,
+                    36
+                ],
+                "expected": [
+                    "今日不再提示"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    288,
+                    58,
+                    131,
+                    50
+                ]
+            }
+        },
+        "$__mpe_code": {
+            "position": {
+                "x": 5410,
+                "y": -131
+            }
+        }
+    }
+}
