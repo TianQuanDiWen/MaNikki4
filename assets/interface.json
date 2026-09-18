@@ -104,6 +104,12 @@
             "entry": "美甲_开始",
             "description": "完成美甲店铺店员雇佣与收益提取",
             "default_check": true
+        },
+        {
+            "name": "退出模拟器",
+            "entry": "退出模拟器",
+            "description": "全部日常任务执行完毕后，安全退出 MuMu 模拟器",
+            "default_check": false
         }
     ],
     "option": {
@@ -161,6 +167,10 @@
                 {
                     "name": "美甲",
                     "enabled": true
+                },
+                {
+                    "name": "退出模拟器",
+                    "enabled": false
                 }
             ]
         }

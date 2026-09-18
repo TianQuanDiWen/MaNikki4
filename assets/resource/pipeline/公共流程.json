@@ -202,5 +202,9 @@
                 "y": -36
             }
         }
+    },
+    "退出模拟器": {
+        "action": "Custom",
+        "custom_action": "ShutdownEmulator"
     }
 }

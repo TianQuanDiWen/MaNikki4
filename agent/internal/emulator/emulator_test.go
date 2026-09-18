@@ -1,4 +1,4 @@
-package launcher
+package emulator
 
 import (
 	"encoding/json"

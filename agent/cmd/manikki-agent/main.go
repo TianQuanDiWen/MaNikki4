@@ -5,7 +5,7 @@ import (
 	"os"
 
 	"github.com/TianQuanDiWen/MaNikki4/agent/internal/agentserver"
-	"github.com/TianQuanDiWen/MaNikki4/agent/internal/launcher"
+	"github.com/TianQuanDiWen/MaNikki4/agent/internal/emulator"
 )
 
 // main 将命令行参数交给模式分发器，并将错误写入标准错误后返回非零退出码。
@@ -26,7 +26,7 @@ func run(args []string) error {
 	case "agent":
 		return agentserver.Run(args[1:])
 	case "pretask":
-		return launcher.Run(args[1:])
+		return emulator.Run(args[1:])
 	default:
 		return fmt.Errorf("unknown mode %q: expected agent or pretask", args[0])
 	}

@@ -33,7 +33,7 @@ func Run(args []string) error {
 	}
 	defer maa.Release()
 
-	registry, err := BuildRegistry()
+	registry, err := BuildRegistry(paths.Root)
 	if err != nil {
 		return fmt.Errorf("build extension registry: %w", err)
 	}

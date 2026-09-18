@@ -1,4 +1,4 @@
-package launcher
+package emulator
 
 import (
 	"encoding/json"
@@ -40,7 +40,7 @@ func Run(args []string) error {
 	}
 
 	// 1. 读取既有配置中定义的 ADB 端口、路径与实例序号
-	cfgADBAddress, cfgADBPath, vmIndex := loadADBConfig(paths.Root)
+	cfgADBAddress, cfgADBPath, cfgMuMuPath, vmIndex := loadConfig(paths.Root)
 	adbAddress := defaultADBAddress
 	if cfgADBAddress != "" {
 		adbAddress = cfgADBAddress
@@ -52,20 +52,23 @@ func Run(args []string) error {
 	if len(remaining) > 0 {
 		inputPath = extractMuMuPathFromJSON(remaining[len(remaining)-1])
 	}
+	if inputPath == "" {
+		inputPath = cfgMuMuPath
+	}
 
 	// 3. 定位 MuMu 路径（显式输入 -> 正在运行 -> 注册表关联 -> 默认目录 -> 置顶弹窗）
-	mumuPath, wasAutoDetected, err := resolveMuMuPath(inputPath)
+	mumuPath, wasAutoDetected, err := resolveMuMuPath(inputPath, true)
 	if err != nil {
 		return fmt.Errorf("定位 MuMu 模拟器失败: %w", err)
 	}
-	fmt.Printf("[Launcher] 确认 MuMu 路径: %s\n", mumuPath)
+	fmt.Printf("[Emulator] 确认 MuMu 路径: %s\n", mumuPath)
 
 	// 4. 自动检测或弹窗选择时写回配置供 UI 回显
 	if wasAutoDetected || inputPath == "" {
 		if err := savePathToConfig(paths.Root, mumuPath); err != nil {
-			fmt.Printf("[Launcher] 警告: 写回配置文件失败: %v\n", err)
+			fmt.Printf("[Emulator] 警告: 写回配置文件失败: %v\n", err)
 		} else {
-			fmt.Println("[Launcher] 模拟器路径已写入 MXU 配置文件")
+			fmt.Println("[Emulator] 模拟器路径已写入 MXU 配置文件")
 		}
 	}
 
@@ -85,7 +88,7 @@ func Run(args []string) error {
 		return fmt.Errorf("拉起游戏应用失败: %w", err)
 	}
 
-	fmt.Println("[Launcher] 启动准备完成，无缝移交 Controller")
+	fmt.Println("[Emulator] 启动准备完成，无缝移交 Controller")
 	return nil
 }
 
@@ -109,8 +112,8 @@ func extractMuMuPathFromJSON(rawJSON string) string {
 	return ""
 }
 
-// resolveMuMuPath 通用解析 MuMu 可执行文件绝对路径
-func resolveMuMuPath(inputPath string) (string, bool, error) {
+// resolveMuMuPath 通用解析 MuMu 可执行文件绝对路径。allowDialog 控制在所有自动探测未命中时是否呼出 WinForms 置顶弹窗。
+func resolveMuMuPath(inputPath string, allowDialog bool) (string, bool, error) {
 	if inputPath != "" {
 		clean := filepath.Clean(inputPath)
 		if fileExists(clean) {
@@ -131,7 +134,11 @@ func resolveMuMuPath(inputPath string) (string, bool, error) {
 		return p, true, nil
 	}
 
-	fmt.Println("[Launcher] 未自动检测到默认安装路径，正在呼出置顶文件选择框...")
+	if !allowDialog {
+		return "", false, nil
+	}
+
+	fmt.Println("[Emulator] 未自动检测到默认安装路径，正在呼出置顶文件选择框...")
 	selected, err := openFileDialog()
 	if err != nil || selected == "" {
 		return "", false, errors.New("未选择模拟器路径")
@@ -293,11 +300,11 @@ func openFileDialog() (string, error) {
 func ensureEmulatorRunning(mumuPath, adbExe, adbAddress string, vmIndex int) error {
 	_ = exec.Command(adbExe, "connect", adbAddress).Run()
 	if isEmulatorReady(adbExe, adbAddress) {
-		fmt.Println("[Launcher] 检测到 MuMu 模拟器已处于运行就绪状态")
+		fmt.Println("[Emulator] 检测到 MuMu 模拟器已处于运行就绪状态")
 		return nil
 	}
 
-	fmt.Println("[Launcher] 正在启动 MuMu 模拟器...")
+	fmt.Println("[Emulator] 正在启动 MuMu 模拟器...")
 	cliExe := findMuMuCli(mumuPath)
 	if cliExe != "" {
 		cmd := exec.Command(cliExe, "control", "-v", fmt.Sprintf("%d", vmIndex), "launch")
@@ -311,13 +318,13 @@ func ensureEmulatorRunning(mumuPath, adbExe, adbAddress string, vmIndex int) err
 		}
 	}
 
-	fmt.Printf("[Launcher] 等待模拟器系统与 ADB 就绪 (%s)...\n", adbAddress)
+	fmt.Printf("[Emulator] 等待模拟器系统与 ADB 就绪 (%s)...\n", adbAddress)
 	deadline := time.Now().Add(60 * time.Second)
 	for time.Now().Before(deadline) {
 		time.Sleep(1500 * time.Millisecond)
 		_ = exec.Command(adbExe, "connect", adbAddress).Run()
 		if isEmulatorReady(adbExe, adbAddress) {
-			fmt.Println("[Launcher] MuMu 模拟器系统已完全就绪！")
+			fmt.Println("[Emulator] MuMu 模拟器系统已完全就绪！")
 			return nil
 		}
 	}
@@ -368,31 +375,31 @@ func launchOrFocusApp(mumuPath, adbExe, adbAddress string, vmIndex int, pkg stri
 
 func launchGameApp(mumuPath, adbExe, adbAddress string, vmIndex int) error {
 	pkg := detectPackageName(adbExe, adbAddress)
-	fmt.Printf("[Launcher] 目标游戏包名: %s\n", pkg)
+	fmt.Printf("[Emulator] 目标游戏包名: %s\n", pkg)
 
 	if isAppRunning(adbExe, adbAddress, pkg) {
-		fmt.Println("[Launcher] 检测到游戏进程已在运行，唤起至前台...")
+		fmt.Println("[Emulator] 检测到游戏进程已在运行，唤起至前台...")
 		launchOrFocusApp(mumuPath, adbExe, adbAddress, vmIndex, pkg, false)
 		time.Sleep(2 * time.Second)
 		return nil
 	}
 
-	fmt.Println("[Launcher] 正在拉起《闪耀暖暖》游戏应用...")
+	fmt.Println("[Emulator] 正在拉起《闪耀暖暖》游戏应用...")
 	launchOrFocusApp(mumuPath, adbExe, adbAddress, vmIndex, pkg, true)
 
-	fmt.Println("[Launcher] 等待游戏进程就绪...")
+	fmt.Println("[Emulator] 等待游戏进程就绪...")
 	deadline := time.Now().Add(20 * time.Second)
 	retried := false
 	startTime := time.Now()
 	for time.Now().Before(deadline) {
 		time.Sleep(1 * time.Second)
 		if isAppRunning(adbExe, adbAddress, pkg) {
-			fmt.Println("[Launcher] 游戏进程已确立，预留缓冲移交 Controller...")
+			fmt.Println("[Emulator] 游戏进程已确立，预留缓冲移交 Controller...")
 			time.Sleep(3 * time.Second)
 			return nil
 		}
 		if !retried && time.Since(startTime) >= 10*time.Second {
-			fmt.Println("[Launcher] 启动用时较长，重新尝试发送拉起指令...")
+			fmt.Println("[Emulator] 启动用时较长，重新尝试发送拉起指令...")
 			launchOrFocusApp(mumuPath, adbExe, adbAddress, vmIndex, pkg, true)
 			retried = true
 		}
@@ -418,15 +425,15 @@ func resolveConfigPath(projectRoot string, ensureDir bool) string {
 	return target
 }
 
-// loadADBConfig 从现有配置文件加载已配置的 ADB 地址和路径
-func loadADBConfig(projectRoot string) (string, string, int) {
+// loadConfig 从现有配置文件加载已配置的 ADB 地址、路径、模拟器路径与实例序号
+func loadConfig(projectRoot string) (string, string, string, int) {
 	cfgPath := resolveConfigPath(projectRoot, false)
 	if !fileExists(cfgPath) {
-		return "", "", 0
+		return "", "", "", 0
 	}
 	data, err := os.ReadFile(cfgPath)
 	if err != nil {
-		return "", "", 0
+		return "", "", "", 0
 	}
 	var root struct {
 		ADB struct {
@@ -440,11 +447,21 @@ func loadADBConfig(projectRoot string) (string, string, int) {
 				} `json:"extras"`
 			} `json:"config"`
 		} `json:"adb"`
+		Option struct {
+			MuMuPath   string `json:"mumu_path"`
+			MuMuConfig struct {
+				MuMuPath string `json:"mumu_path"`
+			} `json:"MuMuConfig"`
+		} `json:"option"`
 	}
 	if err := json.Unmarshal(stripJSONComments(data), &root); err == nil {
-		return strings.TrimSpace(root.ADB.Address), strings.TrimSpace(root.ADB.ADBPath), root.ADB.Config.Extras.MuMu.Index
+		mumuPath := root.Option.MuMuPath
+		if mumuPath == "" {
+			mumuPath = root.Option.MuMuConfig.MuMuPath
+		}
+		return strings.TrimSpace(root.ADB.Address), strings.TrimSpace(root.ADB.ADBPath), strings.TrimSpace(mumuPath), root.ADB.Config.Extras.MuMu.Index
 	}
-	return "", "", 0
+	return "", "", "", 0
 }
 
 // savePathToConfig 写入或更新配置至 maa_pi_config.json
@@ -474,6 +491,44 @@ func savePathToConfig(projectRoot, mumuPath string) error {
 		return err
 	}
 	return os.WriteFile(targetPath, newBytes, 0o644)
+}
+
+// ShutdownEmulator 安全优雅地关闭 MuMu 模拟器实例。在未找到模拟器时静默退出，严禁呼出弹窗。
+func ShutdownEmulator(projectRoot string) error {
+	cfgADBAddress, cfgADBPath, cfgMuMuPath, vmIndex := loadConfig(projectRoot)
+	adbAddress := defaultADBAddress
+	if cfgADBAddress != "" {
+		adbAddress = cfgADBAddress
+	}
+
+	mumuPath, _, err := resolveMuMuPath(cfgMuMuPath, false)
+	if err != nil {
+		return fmt.Errorf("定位 MuMu 模拟器失败: %w", err)
+	}
+	if mumuPath == "" {
+		fmt.Println("[Emulator] 未检测到正在运行或已安装的模拟器，静默跳过关机")
+		return nil
+	}
+
+	// 1. 首选：使用 mumu-cli control -v <vmIndex> shutdown 优雅安全关机
+	if cliExe := findMuMuCli(mumuPath); cliExe != "" {
+		fmt.Printf("[Emulator] 正在使用 mumu-cli 安全关闭模拟器 (实例: %d)...\n", vmIndex)
+		cmd := exec.Command(cliExe, "control", "-v", fmt.Sprintf("%d", vmIndex), "shutdown")
+		cmd.Dir = filepath.Dir(cliExe)
+		if err := cmd.Run(); err == nil {
+			fmt.Println("[Emulator] 模拟器已成功安全关闭")
+			return nil
+		}
+	}
+
+	// 2. 次选：通过 ADB shell reboot -p 关闭虚拟机系统
+	adbExe := resolveADBPath("", mumuPath, cfgADBPath)
+	if adbExe != "" {
+		fmt.Println("[Emulator] 尝试通过 ADB 发送关机指令...")
+		_ = exec.Command(adbExe, "-s", adbAddress, "shell", "reboot", "-p").Run()
+	}
+
+	return nil
 }
 
 // stripJSONComments 轻量剥离 JSONC 中的 // 注释，仅做基础双引号包裹判断以防误伤 URL

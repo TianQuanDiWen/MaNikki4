@@ -5,6 +5,7 @@ import (
 
 	maa "github.com/MaaXYZ/maa-framework-go/v4"
 	"github.com/TianQuanDiWen/MaNikki4/agent/internal/arena"
+	"github.com/TianQuanDiWen/MaNikki4/agent/internal/emulator"
 )
 
 // Registry 保存项目提供给 MaaFramework 的自定义识别和自定义动作。
@@ -61,7 +62,7 @@ func (r *Registry) RegisterAgentServer() error {
 }
 
 // BuildRegistry 是项目自定义能力的统一装配入口。
-func BuildRegistry() (*Registry, error) {
+func BuildRegistry(projectRoot string) (*Registry, error) {
 	registry := NewRegistry()
 
 	checker := arena.NewPowerChecker()
@@ -77,5 +78,19 @@ func BuildRegistry() (*Registry, error) {
 	if err := registry.AddRecognition("ArenaCanBeat", runner); err != nil {
 		return nil, fmt.Errorf("register ArenaCanBeat: %w", err)
 	}
+
+	// 注册退出模拟器自定义动作
+	shutdownRunner := maa.CustomActionFunc(func(ctx *maa.Context, arg *maa.CustomActionArg) bool {
+		fmt.Println("[Agent] 收到退出模拟器指令，正在安全关闭...")
+		if err := emulator.ShutdownEmulator(projectRoot); err != nil {
+			fmt.Printf("[Agent] 关闭模拟器失败: %v\n", err)
+			return false
+		}
+		return true
+	})
+	if err := registry.AddAction("ShutdownEmulator", shutdownRunner); err != nil {
+		return nil, fmt.Errorf("register ShutdownEmulator: %w", err)
+	}
+
 	return registry, nil
 }
