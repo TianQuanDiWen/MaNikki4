@@ -3,6 +3,7 @@
     "defaultTarget": "win-x86_64",
     "targets": [
         {
+            "runner": "ubuntu-latest",
             "platform": "win",
             "arch": "x86_64"
         }
@@ -11,7 +12,7 @@
         "maaFramework": {
             "repository": "MaaXYZ/MaaFramework",
             "release": "latest",
-            "assetPattern": "MAA-{platform}-{arch}-*.zip"
+            "assetPattern": "MAA-{platform}-{arch}*"
         },
         "mxu": {
             "repository": "TianQuanDiWen/MXU_tqdw",
@@ -34,5 +35,5 @@
         "downloads": "downloads",
         "cache": "cache/downloads"
     },
-    "packageName": "MaNikki4-{version}-{platform}-{arch}.zip"
+    "packageName": "{project}-{platform}-{arch}-{version}.zip"
 }
