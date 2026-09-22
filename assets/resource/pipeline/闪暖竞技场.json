@@ -3,14 +3,14 @@
         "$__mpe_code": {
             "prefix": "",
             "coordinateMode": "absolute-v1",
-            "lastSyncTime": 1789720021519,
+            "lastSyncTime": 1790105088222,
             "isModifiedExternally": false,
             "isDeleted": false,
             "filePath": "D:\\Projects\\Go\\MaNikki4\\assets\\resource\\pipeline\\闪暖竞技场.json",
             "savedViewport": {
-                "x": -5967,
-                "y": -288,
-                "zoom": 0.8
+                "x": -3731,
+                "y": -46,
+                "zoom": 0.62
             },
             "filename": "闪暖竞技场",
             "version": "v1.10.1"
@@ -19,16 +19,22 @@
     "$__mpe_external_公共：返回主菜单_闪暖竞技场": {
         "$__mpe_code": {
             "position": {
-                "x": 9298,
-                "y": 20
-            }
+                "x": 6507,
+                "y": 1101
+            },
+            "extra_positions": [
+                {
+                    "x": 9298,
+                    "y": 20
+                }
+            ]
         }
     },
     "$__mpe_group_竞技场搭配_闪暖竞技场": {
         "$__mpe_code": {
             "position": {
-                "x": 5694,
-                "y": -360
+                "x": 5698,
+                "y": -453
             },
             "color": "blue",
             "childrenLabels": [
@@ -97,8 +103,34 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 5742,
-                "y": 54
+                "x": 5746,
+                "y": -39
+            }
+        }
+    },
+    "竞技场_名次变化": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    245,
+                    660,
+                    263,
+                    85
+                ],
+                "expected": [
+                    "OK"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 800,
+        "$__mpe_code": {
+            "position": {
+                "x": 8168,
+                "y": 1169
             }
         }
     },
@@ -118,13 +150,13 @@
             "type": "OCR",
             "param": {
                 "roi": [
-                    35,
-                    578,
-                    509,
-                    139
+                    30,
+                    1175,
+                    183,
+                    84
                 ],
                 "expected": [
-                    "竞技场战力"
+                    "比拼记录"
                 ]
             }
         },
@@ -264,8 +296,22 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 8580,
-                "y": 507
+                "x": 8604,
+                "y": 460
+            }
+        }
+    },
+    "竞技场_排位未开放结束": {
+        "focus": {
+            "Node.Action.Succeeded": "当前排位不开放"
+        },
+        "next": [
+            "公共：返回主菜单"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 6162,
+                "y": 1036
             }
         }
     },
@@ -294,8 +340,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 6053,
-                "y": -283
+                "x": 6057,
+                "y": -376
             }
         }
     },
@@ -324,8 +370,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 6322,
-                "y": -79
+                "x": 6326,
+                "y": -172
             }
         }
     },
@@ -355,8 +401,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 6613,
-                "y": -280
+                "x": 6617,
+                "y": -373
             }
         }
     },
@@ -381,8 +427,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 6622,
-                "y": 113
+                "x": 6626,
+                "y": 20
             }
         }
     },
@@ -410,8 +456,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 6049,
-                "y": 67
+                "x": 6053,
+                "y": -26
             }
         }
     },
@@ -442,8 +488,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 6923,
-                "y": 104
+                "x": 6927,
+                "y": 11
             }
         }
     },
@@ -462,13 +508,16 @@
                 ]
             }
         },
+        "focus": {
+            "Node.Action.Succeeded": "竞技场次数不足"
+        },
         "next": [
             "竞技场_结束"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 7945,
-                "y": -23
+                "x": 8173,
+                "y": -96
             }
         }
     },
@@ -563,6 +612,65 @@
             }
         }
     },
+    "竞技场_结算中": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    208,
+                    905,
+                    318,
+                    60
+                ],
+                "expected": [
+                    "结算中"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 200,
+        "next": [
+            "竞技场_排位未开放结束"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 5717,
+                "y": 993
+            }
+        }
+    },
+    "竞技场_结算界面": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    208,
+                    905,
+                    318,
+                    60
+                ],
+                "expected": [
+                    "确认"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 200,
+        "next": [
+            "竞技场_结算中",
+            "竞技场_记录自身战力"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 5717,
+                "y": 682
+            }
+        }
+    },
     "竞技场_记录自身战力": {
         "recognition": {
             "type": "Custom",
@@ -582,8 +690,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 6934,
-                "y": 486
+                "x": 6944,
+                "y": 472
             }
         }
     },
@@ -611,13 +719,14 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 5734,
-                "y": -284
+                "x": 5738,
+                "y": -377
             }
         }
     },
     "竞技场_选择对手": {
         "next": [
+            "竞技场_次数已用尽",
             "竞技场_挑战对手1",
             "竞技场_挑战对手2",
             "竞技场_挑战对手3",
@@ -626,8 +735,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 7771,
-                "y": 545
+                "x": 7776,
+                "y": 822
             }
         }
     },
@@ -653,6 +762,8 @@
         "next": [
             "竞技场_前往搭配",
             "竞技场_赛季第一次进入",
+            "竞技场_结算界面",
+            "竞技场_结算中",
             "竞技场_记录自身战力"
         ],
         "$__mpe_code": {
@@ -662,29 +773,32 @@
             }
         }
     },
-    "竞技场_名次变化": {
+    "竞技场_名次变化2": {
         "recognition": {
-            "type": "OCR",
+            "type": "Custom",
             "param": {
+                "custom_recognition": "MatchRowButton",
+                "custom_recognition_param": {
+                    "button": "前往|购买",
+                    "keyword": "服装店|商店",
+                    "y_tolerance": 200
+                },
                 "roi": [
-                    245,
-                    660,
-                    263,
-                    85
-                ],
-                "expected": [
-                    "OK"
+                    40,
+                    250,
+                    640,
+                    700
                 ]
             }
         },
         "action": {
             "type": "Click"
         },
-        "post_wait_freezes": 800,
+        "post_wait_freezes": 1200,
         "$__mpe_code": {
             "position": {
-                "x": 8168,
-                "y": 1169
+                "x": 8993,
+                "y": 825
             }
         }
     }

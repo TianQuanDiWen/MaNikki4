@@ -112,6 +112,39 @@
             "default_check": false
         },
         {
+            "name": "时空回廊制衣",
+            "entry": "制衣_开始",
+            "description": "挑战第 1 个制衣目标（时空回廊困难关卡，每天有次数限制，优先执行）",
+            "pipeline_override": {
+                "制衣_分发目标": {
+                    "next": [
+                        "制衣_选择第1套全部材料"
+                    ]
+                }
+            },
+            "option": [
+                "ShikongMainStageOption",
+                "StoreOption"
+            ],
+            "default_check": false
+        },
+        {
+            "name": "主线制衣",
+            "entry": "制衣_开始",
+            "description": "挑战第 2 个制衣目标（普通主线材料关卡）",
+            "pipeline_override": {
+                "制衣_分发目标": {
+                    "next": [
+                        "制衣_选择第2套全部材料"
+                    ]
+                }
+            },
+            "option": [
+                "StoreOption"
+            ],
+            "default_check": false
+        },
+        {
             "name": "任务",
             "entry": "任务_开始",
             "description": "领取每日任务奖励",
@@ -136,6 +169,67 @@
                     "default": ""
                 }
             ]
+        },
+        "ShikongMainStageOption": {
+            "type": "switch",
+            "label": "时空回廊挑战主线关卡",
+            "description": "开启时若时空回廊套装包含普通主线材料，也会一并前往挑战；关闭时仅刷时空回廊专属关卡，节省体力",
+            "cases": [
+                {
+                    "name": "Yes",
+                    "label": "开启"
+                },
+                {
+                    "name": "No",
+                    "label": "关闭",
+                    "pipeline_override": {
+                        "制衣_材料_主线": {
+                            "enabled": false,
+                            "recognition": {
+                                "type": "Custom",
+                                "param": {
+                                    "custom_recognition": "MatchRowButton",
+                                    "custom_recognition_param": {
+                                        "keyword": "__DISABLED__",
+                                        "button": "前往"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            ],
+            "default_case": "No"
+        },
+        "StoreOption": {
+            "type": "switch",
+            "label": "自动购买商店材料",
+            "description": "开启后若遇到金币商店/服装店材料，自动前往并购买",
+            "cases": [
+                {
+                    "name": "Yes",
+                    "label": "开启"
+                },
+                {
+                    "name": "No",
+                    "label": "关闭",
+                    "pipeline_override": {
+                        "制衣_材料_商店": {
+                            "recognition": {
+                                "type": "Custom",
+                                "param": {
+                                    "custom_recognition": "MatchRowButton",
+                                    "custom_recognition_param": {
+                                        "keyword": "__DISABLED__",
+                                        "button": "前往"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            ],
+            "default_case": "Yes"
         }
     },
     "preset": [
@@ -184,6 +278,15 @@
                     "name": "分享",
                     "enabled": false
                 },
+                {
+                    "name": "时空回廊制衣",
+                    "enabled": false
+                },
+                {
+                    "name": "主线制衣",
+                    "enabled": false
+                },
+                
                 {
                     "name": "任务",
                     "enabled": true

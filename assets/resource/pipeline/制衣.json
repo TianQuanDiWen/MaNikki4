@@ -1,0 +1,671 @@
+{
+    "$__mpe_config_制衣": {
+        "$__mpe_code": {
+            "prefix": "",
+            "coordinateMode": "absolute-v1",
+            "lastSyncTime": 1790108186904,
+            "isModifiedExternally": false,
+            "isDeleted": false,
+            "filePath": "D:\\Projects\\Go\\MaNikki4\\assets\\resource\\pipeline\\制衣.json",
+            "savedViewport": {
+                "x": 361,
+                "y": -945,
+                "zoom": 1.17
+            },
+            "filename": "制衣",
+            "version": "v1.10.1"
+        }
+    },
+    "制衣_返回制衣引导": {
+        "post_wait_freezes": 1000,
+        "next": [
+            "制衣_确认返回制衣引导",
+            "[JumpBack]制衣_关卡_返回制衣引导"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 4308,
+                "y": 1837
+            }
+        }
+    },
+    "制衣_关卡_次数不足取消": {
+        "recognition": {
+            "type": "Custom",
+            "param": {
+                "custom_recognition": "MatchRowButton",
+                "custom_recognition_param": {
+                    "button": "取消",
+                    "keyword": "关卡次数",
+                    "y_tolerance": 300
+                },
+                "roi": [
+                    48,
+                    317,
+                    671,
+                    646
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 1000,
+        "next": [
+            "制衣_返回制衣引导"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 3857,
+                "y": 635
+            }
+        }
+    },
+    "$__mpe_external_公共：返回主菜单_制衣": {
+        "$__mpe_code": {
+            "position": {
+                "x": 4808,
+                "y": 1047
+            }
+        }
+    },
+    "制衣_关卡_中继": {
+        "next": [
+            "制衣_关卡_点击挑战",
+            "制衣_关卡_体力不足取消"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 3012,
+                "y": 899
+            }
+        }
+    },
+    "制衣_关卡_体力不足取消": {
+        "recognition": {
+            "type": "Custom",
+            "param": {
+                "custom_recognition": "MatchRowButton",
+                "custom_recognition_param": {
+                    "button": "取消",
+                    "keyword": "体力",
+                    "y_tolerance": 400
+                },
+                "roi": [
+                    47,
+                    225,
+                    644,
+                    539
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 1000,
+        "next": [
+            "制衣_结束"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 3861,
+                "y": 1006
+            }
+        }
+    },
+    "制衣_关卡_关闭过关完成": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    150,
+                    750,
+                    420,
+                    200
+                ],
+                "expected": [
+                    "过关完成"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 1000,
+        "next": [
+            "制衣_关卡_关闭过关完成",
+            "制衣_关卡_中继"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 3183,
+                "y": 483
+            }
+        }
+    },
+    "制衣_关卡_点击挑战": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "挑战\\s*(10|[2-9]|十|[二两三四五六七八九])\\s*次",
+                    "挑战\\s*(1|一)?\\s*次"
+                ],
+                "order_by": "Expected"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 1000,
+        "next": [
+            "制衣_关卡_获得足够材料",
+            "制衣_关卡_关闭过关完成",
+            "制衣_关卡_次数不足取消",
+            "制衣_关卡_体力不足取消",
+            "制衣_关卡_点击挑战"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 3350,
+                "y": 841
+            }
+        }
+    },
+    "制衣_分发目标": {
+        "next": [
+            "制衣_选择第1套全部材料"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1100,
+                "y": 1000
+            }
+        }
+    },
+    "制衣_开始": {
+        "anchor": "任务入口",
+        "next": [
+            "制衣_确认在主界面"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": -400,
+                "y": 1000
+            }
+        }
+    },
+    "制衣_服装店_立即购买": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    65,
+                    450,
+                    578,
+                    341
+                ],
+                "expected": [
+                    "立即购买"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 1000,
+        "next": [
+            "制衣_服装店_立即购买",
+            "制衣_返回制衣引导"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 3862,
+                "y": 1691
+            }
+        }
+    },
+    "制衣_材料_主线": {
+        "recognition": {
+            "type": "Custom",
+            "param": {
+                "custom_recognition": "MatchRowButton",
+                "custom_recognition_param": {
+                    "button": "前往",
+                    "keyword": "主线|卷|关卡",
+                    "y_tolerance": 60
+                },
+                "roi": [
+                    40,
+                    250,
+                    640,
+                    700
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 1200,
+        "next": [
+            "制衣_关卡_中继"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 2638,
+                "y": 905
+            }
+        }
+    },
+    "制衣_材料_商店": {
+        "recognition": {
+            "type": "Custom",
+            "param": {
+                "custom_recognition": "MatchRowButton",
+                "custom_recognition_param": {
+                    "button": "前往",
+                    "keyword": "服装店|商店",
+                    "y_tolerance": 60
+                },
+                "roi": [
+                    40,
+                    250,
+                    640,
+                    700
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 1200,
+        "next": [
+            "制衣_服装店_立即购买"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 2627,
+                "y": 1622
+            }
+        }
+    },
+    "制衣_材料_时空回廊": {
+        "max_hit": 1,
+        "recognition": {
+            "type": "Custom",
+            "param": {
+                "custom_recognition": "MatchRowButton",
+                "custom_recognition_param": {
+                    "button": "前往",
+                    "keyword": "时空回廊",
+                    "y_tolerance": 60
+                },
+                "roi": [
+                    40,
+                    250,
+                    640,
+                    700
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 1200,
+        "next": [
+            "制衣_关卡_中继"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 2632,
+                "y": 470
+            }
+        }
+    },
+    "制衣_点击设计中心": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    20,
+                    1085,
+                    172,
+                    187
+                ],
+                "expected": [
+                    "设计中心"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    19,
+                    -69,
+                    -39,
+                    28
+                ]
+            }
+        },
+        "post_wait_freezes": 800,
+        "next": [
+            "制衣_确认在设计中心"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 200,
+                "y": 1000
+            }
+        }
+    },
+    "制衣_确认在主界面": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    302,
+                    1112,
+                    133,
+                    110
+                ],
+                "expected": [
+                    "开始"
+                ]
+            }
+        },
+        "next": [
+            "制衣_点击设计中心"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": -100,
+                "y": 1000
+            }
+        }
+    },
+    "制衣_确认在制衣引导": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    215,
+                    532,
+                    296,
+                    85
+                ],
+                "expected": [
+                    "添加制衣目标"
+                ]
+            }
+        },
+        "anchor": "制衣引导",
+        "next": [
+            "制衣_分发目标"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 800,
+                "y": 1000
+            }
+        }
+    },
+    "制衣_确认在材料弹窗": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    280,
+                    280,
+                    160,
+                    60
+                ],
+                "expected": [
+                    "材料"
+                ]
+            }
+        },
+        "next": [
+            "制衣_材料_商店",
+            "制衣_材料_时空回廊",
+            "制衣_材料_主线"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 2275,
+                "y": 1000
+            }
+        }
+    },
+    "制衣_确认在设计中心": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    310,
+                    43,
+                    389,
+                    267
+                ],
+                "expected": [
+                    "制衣引导"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 800,
+        "next": [
+            "制衣_确认在制衣引导"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 500,
+                "y": 1000
+            }
+        }
+    },
+    "制衣_结束": {
+        "next": [
+            "公共：返回主菜单"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 4379,
+                "y": 1139
+            }
+        }
+    },
+    "制衣_选择第1套全部材料": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    130,
+                    1070,
+                    160,
+                    50
+                ],
+                "expected": [
+                    "全部材料"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 800,
+        "next": [
+            "制衣_材料中继"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1400,
+                "y": 800
+            }
+        }
+    },
+    "制衣_选择第2套全部材料": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    450,
+                    1070,
+                    160,
+                    50
+                ],
+                "expected": [
+                    "全部材料"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 800,
+        "next": [
+            "制衣_材料中继"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1400,
+                "y": 1200
+            }
+        }
+    },
+    "制衣_关卡_获得足够材料": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    96,
+                    481,
+                    518,
+                    326
+                ],
+                "expected": [
+                    "已获得足够"
+                ]
+            }
+        },
+        "post_wait_freezes": 1000,
+        "next": [
+            "制衣_返回制衣引导"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 3862,
+                "y": 1326
+            }
+        }
+    },
+    "制衣_关卡_返回制衣引导": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    0,
+                    14,
+                    128,
+                    131
+                ],
+                "template": [
+                    "闪暖-返回箭头.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 1000,
+        "$__mpe_code": {
+            "position": {
+                "x": 4684,
+                "y": 1865
+            }
+        }
+    },
+    "制衣_确认返回制衣引导": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    215,
+                    532,
+                    296,
+                    85
+                ],
+                "expected": [
+                    "添加制衣目标"
+                ]
+            }
+        },
+        "anchor": "制衣引导",
+        "next": [
+            "制衣_确认在制衣引导"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 4695,
+                "y": 2272
+            }
+        }
+    },
+    "制衣_材料中继": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    292,
+                    293,
+                    133,
+                    59
+                ],
+                "expected": [
+                    "材料"
+                ]
+            }
+        },
+        "next": [
+            "制衣_确认在材料弹窗",
+            "制衣_制衣已完成"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1883,
+                "y": 1027
+            }
+        }
+    },
+    "制衣_制衣已完成": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    215,
+                    532,
+                    296,
+                    85
+                ],
+                "expected": [
+                    "材料已收集完毕",
+                    "前往制作"
+                ]
+            }
+        },
+        "focus": {
+            "Node.Action.Succeeded": "当前套装已收集全部材料"
+        },
+        "next": [
+            "制衣_结束"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 2268,
+                "y": 1322
+            }
+        }
+    }
+}

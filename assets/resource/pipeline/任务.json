@@ -2,81 +2,25 @@
     "$__mpe_config_任务": {
         "$__mpe_code": {
             "prefix": "",
-            "filePath": "D:\\Projects\\Go\\MaNikki4\\assets\\resource\\pipeline\\任务.json",
-            "lastSyncTime": 1789749951881,
             "coordinateMode": "absolute-v1",
+            "lastSyncTime": 1790108415458,
+            "isModifiedExternally": false,
+            "isDeleted": false,
+            "filePath": "D:\\Projects\\Go\\MaNikki4\\assets\\resource\\pipeline\\任务.json",
             "savedViewport": {
-                "x": -4201,
-                "y": 112,
-                "zoom": 0.8
+                "x": -3217,
+                "y": 31,
+                "zoom": 0.62
             },
             "filename": "任务",
             "version": "v1.10.1"
         }
     },
-    "任务_开始": {
-        "anchor": "任务入口",
-        "next": [
-            "任务_确认在主菜单"
-        ],
+    "$__mpe_external_公共：返回主菜单_任务": {
         "$__mpe_code": {
             "position": {
-                "x": 4918,
-                "y": 366
-            }
-        }
-    },
-    "任务_确认在主菜单": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    302,
-                    1112,
-                    133,
-                    110
-                ],
-                "expected": [
-                    "开始"
-                ]
-            }
-        },
-        "next": [
-            "任务_点击任务"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 5272,
-                "y": 360
-            }
-        }
-    },
-    "任务_点击任务": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    620,
-                    365,
-                    96,
-                    246
-                ],
-                "expected": [
-                    "任务"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_wait_freezes": 200,
-        "next": [
-            "任务_确认已在任务界面"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 5574,
-                "y": 361
+                "x": 8031,
+                "y": 617
             }
         }
     },
@@ -105,6 +49,18 @@
             "position": {
                 "x": 6779,
                 "y": 173
+            }
+        }
+    },
+    "任务_开始": {
+        "anchor": "任务入口",
+        "next": [
+            "任务_确认在主菜单"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 4918,
+                "y": 366
             }
         }
     },
@@ -156,10 +112,86 @@
         },
         "repeat": 2,
         "repeat_delay": 300,
+        "next": [
+            "任务_每日签到点击空白"
+        ],
         "$__mpe_code": {
             "position": {
                 "x": 6495,
                 "y": 450
+            }
+        }
+    },
+    "任务_每日签到点击空白": {
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    182,
+                    52,
+                    102,
+                    36
+                ]
+            }
+        },
+        "$__mpe_code": {
+            "position": {
+                "x": 6785,
+                "y": 508
+            }
+        }
+    },
+    "任务_点击任务": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    620,
+                    365,
+                    96,
+                    246
+                ],
+                "expected": [
+                    "任务"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 200,
+        "next": [
+            "任务_确认已在任务界面"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 5574,
+                "y": 361
+            }
+        }
+    },
+    "任务_确认在主菜单": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    302,
+                    1112,
+                    133,
+                    110
+                ],
+                "expected": [
+                    "开始"
+                ]
+            }
+        },
+        "next": [
+            "任务_点击任务"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 5272,
+                "y": 360
             }
         }
     },
@@ -181,6 +213,17 @@
             "position": {
                 "x": 5983,
                 "y": 348
+            }
+        }
+    },
+    "任务_结束": {
+        "next": [
+            "公共：返回主菜单"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 7701,
+                "y": 591
             }
         }
     },
@@ -254,25 +297,6 @@
             "position": {
                 "x": 7215,
                 "y": 745
-            }
-        }
-    },
-    "任务_结束": {
-        "next": [
-            "公共：返回主菜单"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 7701,
-                "y": 591
-            }
-        }
-    },
-    "$__mpe_external_公共：返回主菜单_任务": {
-        "$__mpe_code": {
-            "position": {
-                "x": 8031,
-                "y": 617
             }
         }
     }

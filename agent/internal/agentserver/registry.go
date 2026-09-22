@@ -6,6 +6,7 @@ import (
 	maa "github.com/MaaXYZ/maa-framework-go/v4"
 	"github.com/TianQuanDiWen/MaNikki4/agent/internal/arena"
 	"github.com/TianQuanDiWen/MaNikki4/agent/internal/emulator"
+	"github.com/TianQuanDiWen/MaNikki4/agent/internal/matcher"
 )
 
 // Registry 保存项目提供给 MaaFramework 的自定义识别和自定义动作。
@@ -77,6 +78,11 @@ func BuildRegistry(projectRoot string) (*Registry, error) {
 	runner := arena.NewArenaCanBeatRunner(checker)
 	if err := registry.AddRecognition("ArenaCanBeat", runner); err != nil {
 		return nil, fmt.Errorf("register ArenaCanBeat: %w", err)
+	}
+
+	// 注册通用行按钮关联识别器（根据 keyword 锁定同行右侧按钮，支持 | 管道符）
+	if err := registry.AddRecognition("MatchRowButton", matcher.NewMatchRowButtonRunner()); err != nil {
+		return nil, fmt.Errorf("register MatchRowButton: %w", err)
 	}
 
 	// 注册退出模拟器自定义动作

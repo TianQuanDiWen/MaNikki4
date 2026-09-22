@@ -3,17 +3,17 @@
         "$__mpe_code": {
             "prefix": "",
             "coordinateMode": "absolute-v1",
-            "lastSyncTime": 1788877394052,
+            "lastSyncTime": 1790108195784,
             "isModifiedExternally": false,
             "isDeleted": false,
             "filePath": "D:\\Projects\\Go\\MaNikki4\\assets\\resource\\pipeline\\闪暖送礼.json",
             "savedViewport": {
-                "x": -5832,
-                "y": -602,
-                "zoom": 0.9
+                "x": -3849,
+                "y": -142,
+                "zoom": 0.62
             },
             "filename": "闪暖送礼",
-            "version": "v1.9.3"
+            "version": "v1.10.1"
         }
     },
     "$__mpe_external_公共：返回主菜单_闪暖送礼": {
@@ -198,6 +198,32 @@
             }
         }
     },
+    "送礼_体力已满": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    124,
+                    634,
+                    211,
+                    130
+                ],
+                "expected": [
+                    "取消"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 200,
+        "$__mpe_code": {
+            "position": {
+                "x": 5160,
+                "y": 1143
+            }
+        }
+    },
     "送礼_切换零食": {
         "recognition": {
             "type": "OCR",
@@ -218,7 +244,8 @@
         },
         "post_wait_freezes": 200,
         "next": [
-            "送礼_选中番茄炒蛋"
+            "送礼_选中番茄炒蛋",
+            "送礼_选中月饼"
         ],
         "$__mpe_code": {
             "position": {
@@ -294,6 +321,32 @@
             }
         }
     },
+    "送礼_活力不足取消": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    113,
+                    653,
+                    251,
+                    104
+                ],
+                "expected": [
+                    "取消"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 200,
+        "$__mpe_code": {
+            "position": {
+                "x": 7289,
+                "y": 1619
+            }
+        }
+    },
     "送礼_点击回家": {
         "recognition": {
             "type": "OCR",
@@ -313,6 +366,7 @@
             "type": "Click"
         },
         "next": [
+            "[JumpBack]送礼_体力已满",
             "送礼_日常采购"
         ],
         "$__mpe_code": {
@@ -350,7 +404,7 @@
             }
         }
     },
-    "送礼_番茄炒蛋": {
+    "送礼_购买零食": {
         "recognition": {
             "type": "OCR",
             "param": {
@@ -497,12 +551,12 @@
         },
         "post_wait_freezes": 200,
         "next": [
-            "送礼_番茄炒蛋"
+            "送礼_购买零食"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 7386,
-                "y": 830
+                "x": 7360,
+                "y": 651
             }
         }
     },
@@ -612,32 +666,6 @@
             }
         }
     },
-    "送礼_活力不足取消": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    113,
-                    653,
-                    251,
-                    104
-                ],
-                "expected": [
-                    "取消"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_wait_freezes": 200,
-        "$__mpe_code": {
-            "position": {
-                "x": 7289,
-                "y": 1619
-            }
-        }
-    },
     "送礼_采购调色板": {
         "recognition": {
             "type": "OCR",
@@ -743,6 +771,43 @@
             "position": {
                 "x": 8024,
                 "y": 814
+            }
+        }
+    },
+    "送礼_选中月饼": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    40,
+                    543,
+                    643,
+                    375
+                ],
+                "expected": [
+                    "月饼"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    -21,
+                    -146,
+                    55,
+                    92
+                ]
+            }
+        },
+        "post_wait_freezes": 200,
+        "next": [
+            "送礼_购买零食"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 7361,
+                "y": 1021
             }
         }
     }

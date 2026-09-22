@@ -2,16 +2,55 @@
     "$__mpe_config_忆海心阶": {
         "$__mpe_code": {
             "prefix": "",
-            "filePath": "D:\\Projects\\Go\\MaNikki4\\assets\\resource\\pipeline\\忆海心阶.json",
-            "lastSyncTime": 1788876026568,
             "coordinateMode": "absolute-v1",
+            "lastSyncTime": 1789962910243,
+            "isModifiedExternally": false,
+            "isDeleted": false,
+            "filePath": "D:\\Projects\\Go\\MaNikki4\\assets\\resource\\pipeline\\忆海心阶.json",
             "savedViewport": {
-                "x": -6882,
-                "y": -474,
-                "zoom": 0.91
+                "x": -2141,
+                "y": 110,
+                "zoom": 0.55
             },
             "filename": "忆海心阶",
-            "version": "v1.9.3"
+            "version": "v1.10.1"
+        }
+    },
+    "$__mpe_external_公共：返回主菜单_忆海心阶": {
+        "$__mpe_code": {
+            "position": {
+                "x": 8665,
+                "y": 1317
+            }
+        }
+    },
+    "忆海_一键穿戴印象": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    452,
+                    1000,
+                    167,
+                    59
+                ],
+                "expected": [
+                    "穿戴"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "忆海_穿戴印象确认"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 8783,
+                "y": 454
+            }
         }
     },
     "忆海_开始": {
@@ -25,18 +64,18 @@
             }
         }
     },
-    "忆海_点击主菜单": {
+    "忆海_开始挑战": {
         "recognition": {
             "type": "OCR",
             "param": {
                 "roi": [
-                    302,
-                    1112,
-                    133,
-                    110
+                    284,
+                    939,
+                    153,
+                    88
                 ],
                 "expected": [
-                    "开始"
+                    "开始挑战"
                 ]
             }
         },
@@ -44,99 +83,57 @@
             "type": "Click"
         },
         "post_wait_freezes": 500,
+        "focus": {
+            "Node.Action.Succeeded": "忆海开始快速挑战"
+        },
         "next": [
-            "忆海_点击忆海",
-            "忆海_点击主菜单"
+            "忆海_挑战结算",
+            "忆海_战斗评分"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 5472,
-                "y": 287
+                "x": 7244,
+                "y": 877
             }
         }
     },
-    "忆海_点击忆海": {
+    "忆海_开始搭配": {
         "recognition": {
             "type": "OCR",
             "param": {
                 "roi": [
-                    96,
-                    935,
-                    271,
-                    169
+                    58,
+                    631,
+                    604,
+                    261
                 ],
                 "expected": [
-                    "忆海心阶"
+                    "开始搭配"
                 ]
             }
         },
         "action": {
-            "type": "Click"
-        },
-        "post_wait_freezes": 500,
-        "next": [
-            "忆海_确认进入"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 5788,
-                "y": 285
-            }
-        }
-    },
-    "忆海_确认在主菜单": {
-        "recognition": {
-            "type": "OCR",
+            "type": "Click",
             "param": {
-                "roi": [
-                    302,
-                    1112,
-                    133,
-                    110
-                ],
-                "expected": [
-                    "开始"
+                "target_offset": [
+                    10,
+                    -124,
+                    -16,
+                    35
                 ]
             }
         },
-        "next": [
-            "忆海_点击主菜单"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 5172,
-                "y": 310
-            }
-        }
-    },
-    "忆海_确认进入": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    141,
-                    50,
-                    142,
-                    41
-                ],
-                "expected": [
-                    "本周主题"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "repeat": 5,
-        "repeat_delay": 300,
         "post_wait_freezes": 500,
+        "focus": {
+            "Node.Action.Succeeded": "忆海开始搭配"
+        },
         "next": [
-            "忆海_快速挑战"
+            "忆海_推荐搭配"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 6248,
-                "y": 282
+                "x": 7231,
+                "y": 438
             }
         }
     },
@@ -210,19 +207,127 @@
             }
         }
     },
-    "忆海_真我之境": {
+    "忆海_战斗评分": {
         "recognition": {
             "type": "OCR",
             "param": {
                 "roi": [
-                    385,
-                    584,
-                    139,
-                    124
+                    278,
+                    371,
+                    109,
+                    37
                 ],
                 "expected": [
-                    "真我",
-                    "之境"
+                    "战斗评分"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    -120,
+                    -183,
+                    4,
+                    0
+                ]
+            }
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "忆海_结束"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 7901,
+                "y": 1286
+            }
+        }
+    },
+    "忆海_挑战结算": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    211,
+                    212,
+                    289,
+                    87
+                ],
+                "expected": [
+                    "恭喜获得"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    -170,
+                    -69,
+                    -179,
+                    -14
+                ]
+            }
+        },
+        "post_wait_freezes": 500,
+        "focus": {
+            "Node.Action.Succeeded": "挑战结算"
+        },
+        "next": [
+            "忆海_战斗评分"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 7669,
+                "y": 837
+            }
+        }
+    },
+    "忆海_推荐搭配": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    572,
+                    1161,
+                    145,
+                    79
+                ],
+                "expected": [
+                    "推荐搭配"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 500,
+        "focus": {
+            "Node.Action.Succeeded": "忆海开始搭配"
+        },
+        "next": [
+            "忆海_推荐搭配确认"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 7562,
+                "y": 448
+            }
+        }
+    },
+    "忆海_推荐搭配下一步": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    39,
+                    1160,
+                    208,
+                    86
+                ],
+                "expected": [
+                    "下一步"
                 ]
             }
         },
@@ -231,14 +336,41 @@
         },
         "post_wait_freezes": 500,
         "next": [
-            "忆海_检查跳过",
-            "忆海_开始搭配",
-            "忆海_开始挑战"
+            "忆海_装备印象"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 6900,
-                "y": 426
+                "x": 8168,
+                "y": 464
+            }
+        }
+    },
+    "忆海_推荐搭配确认": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    376,
+                    663,
+                    230,
+                    97
+                ],
+                "expected": [
+                    "确认"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "忆海_推荐搭配下一步"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 7853,
+                "y": 477
             }
         }
     },
@@ -286,9 +418,6 @@
         "focus": {
             "Node.Action.Starting": "忆海-打开跳过"
         },
-        "next": [
-            "忆海_开始搭配"
-        ],
         "$__mpe_code": {
             "position": {
                 "x": 7231,
@@ -296,90 +425,18 @@
             }
         }
     },
-    "忆海_开始搭配": {
+    "忆海_点击主菜单": {
         "recognition": {
             "type": "OCR",
             "param": {
                 "roi": [
-                    58,
-                    631,
-                    604,
-                    261
+                    302,
+                    1112,
+                    133,
+                    110
                 ],
                 "expected": [
-                    "开始搭配"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click",
-            "param": {
-                "target_offset": [
-                    10,
-                    -124,
-                    -16,
-                    35
-                ]
-            }
-        },
-        "post_wait_freezes": 500,
-        "focus": {
-            "Node.Action.Succeeded": "忆海开始搭配"
-        },
-        "next": [
-            "忆海_推荐搭配"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 7236,
-                "y": 465
-            }
-        }
-    },
-    "忆海_推荐搭配": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    572,
-                    1161,
-                    145,
-                    79
-                ],
-                "expected": [
-                    "推荐搭配"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_wait_freezes": 500,
-        "focus": {
-            "Node.Action.Succeeded": "忆海开始搭配"
-        },
-        "next": [
-            "忆海_推荐搭配确认"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 7589,
-                "y": -39
-            }
-        }
-    },
-    "忆海_推荐搭配确认": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    376,
-                    663,
-                    230,
-                    97
-                ],
-                "expected": [
-                    "确认"
+                    "开始"
                 ]
             }
         },
@@ -388,27 +445,28 @@
         },
         "post_wait_freezes": 500,
         "next": [
-            "忆海_推荐搭配下一步"
+            "忆海_点击忆海",
+            "忆海_点击主菜单"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 7880,
-                "y": -10
+                "x": 5472,
+                "y": 287
             }
         }
     },
-    "忆海_推荐搭配下一步": {
+    "忆海_点击忆海": {
         "recognition": {
             "type": "OCR",
             "param": {
                 "roi": [
-                    39,
-                    1160,
-                    208,
-                    86
+                    96,
+                    935,
+                    271,
+                    169
                 ],
                 "expected": [
-                    "下一步"
+                    "忆海心阶"
                 ]
             }
         },
@@ -417,12 +475,69 @@
         },
         "post_wait_freezes": 500,
         "next": [
-            "忆海_装备印象"
+            "忆海_确认进入"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 8284,
-                "y": -43
+                "x": 5788,
+                "y": 285
+            }
+        }
+    },
+    "忆海_真我之境": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    385,
+                    584,
+                    139,
+                    124
+                ],
+                "expected": [
+                    "真我",
+                    "之境"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "[JumpBack]忆海_检查跳过",
+            "[JumpBack]忆海_开始搭配",
+            "忆海_开始挑战"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 6900,
+                "y": 426
+            }
+        }
+    },
+    "忆海_确认在主菜单": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    302,
+                    1112,
+                    133,
+                    110
+                ],
+                "expected": [
+                    "开始"
+                ]
+            }
+        },
+        "next": [
+            "忆海_点击主菜单"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 5172,
+                "y": 310
             }
         }
     },
@@ -445,72 +560,41 @@
             "type": "Click"
         },
         "post_wait_freezes": 500,
-        "next": [
-            "忆海_开始搭配",
-            "忆海_开始挑战"
-        ],
         "$__mpe_code": {
             "position": {
-                "x": 9793,
-                "y": -21
+                "x": 9400,
+                "y": 458
             }
         }
     },
-    "忆海_装备印象": {
+    "忆海_确认进入": {
         "recognition": {
             "type": "OCR",
             "param": {
                 "roi": [
-                    513,
-                    361,
-                    167,
-                    75
+                    141,
+                    50,
+                    142,
+                    41
                 ],
                 "expected": [
-                    "装备印象"
+                    "本周主题"
                 ]
             }
         },
         "action": {
             "type": "Click"
         },
+        "repeat": 5,
+        "repeat_delay": 300,
         "post_wait_freezes": 500,
         "next": [
-            "忆海_一键穿戴印象"
+            "忆海_快速挑战"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 8593,
-                "y": -34
-            }
-        }
-    },
-    "忆海_一键穿戴印象": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    452,
-                    1000,
-                    167,
-                    59
-                ],
-                "expected": [
-                    "穿戴"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_wait_freezes": 500,
-        "next": [
-            "忆海_穿戴印象确认"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 8866,
-                "y": -41
+                "x": 6248,
+                "y": 282
             }
         }
     },
@@ -538,8 +622,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 9152,
-                "y": -28
+                "x": 9088,
+                "y": 451
             }
         }
     },
@@ -564,118 +648,8 @@
         "post_wait_freezes": 500,
         "$__mpe_code": {
             "position": {
-                "x": 9607,
-                "y": -277
-            }
-        }
-    },
-    "忆海_开始挑战": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    284,
-                    939,
-                    153,
-                    88
-                ],
-                "expected": [
-                    "开始挑战"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_wait_freezes": 500,
-        "focus": {
-            "Node.Action.Succeeded": "忆海开始快速挑战"
-        },
-        "next": [
-            "忆海_挑战结算",
-            "忆海_战斗评分"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 7244,
-                "y": 877
-            }
-        }
-    },
-    "忆海_挑战结算": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    211,
-                    212,
-                    289,
-                    87
-                ],
-                "expected": [
-                    "恭喜获得"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click",
-            "param": {
-                "target_offset": [
-                    -170,
-                    -69,
-                    -179,
-                    -14
-                ]
-            }
-        },
-        "post_wait_freezes": 500,
-        "focus": {
-            "Node.Action.Succeeded": "挑战结算"
-        },
-        "next": [
-            "忆海_战斗评分"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 7662,
-                "y": 543
-            }
-        }
-    },
-    "忆海_战斗评分": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    278,
-                    371,
-                    109,
-                    37
-                ],
-                "expected": [
-                    "战斗评分"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click",
-            "param": {
-                "target_offset": [
-                    -120,
-                    -183,
-                    4,
-                    0
-                ]
-            }
-        },
-        "post_wait_freezes": 500,
-        "next": [
-            "忆海_结束"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 7661,
-                "y": 899
+                "x": 9503,
+                "y": -334
             }
         }
     },
@@ -685,16 +659,37 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 8056,
-                "y": 960
+                "x": 8216,
+                "y": 1275
             }
         }
     },
-    "$__mpe_external_公共：返回主菜单_忆海心阶": {
+    "忆海_装备印象": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    513,
+                    361,
+                    167,
+                    75
+                ],
+                "expected": [
+                    "装备印象"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "忆海_一键穿戴印象"
+        ],
         "$__mpe_code": {
             "position": {
-                "x": 8380,
-                "y": 977
+                "x": 8494,
+                "y": 457
             }
         }
     }
