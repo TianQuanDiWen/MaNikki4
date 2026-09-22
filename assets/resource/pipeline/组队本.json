@@ -1,22 +1,22 @@
 {
-    "$__mpe_config_闪暖组队本": {
+    "$__mpe_config_组队本": {
         "$__mpe_code": {
             "prefix": "",
             "coordinateMode": "absolute-v1",
             "lastSyncTime": 1790113277071,
             "isModifiedExternally": false,
             "isDeleted": false,
-            "filePath": "D:\\Projects\\Go\\MaNikki4\\assets\\resource\\pipeline\\闪暖组队本.json",
+            "filePath": "D:\\Projects\\Go\\MaNikki4\\assets\\resource\\pipeline\\组队本.json",
             "savedViewport": {
                 "x": -2333,
                 "y": -437,
                 "zoom": 0.48
             },
-            "filename": "闪暖组队本",
+            "filename": "组队本",
             "version": "v1.10.1"
         }
     },
-    "$__mpe_external_公共：返回主菜单_闪暖组队本": {
+    "$__mpe_external_公共：返回主菜单_组队本": {
         "$__mpe_code": {
             "position": {
                 "x": 7213,
@@ -24,7 +24,7 @@
             }
         }
     },
-    "$__mpe_group_不落的帷幕_闪暖组队本": {
+    "$__mpe_group_不落的帷幕_组队本": {
         "$__mpe_code": {
             "position": {
                 "x": 5174,
@@ -47,7 +47,7 @@
             "height": 536
         }
     },
-    "$__mpe_group_印象航旅_闪暖组队本": {
+    "$__mpe_group_印象航旅_组队本": {
         "$__mpe_code": {
             "position": {
                 "x": 5174,
@@ -68,7 +68,7 @@
             "height": 617
         }
     },
-    "$__mpe_group_时光钟表铺_闪暖组队本": {
+    "$__mpe_group_时光钟表铺_组队本": {
         "$__mpe_code": {
             "position": {
                 "x": 5185,

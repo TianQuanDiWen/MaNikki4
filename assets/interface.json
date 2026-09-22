@@ -49,7 +49,7 @@
     "task": [
         {
             "name": "__MXU_PRETASK__启动模拟器与游戏",
-            "label": "启动模拟器与游戏",
+            "label": "🎮 启动模拟器与游戏",
             "entry": "登陆游戏",
             "option": [
                 "MuMuConfig"
@@ -59,54 +59,63 @@
         },
         {
             "name": "登陆游戏",
+            "label": "🚀 登陆游戏",
             "entry": "登陆游戏",
             "description": "启动闪耀暖暖并进入游戏",
             "default_check": true
         },
         {
-            "name": "闪暖送礼",
+            "name": "送礼",
+            "label": "💌 送礼",
             "entry": "送礼_开始",
             "description": "完成好友送心、领取体力与日常采购",
             "default_check": true
         },
         {
-            "name": "闪暖组队本",
+            "name": "组队本",
+            "label": "👥 组队本",
             "entry": "结伴_开始",
             "description": "完成不落的帷幕、印象航旅与时光钟表铺",
             "default_check": true
         },
         {
-            "name": "闪暖竞技场",
+            "name": "竞技场",
+            "label": "⚔️ 竞技场",
             "entry": "竞技场_开始",
             "description": "完成钻石竞技场任务",
             "default_check": true
         },
         {
-            "name": "闪暖抽卡",
+            "name": "抽卡",
+            "label": "🚪 抽卡",
             "entry": "抽卡_开始",
             "description": "领取心之门免费抽取与分享奖励",
             "default_check": true
         },
         {
             "name": "联盟任务",
+            "label": "🏛️ 联盟任务",
             "entry": "联盟_开始",
             "description": "完成联盟捐献、机密任务与联盟福利",
             "default_check": true
         },
         {
             "name": "忆海心阶",
+            "label": "🌊 忆海心阶",
             "entry": "忆海_开始",
             "description": "完成忆海心阶挑战",
             "default_check": true
         },
         {
             "name": "美甲",
+            "label": "💅 美甲店铺",
             "entry": "美甲_开始",
             "description": "完成美甲店铺店员雇佣与收益提取",
             "default_check": true
         },
         {
             "name": "分享",
+            "label": "💎 分享",
             "entry": "分享_开始",
             "description": "分享到外部APP拿分享粉钻",
             "option": [
@@ -115,7 +124,8 @@
             "default_check": true
         },
         {
-            "name": "时空回廊制衣",
+            "name": "时空回廊",
+            "label": "👗 时空回廊",
             "entry": "制衣_开始",
             "description": "挑战时空回廊，请将时空回廊套装配置到制衣引导第一套",
             "pipeline_override": {
@@ -133,6 +143,7 @@
         },
         {
             "name": "主线制衣",
+            "label": "🧵 主线制衣",
             "entry": "制衣_开始",
             "description": "挑战普通主线材料关卡，请将需要制作的套装配置到制衣引导第二套",
             "pipeline_override": {
@@ -149,12 +160,14 @@
         },
         {
             "name": "任务",
+            "label": "📋 任务奖励",
             "entry": "任务_开始",
             "description": "领取每日任务奖励",
             "default_check": true
         },
         {
             "name": "退出模拟器",
+            "label": "🛑 退出模拟器",
             "entry": "退出模拟器",
             "description": "全部日常任务执行完毕后，安全退出 MuMu 模拟器",
             "default_check": false
@@ -307,19 +320,19 @@
                     "enabled": true
                 },
                 {
-                    "name": "闪暖送礼",
+                    "name": "送礼",
                     "enabled": true
                 },
                 {
-                    "name": "闪暖组队本",
+                    "name": "组队本",
                     "enabled": true
                 },
                 {
-                    "name": "闪暖竞技场",
+                    "name": "竞技场",
                     "enabled": true
                 },
                 {
-                    "name": "闪暖抽卡",
+                    "name": "抽卡",
                     "enabled": true
                 },
                 {
@@ -339,7 +352,7 @@
                     "enabled": true
                 },
                 {
-                    "name": "时空回廊制衣",
+                    "name": "时空回廊",
                     "enabled": true
                 },
                 {

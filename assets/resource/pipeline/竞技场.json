@@ -1,22 +1,22 @@
 {
-    "$__mpe_config_闪暖竞技场": {
+    "$__mpe_config_竞技场": {
         "$__mpe_code": {
             "prefix": "",
             "coordinateMode": "absolute-v1",
             "lastSyncTime": 1790105088222,
             "isModifiedExternally": false,
             "isDeleted": false,
-            "filePath": "D:\\Projects\\Go\\MaNikki4\\assets\\resource\\pipeline\\闪暖竞技场.json",
+            "filePath": "D:\\Projects\\Go\\MaNikki4\\assets\\resource\\pipeline\\竞技场.json",
             "savedViewport": {
                 "x": -3731,
                 "y": -46,
                 "zoom": 0.62
             },
-            "filename": "闪暖竞技场",
+            "filename": "竞技场",
             "version": "v1.10.1"
         }
     },
-    "$__mpe_external_公共：返回主菜单_闪暖竞技场": {
+    "$__mpe_external_公共：返回主菜单_竞技场": {
         "$__mpe_code": {
             "position": {
                 "x": 6507,
@@ -30,7 +30,7 @@
             ]
         }
     },
-    "$__mpe_group_竞技场搭配_闪暖竞技场": {
+    "$__mpe_group_竞技场搭配_竞技场": {
         "$__mpe_code": {
             "position": {
                 "x": 5698,

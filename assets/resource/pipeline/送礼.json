@@ -1,22 +1,22 @@
 {
-    "$__mpe_config_闪暖送礼": {
+    "$__mpe_config_送礼": {
         "$__mpe_code": {
             "prefix": "",
             "coordinateMode": "absolute-v1",
             "lastSyncTime": 1790108195784,
             "isModifiedExternally": false,
             "isDeleted": false,
-            "filePath": "D:\\Projects\\Go\\MaNikki4\\assets\\resource\\pipeline\\闪暖送礼.json",
+            "filePath": "D:\\Projects\\Go\\MaNikki4\\assets\\resource\\pipeline\\送礼.json",
             "savedViewport": {
                 "x": -3849,
                 "y": -142,
                 "zoom": 0.62
             },
-            "filename": "闪暖送礼",
+            "filename": "送礼",
             "version": "v1.10.1"
         }
     },
-    "$__mpe_external_公共：返回主菜单_闪暖送礼": {
+    "$__mpe_external_公共：返回主菜单_送礼": {
         "$__mpe_code": {
             "position": {
                 "x": 8740,
