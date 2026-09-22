@@ -3,14 +3,14 @@
         "$__mpe_code": {
             "prefix": "",
             "coordinateMode": "absolute-v1",
-            "lastSyncTime": 1789522498317,
+            "lastSyncTime": 1790113277071,
             "isModifiedExternally": false,
             "isDeleted": false,
             "filePath": "D:\\Projects\\Go\\MaNikki4\\assets\\resource\\pipeline\\闪暖组队本.json",
             "savedViewport": {
-                "x": -1882,
-                "y": 183,
-                "zoom": 0.43
+                "x": -2333,
+                "y": -437,
+                "zoom": 0.48
             },
             "filename": "闪暖组队本",
             "version": "v1.10.1"
@@ -47,7 +47,7 @@
             "height": 536
         }
     },
-    "$__mpe_group_分组_闪暖组队本": {
+    "$__mpe_group_印象航旅_闪暖组队本": {
         "$__mpe_code": {
             "position": {
                 "x": 5174,

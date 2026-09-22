@@ -2,16 +2,71 @@
     "$__mpe_config_分享": {
         "$__mpe_code": {
             "prefix": "",
-            "filePath": "D:\\Projects\\Go\\MaNikki4\\assets\\resource\\pipeline\\分享.json",
-            "lastSyncTime": 1789750380939,
             "coordinateMode": "absolute-v1",
+            "lastSyncTime": 1790114666473,
+            "isModifiedExternally": false,
+            "isDeleted": false,
+            "filePath": "D:\\Projects\\Go\\MaNikki4\\assets\\resource\\pipeline\\分享.json",
             "savedViewport": {
-                "x": -5236,
-                "y": 522,
-                "zoom": 0.78
+                "x": -4331,
+                "y": 617,
+                "zoom": 0.62
             },
             "filename": "分享",
             "version": "v1.10.1"
+        }
+    },
+    "分享_从外部返回": {
+        "action": {
+            "type": "ClickKey",
+            "param": {
+                "key": 4
+            }
+        },
+        "post_wait_freezes": 1500,
+        "timeout": 3000,
+        "next": [
+            "抽阁_分享退出"
+        ],
+        "on_error": [
+            "分享_强制拉回游戏"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 8189,
+                "y": -178
+            }
+        }
+    },
+    "分享_开始": {
+        "anchor": "任务入口",
+        "next": [
+            "分享_确认在主菜单"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 5714,
+                "y": -436
+            }
+        }
+    },
+    "分享_强制拉回游戏": {
+        "action": {
+            "type": "StartApp",
+            "param": {
+                "package": "com.papegames.nn4.cn"
+            }
+        },
+        "post_wait_freezes": 1500,
+        "next": [
+            "抽阁_分享退出",
+            "分享_结束"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 8544,
+                "y": -420
+            }
         }
     },
     "分享_点击分享": {
@@ -19,10 +74,10 @@
             "type": "OCR",
             "param": {
                 "roi": [
-                    598,
-                    1143,
-                    107,
-                    107
+                    26,
+                    111,
+                    316,
+                    1015
                 ],
                 "expected": [
                     "分享"
@@ -34,12 +89,23 @@
         },
         "post_wait_freezes": 200,
         "next": [
-            "抽阁_分享选择社交软件"
+            "抽阁_分享QQ"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 7211,
-                "y": -408
+                "x": 7084,
+                "y": -417
+            }
+        }
+    },
+    "分享_结束": {
+        "next": [
+            "公共：返回主菜单"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 9123,
+                "y": -243
             }
         }
     },
@@ -77,16 +143,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 7845,
-                "y": -655
-            }
-        }
-    },
-    "分享_结束": {
-        "$__mpe_code": {
-            "position": {
-                "x": 8304,
-                "y": -354
+                "x": 8180,
+                "y": -713
             }
         }
     },
@@ -124,12 +182,12 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 7845,
-                "y": -271
+                "x": 8189,
+                "y": 213
             }
         }
     },
-    "抽阁_分享选择社交软件": {
+    "抽阁_分享QQ": {
         "recognition": {
             "type": "OCR",
             "param": {
@@ -155,19 +213,233 @@
                 ]
             }
         },
-        "post_wait_freezes": 200,
+        "post_wait_freezes": 500,
+        "timeout": 3000,
         "next": [
-            "抽阁_分享退出",
-            "抽阁_分享未安装"
+            "分享_中继"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 7502,
-                "y": -401
+                "x": 7436,
+                "y": -456
             }
         }
     },
-    "分享_确认分享粉钻_副本1": {
+    "分享_中继": {
+        "post_wait_freezes": 500,
+        "timeout": 3000,
+        "next": [
+            "抽阁_分享未安装",
+            "抽阁_分享退出"
+        ],
+        "on_error": [
+            "分享_从外部返回"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 7774,
+                "y": -409
+            }
+        }
+    },
+    "分享_确认在主菜单": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    302,
+                    1112,
+                    133,
+                    110
+                ],
+                "expected": [
+                    "开始"
+                ]
+            }
+        },
+        "next": [
+            "分享_点击主菜单"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 6051,
+                "y": -430
+            }
+        }
+    },
+    "分享_点击主菜单": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    302,
+                    1112,
+                    133,
+                    110
+                ],
+                "expected": [
+                    "开始"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "分享_点击时空回廊"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 6371,
+                "y": -432
+            }
+        }
+    },
+    "分享_点击时空回廊": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    203,
+                    770,
+                    398,
+                    183
+                ],
+                "expected": [
+                    "时空回廊"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "分享_点击分享"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 6656,
+                "y": -419
+            }
+        }
+    },
+    "$__mpe_external_公共：返回主菜单_分享": {
+        "$__mpe_code": {
+            "position": {
+                "x": 9442,
+                "y": -216
+            }
+        }
+    },
+    "抽阁_分享小红书": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    26,
+                    1163,
+                    507,
+                    99
+                ],
+                "expected": [
+                    "小红书"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 500,
+        "timeout": 3000,
+        "next": [
+            "分享_中继"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 7430,
+                "y": -51
+            }
+        }
+    },
+    "抽阁_分享微博": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    26,
+                    1163,
+                    507,
+                    99
+                ],
+                "expected": [
+                    "小红书"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    105,
+                    0,
+                    -34,
+                    -1
+                ]
+            }
+        },
+        "post_wait_freezes": 500,
+        "timeout": 3000,
+        "next": [
+            "分享_中继"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 7428,
+                "y": 289
+            }
+        }
+    },
+    "抽阁_分享微信": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    26,
+                    1163,
+                    507,
+                    99
+                ],
+                "expected": [
+                    "小红书"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    -327,
+                    2,
+                    -40,
+                    0
+                ]
+            }
+        },
+        "post_wait_freezes": 500,
+        "timeout": 3000,
+        "next": [
+            "分享_中继"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 7437,
+                "y": -843
+            }
+        }
+    },
+    "分享_确认分享粉钻": {
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -186,25 +458,10 @@
             }
         },
         "post_wait_freezes": 200,
-        "next": [
-            "分享_点击分享"
-        ],
         "$__mpe_code": {
             "position": {
-                "x": 6786,
-                "y": -437
-            }
-        }
-    },
-    "分享_开始": {
-        "anchor": "任务入口",
-        "next": [
-            "分享_确认分享粉钻_副本1"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 6432,
-                "y": -372
+                "x": 7019,
+                "y": -1065
             }
         }
     }

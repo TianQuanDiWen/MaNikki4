@@ -109,12 +109,15 @@
             "name": "分享",
             "entry": "分享_开始",
             "description": "分享到外部APP拿分享粉钻",
-            "default_check": false
+            "option": [
+                "ShareAppOption"
+            ],
+            "default_check": true
         },
         {
             "name": "时空回廊制衣",
             "entry": "制衣_开始",
-            "description": "挑战第 1 个制衣目标（时空回廊困难关卡，每天有次数限制，优先执行）",
+            "description": "挑战时空回廊，请将时空回廊套装配置到制衣引导第一套",
             "pipeline_override": {
                 "制衣_分发目标": {
                     "next": [
@@ -126,12 +129,12 @@
                 "ShikongMainStageOption",
                 "StoreOption"
             ],
-            "default_check": false
+            "default_check": true
         },
         {
             "name": "主线制衣",
             "entry": "制衣_开始",
-            "description": "挑战第 2 个制衣目标（普通主线材料关卡）",
+            "description": "挑战普通主线材料关卡，请将需要制作的套装配置到制衣引导第二套",
             "pipeline_override": {
                 "制衣_分发目标": {
                     "next": [
@@ -142,7 +145,7 @@
             "option": [
                 "StoreOption"
             ],
-            "default_check": false
+            "default_check": true
         },
         {
             "name": "任务",
@@ -173,7 +176,7 @@
         "ShikongMainStageOption": {
             "type": "switch",
             "label": "时空回廊挑战主线关卡",
-            "description": "开启时若时空回廊套装包含普通主线材料，也会一并前往挑战；关闭时仅刷时空回廊专属关卡，节省体力",
+            "description": "开启时若时空回廊套装包含普通主线材料，在打完时空回廊后前往挑战；关闭时仅刷时空回廊专属关卡",
             "cases": [
                 {
                     "name": "Yes",
@@ -195,6 +198,11 @@
                                     }
                                 }
                             }
+                        },
+                        "制衣_关卡_次数不足取消": {
+                            "next": [
+                                "制衣_时空回廊直接结束"
+                            ]
                         }
                     }
                 }
@@ -204,7 +212,7 @@
         "StoreOption": {
             "type": "switch",
             "label": "自动购买商店材料",
-            "description": "开启后若遇到金币商店/服装店材料，自动前往并购买",
+            "description": "开启后若遇到需要购买服装店材料，自动前往并购买",
             "cases": [
                 {
                     "name": "Yes",
@@ -230,6 +238,58 @@
                 }
             ],
             "default_case": "Yes"
+        },
+        "ShareAppOption": {
+            "type": "select",
+            "label": "分享目标APP",
+            "description": "每日分享拿粉钻时调起的社交平台，需要自行在模拟器上安装对应app",
+            "cases": [
+                {
+                    "name": "QQ",
+                    "label": "QQ",
+                    "pipeline_override": {
+                        "分享_点击分享": {
+                            "next": [
+                                "抽阁_分享QQ"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "WeChat",
+                    "label": "微信",
+                    "pipeline_override": {
+                        "分享_点击分享": {
+                            "next": [
+                                "抽阁_分享微信"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Weibo",
+                    "label": "微博",
+                    "pipeline_override": {
+                        "分享_点击分享": {
+                            "next": [
+                                "抽阁_分享微博"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Xiaohongshu",
+                    "label": "小红书",
+                    "pipeline_override": {
+                        "分享_点击分享": {
+                            "next": [
+                                "抽阁_分享小红书"
+                            ]
+                        }
+                    }
+                }
+            ],
+            "default_case": "QQ"
         }
     },
     "preset": [
@@ -276,15 +336,15 @@
                 },
                 {
                     "name": "分享",
-                    "enabled": false
+                    "enabled": true
                 },
                 {
                     "name": "时空回廊制衣",
-                    "enabled": false
+                    "enabled": true
                 },
                 {
                     "name": "主线制衣",
-                    "enabled": false
+                    "enabled": true
                 },
                 
                 {

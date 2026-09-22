@@ -3,14 +3,14 @@
         "$__mpe_code": {
             "prefix": "",
             "coordinateMode": "absolute-v1",
-            "lastSyncTime": 1789962910243,
+            "lastSyncTime": 1790113984054,
             "isModifiedExternally": false,
             "isDeleted": false,
             "filePath": "D:\\Projects\\Go\\MaNikki4\\assets\\resource\\pipeline\\忆海心阶.json",
             "savedViewport": {
-                "x": -2141,
-                "y": 110,
-                "zoom": 0.55
+                "x": -4926,
+                "y": -17,
+                "zoom": 0.62
             },
             "filename": "忆海心阶",
             "version": "v1.10.1"
@@ -624,32 +624,6 @@
             "position": {
                 "x": 9088,
                 "y": 451
-            }
-        }
-    },
-    "忆海_穿戴印象确认2": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    252,
-                    1085,
-                    199,
-                    53
-                ],
-                "expected": [
-                    "确定"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_wait_freezes": 500,
-        "$__mpe_code": {
-            "position": {
-                "x": 9503,
-                "y": -334
             }
         }
     },
