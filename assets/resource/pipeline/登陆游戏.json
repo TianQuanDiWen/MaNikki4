@@ -3,21 +3,60 @@
         "$__mpe_code": {
             "prefix": "",
             "coordinateMode": "absolute-v1",
-            "lastSyncTime": 1790965525773,
+            "lastSyncTime": 1791668734954,
             "isModifiedExternally": false,
             "isDeleted": false,
             "filePath": "D:\\Projects\\Go\\MaNikki4\\assets\\resource\\pipeline\\登陆游戏.json",
             "savedViewport": {
-                "x": -4685,
-                "y": 576,
-                "zoom": 1
+                "x": -3521,
+                "y": 850,
+                "zoom": 0.79
             },
             "filename": "登陆游戏",
-            "version": "v2.0.6"
+            "version": "v2.1.0"
+        }
+    },
+    "登陆_跳过PV": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    602,
+                    8,
+                    107,
+                    158
+                ],
+                "expected": [
+                    "跳过"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    288,
+                    58,
+                    131,
+                    50
+                ]
+            }
+        },
+        "repeat": 2,
+        "repeat_delay": 200,
+        "focus": {
+            "Node.Action.Succeeded": "识别到pv 点击跳过"
+        },
+        "$__mpe_code": {
+            "position": {
+                "x": 5409,
+                "y": -895
+            }
         }
     },
     "登陆_中继": {
         "next": [
+            "[JumpBack]登陆_跳过PV",
             "[JumpBack]登陆_领取红包",
             "[JumpBack]登陆_关闭公告",
             "登陆_打开个人简介",
@@ -70,13 +109,13 @@
             "type": "OCR",
             "param": {
                 "roi": [
-                    557,
-                    1017,
-                    145,
-                    36
+                    204,
+                    841,
+                    294,
+                    198
                 ],
                 "expected": [
-                    "今日不再提示"
+                    "感谢好友"
                 ]
             }
         },
@@ -93,10 +132,14 @@
         },
         "repeat": 2,
         "repeat_delay": 200,
+        "next": [
+            "登陆_关闭红包页面",
+            "登陆_领取红包结束"
+        ],
         "$__mpe_code": {
             "position": {
-                "x": 5720,
-                "y": -454
+                "x": 5733,
+                "y": -526
             }
         }
     },
@@ -285,8 +328,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 5413,
-                "y": -464
+                "x": 5416,
+                "y": -521
             }
         }
     },
@@ -299,6 +342,14 @@
             "position": {
                 "x": 4486,
                 "y": 316
+            }
+        }
+    },
+    "登陆_领取红包结束": {
+        "$__mpe_code": {
+            "position": {
+                "x": 6025,
+                "y": -444
             }
         }
     }
