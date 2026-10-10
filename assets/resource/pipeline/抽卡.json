@@ -3,17 +3,17 @@
         "$__mpe_code": {
             "prefix": "",
             "coordinateMode": "absolute-v1",
-            "lastSyncTime": 1791006873673,
+            "lastSyncTime": 1791668900219,
             "isModifiedExternally": false,
             "isDeleted": false,
             "filePath": "D:\\Projects\\Go\\MaNikki4\\assets\\resource\\pipeline\\抽卡.json",
             "savedViewport": {
-                "x": -4599,
-                "y": 26,
-                "zoom": 0.8
+                "x": -3806,
+                "y": -138,
+                "zoom": 0.7
             },
             "filename": "抽卡",
-            "version": "v2.0.6"
+            "version": "v2.1.0"
         }
     },
     "$__mpe_external_公共：返回主菜单_抽卡": {
@@ -218,15 +218,40 @@
             }
         }
     },
+    "抽阁_左滑寻找其他免费": {
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    15,
+                    466,
+                    74,
+                    139
+                ]
+            }
+        },
+        "post_wait_freezes": 1000,
+        "next": [
+            "[JumpBack]抽阁_其他免费的",
+            "抽阁_确认回到谜之海",
+            "抽阁_左滑寻找其他免费"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 5509,
+                "y": 834
+            }
+        }
+    },
     "抽阁_心之门": {
         "recognition": {
             "type": "OCR",
             "param": {
                 "roi": [
-                    17,
-                    125,
-                    110,
-                    465
+                    12,
+                    124,
+                    92,
+                    820
                 ],
                 "expected": [
                     "心之门"
@@ -274,6 +299,20 @@
             "position": {
                 "x": 5278,
                 "y": 381
+            }
+        }
+    },
+    "抽阁_无可抽次数": {
+        "focus": {
+            "Node.Action.Succeeded": "谜之阁已无每日免费，判断当日已抽过免费，直接退出流程"
+        },
+        "next": [
+            "抽阁_退出"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 6218,
+                "y": 534
             }
         }
     },
@@ -492,45 +531,6 @@
             "position": {
                 "x": 7162,
                 "y": 813
-            }
-        }
-    },
-    "抽阁_无可抽次数": {
-        "focus": {
-            "Node.Action.Succeeded": "谜之阁已无每日免费，判断当日已抽过免费，直接退出流程"
-        },
-        "next": [
-            "抽阁_退出"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 6218,
-                "y": 534
-            }
-        }
-    },
-    "抽阁_左滑寻找其他免费": {
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    15,
-                    466,
-                    74,
-                    139
-                ]
-            }
-        },
-        "post_wait_freezes": 1000,
-        "next": [
-            "[JumpBack]抽阁_其他免费的",
-            "抽阁_确认回到谜之海",
-            "抽阁_左滑寻找其他免费"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 5509,
-                "y": 834
             }
         }
     }
