@@ -49,6 +49,15 @@
             "path": [
                 "./resource"
             ]
+        },
+        {
+            "name": "台服",
+            "path": [
+                "./resource"
+            ],
+            "option": [
+                "ServerOption_TW"
+            ]
         }
     ],
     "task": [
@@ -350,6 +359,32 @@
             ],
             "default_case": "Yes"
         },
+        "ServerOption_TW": {
+            "type": "switch",
+            "label": "台服客户端拉回",
+            "description": "台服环境下自动使用 shell 兼容拉回（同时支持官网版与 Google Play 版）",
+            "cases": [
+                {
+                    "name": "Yes",
+                    "label": "开启",
+                    "pipeline_override": {
+                        "分享_强制拉回游戏": {
+                            "action": {
+                                "type": "Shell",
+                                "param": {
+                                    "cmd": "am start -n com.shining.nikki4.tw/com.nikki.nn4lib.NN4PlayerActivity || am start -n com.papegames.nn4.tw/com.nikki.nn4lib.NN4PlayerActivity"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "No",
+                    "label": "关闭"
+                }
+            ],
+            "default_case": "Yes"
+        },
         "ShareAppOption": {
             "type": "select",
             "label": "分享目标APP",
@@ -357,7 +392,7 @@
             "cases": [
                 {
                     "name": "QQ",
-                    "label": "QQ",
+                    "label": "QQ (国服)",
                     "pipeline_override": {
                         "分享_点击分享": {
                             "next": [
@@ -368,7 +403,7 @@
                 },
                 {
                     "name": "WeChat",
-                    "label": "微信",
+                    "label": "微信 (国服)",
                     "pipeline_override": {
                         "分享_点击分享": {
                             "next": [
@@ -379,7 +414,7 @@
                 },
                 {
                     "name": "Weibo",
-                    "label": "微博",
+                    "label": "微博 (国服)",
                     "pipeline_override": {
                         "分享_点击分享": {
                             "next": [
@@ -390,11 +425,33 @@
                 },
                 {
                     "name": "Xiaohongshu",
-                    "label": "小红书",
+                    "label": "小红书 (国服)",
                     "pipeline_override": {
                         "分享_点击分享": {
                             "next": [
                                 "抽阁_分享小红书"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "LINE",
+                    "label": "LINE (台服)",
+                    "pipeline_override": {
+                        "分享_点击分享": {
+                            "next": [
+                                "抽阁_分享LINE"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Instagram",
+                    "label": "Instagram (台服)",
+                    "pipeline_override": {
+                        "分享_点击分享": {
+                            "next": [
+                                "抽阁_分享Instagram"
                             ]
                         }
                     }

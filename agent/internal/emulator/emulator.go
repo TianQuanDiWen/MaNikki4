@@ -17,6 +17,10 @@ import (
 const (
 	defaultPackageName = "com.papegames.nn4.cn"
 	defaultADBAddress  = "127.0.0.1:16384"
+
+	pkgCN   = "com.papegames.nn4.cn"
+	pkgTW   = "com.shining.nikki4.tw"
+	pkgTWGP = "com.papegames.nn4.tw"
 )
 
 var knownExecutables = []string{
@@ -39,22 +43,27 @@ func Run(args []string) error {
 		return fmt.Errorf("resolve runtime path: %w", err)
 	}
 
-	// 1. 读取既有配置中定义的 ADB 端口、路径与实例序号
-	cfgADBAddress, cfgADBPath, cfgMuMuPath, vmIndex := loadConfig(paths.Root)
+	// 1. 读取既有配置中定义的 ADB 端口、路径、模拟器路径、资源服务器与实例序号
+	cfgADBAddress, cfgADBPath, cfgMuMuPath, cfgResource, vmIndex := loadConfig(paths.Root)
 	adbAddress := defaultADBAddress
 	if cfgADBAddress != "" {
 		adbAddress = cfgADBAddress
 	}
 
-	// 2. 解析 MXU 传入的 option 参数
+	// 2. 解析 MXU 传入的 option 参数与目标区服
 	var inputPath string
+	var rawJSON string
 	remaining := flags.Args()
 	if len(remaining) > 0 {
-		inputPath = extractMuMuPathFromJSON(remaining[len(remaining)-1])
+		rawJSON = remaining[len(remaining)-1]
+		inputPath = extractMuMuPathFromJSON(rawJSON)
 	}
 	if inputPath == "" {
 		inputPath = cfgMuMuPath
 	}
+
+	serverOpt := detectServer(rawJSON, cfgResource)
+	fmt.Printf("[Emulator] 确认运行区服: %s\n", serverOpt)
 
 	// 3. 定位 MuMu 路径（显式输入 -> 正在运行 -> 注册表关联 -> 默认目录 -> 置顶弹窗）
 	mumuPath, wasAutoDetected, err := resolveMuMuPath(inputPath, true)
@@ -84,12 +93,76 @@ func Run(args []string) error {
 	}
 
 	// 7. 拉起闪耀暖暖并确保其运行就绪
-	if err := launchGameApp(mumuPath, adbExe, adbAddress, vmIndex); err != nil {
+	if err := launchGameApp(mumuPath, adbExe, adbAddress, vmIndex, serverOpt); err != nil {
 		return fmt.Errorf("拉起游戏应用失败: %w", err)
 	}
 
 	fmt.Println("[Emulator] 启动准备完成，无缝移交 Controller")
 	return nil
+}
+
+// extractServerFromJSON 从 MXU 传入的 option JSON 或配置文件中解析 ServerOption (CN / TW / TW_GP)
+func extractServerFromJSON(rawJSON string) string {
+	if !strings.HasPrefix(strings.TrimSpace(rawJSON), "{") {
+		return ""
+	}
+	var data map[string]any
+	if err := json.Unmarshal([]byte(rawJSON), &data); err != nil {
+		return ""
+	}
+	parseVal := func(target any) string {
+		if val, ok := target.(string); ok {
+			return strings.TrimSpace(val)
+		}
+		if sub, ok := target.(map[string]any); ok {
+			for _, k := range []string{"caseName", "case", "value", "name"} {
+				if v, ok := sub[k].(string); ok && strings.TrimSpace(v) != "" {
+					return strings.TrimSpace(v)
+				}
+			}
+		}
+		return ""
+	}
+	if v := parseVal(data["ServerOption"]); v != "" {
+		return v
+	}
+	if parseVal(data["ServerOption_TW_GP"]) == "Yes" {
+		return "TW_GP"
+	}
+	if parseVal(data["ServerOption_TW"]) == "Yes" {
+		return "TW"
+	}
+	if opt, ok := data["option"].(map[string]any); ok {
+		if v := parseVal(opt["ServerOption"]); v != "" {
+			return v
+		}
+		if parseVal(opt["ServerOption_TW_GP"]) == "Yes" {
+			return "TW_GP"
+		}
+		if parseVal(opt["ServerOption_TW"]) == "Yes" {
+			return "TW"
+		}
+	}
+	return ""
+}
+
+// detectServer 解析目标区服（CLI 选项优先，其次为 PI_RESOURCE 环境变量，再次为配置中的 resource）
+func detectServer(rawJSON, cfgResource string) string {
+	if s := extractServerFromJSON(rawJSON); s != "" {
+		return s
+	}
+	if env := os.Getenv("PI_RESOURCE"); env != "" {
+		if strings.Contains(env, "台服") || strings.EqualFold(env, "TW") {
+			return "TW"
+		}
+		if strings.Contains(env, "官服") || strings.Contains(env, "国服") || strings.EqualFold(env, "CN") {
+			return "CN"
+		}
+	}
+	if strings.Contains(cfgResource, "台服") || strings.EqualFold(cfgResource, "TW") {
+		return "TW"
+	}
+	return "CN"
 }
 
 // extractMuMuPathFromJSON 从 MXU 传入的 JSON 字符串中提取 mumu_path
@@ -340,14 +413,47 @@ func isEmulatorReady(adbExe, adbAddress string) bool {
 	return err == nil && strings.TrimSpace(string(bootOut)) == "1"
 }
 
-func detectPackageName(adbExe, adbAddress string) string {
+func detectPackageName(adbExe, adbAddress, server string) string {
+	installed := make(map[string]bool)
+	var all []string
 	if out, err := exec.Command(adbExe, "-s", adbAddress, "shell", "pm", "list", "packages").Output(); err == nil {
 		for _, line := range strings.Split(string(out), "\n") {
 			line = strings.TrimPrefix(strings.TrimSpace(line), "package:")
-			if strings.Contains(line, "papegames") || strings.Contains(line, "nn4") {
-				return line
+			if line == pkgTW || line == pkgTWGP || line == pkgCN || strings.Contains(line, "nn4") {
+				installed[line] = true
+				all = append(all, line)
 			}
 		}
+	}
+
+	if server == "TW_GP" {
+		if installed[pkgTWGP] {
+			return pkgTWGP
+		}
+		if installed[pkgTW] {
+			return pkgTW
+		}
+	} else if server == "TW" {
+		if installed[pkgTW] {
+			return pkgTW
+		}
+		if installed[pkgTWGP] {
+			return pkgTWGP
+		}
+	} else {
+		if installed[pkgCN] {
+			return pkgCN
+		}
+	}
+
+	if len(all) > 0 {
+		return all[0]
+	}
+	if server == "TW_GP" {
+		return pkgTWGP
+	}
+	if server == "TW" {
+		return pkgTW
 	}
 	return defaultPackageName
 }
@@ -373,8 +479,8 @@ func launchOrFocusApp(mumuPath, adbExe, adbAddress string, vmIndex int, pkg stri
 	_ = exec.Command(adbExe, "-s", adbAddress, "shell", "monkey", "-p", pkg, "1").Run()
 }
 
-func launchGameApp(mumuPath, adbExe, adbAddress string, vmIndex int) error {
-	pkg := detectPackageName(adbExe, adbAddress)
+func launchGameApp(mumuPath, adbExe, adbAddress string, vmIndex int, server string) error {
+	pkg := detectPackageName(adbExe, adbAddress, server)
 	fmt.Printf("[Emulator] 目标游戏包名: %s\n", pkg)
 
 	if isAppRunning(adbExe, adbAddress, pkg) {
@@ -425,18 +531,51 @@ func resolveConfigPath(projectRoot string, ensureDir bool) string {
 	return target
 }
 
+// resolveMXUResource 从 MXU 运行时配置（mxu-MaNikki4.json）中解析用户当前激活的资源包名称
+func resolveMXUResource(projectRoot string) string {
+	candidates := []string{
+		filepath.Join(projectRoot, "config", "mxu-MaNikki4.json"),
+		filepath.Join(projectRoot, "assets", "config", "mxu-MaNikki4.json"),
+	}
+	for _, p := range candidates {
+		if data, err := os.ReadFile(p); err == nil {
+			var mxuCfg struct {
+				Instances []struct {
+					ID           string `json:"id"`
+					ResourceName string `json:"resourceName"`
+				} `json:"instances"`
+				LastActiveInstanceID string `json:"lastActiveInstanceId"`
+			}
+			if err := json.Unmarshal(data, &mxuCfg); err == nil {
+				for _, inst := range mxuCfg.Instances {
+					if inst.ID == mxuCfg.LastActiveInstanceID && strings.TrimSpace(inst.ResourceName) != "" {
+						return strings.TrimSpace(inst.ResourceName)
+					}
+				}
+				if len(mxuCfg.Instances) > 0 && strings.TrimSpace(mxuCfg.Instances[0].ResourceName) != "" {
+					return strings.TrimSpace(mxuCfg.Instances[0].ResourceName)
+				}
+			}
+		}
+	}
+	return ""
+}
+
 // loadConfig 从现有配置文件加载已配置的 ADB 地址、路径、模拟器路径与实例序号
-func loadConfig(projectRoot string) (string, string, string, int) {
+func loadConfig(projectRoot string) (string, string, string, string, int) {
 	cfgPath := resolveConfigPath(projectRoot, false)
 	if !fileExists(cfgPath) {
-		return "", "", "", 0
+		mxuRes := resolveMXUResource(projectRoot)
+		return "", "", "", mxuRes, 0
 	}
 	data, err := os.ReadFile(cfgPath)
 	if err != nil {
-		return "", "", "", 0
+		mxuRes := resolveMXUResource(projectRoot)
+		return "", "", "", mxuRes, 0
 	}
 	var root struct {
-		ADB struct {
+		Resource string `json:"resource"`
+		ADB      struct {
 			Address string `json:"address"`
 			ADBPath string `json:"adb_path"`
 			Config  struct {
@@ -459,9 +598,14 @@ func loadConfig(projectRoot string) (string, string, string, int) {
 		if mumuPath == "" {
 			mumuPath = root.Option.MuMuConfig.MuMuPath
 		}
-		return strings.TrimSpace(root.ADB.Address), strings.TrimSpace(root.ADB.ADBPath), strings.TrimSpace(mumuPath), root.ADB.Config.Extras.MuMu.Index
+		res := strings.TrimSpace(root.Resource)
+		if mxuRes := resolveMXUResource(projectRoot); mxuRes != "" {
+			res = mxuRes
+		}
+		return strings.TrimSpace(root.ADB.Address), strings.TrimSpace(root.ADB.ADBPath), strings.TrimSpace(mumuPath), res, root.ADB.Config.Extras.MuMu.Index
 	}
-	return "", "", "", 0
+	mxuRes := resolveMXUResource(projectRoot)
+	return "", "", "", mxuRes, 0
 }
 
 // savePathToConfig 写入或更新配置至 maa_pi_config.json
@@ -501,7 +645,7 @@ func ShutdownEmulator(projectRoot string, closeLauncherOpt ...bool) error {
 		closeLauncher = closeLauncherOpt[0]
 	}
 
-	cfgADBAddress, cfgADBPath, cfgMuMuPath, vmIndex := loadConfig(projectRoot)
+	cfgADBAddress, cfgADBPath, cfgMuMuPath, _, vmIndex := loadConfig(projectRoot)
 	adbAddress := defaultADBAddress
 	if cfgADBAddress != "" {
 		adbAddress = cfgADBAddress

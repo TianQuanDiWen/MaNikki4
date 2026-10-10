@@ -3,14 +3,14 @@
         "$__mpe_code": {
             "prefix": "",
             "coordinateMode": "absolute-v1",
-            "lastSyncTime": 1791413479170,
+            "lastSyncTime": 1791579929851,
             "isModifiedExternally": false,
             "isDeleted": false,
             "filePath": "D:\\Projects\\Go\\MaNikki4\\assets\\resource\\pipeline\\分享.json",
             "savedViewport": {
-                "x": -6733,
-                "y": 473,
-                "zoom": 0.89
+                "x": -8957,
+                "y": 479,
+                "zoom": 1.17
             },
             "filename": "分享",
             "version": "v2.0.7"
@@ -55,6 +55,25 @@
             "position": {
                 "x": 5714,
                 "y": -436
+            }
+        }
+    },
+    "分享_强制拉回游戏": {
+        "action": {
+            "type": "StartApp",
+            "param": {
+                "package": "com.papegames.nn4.cn"
+            }
+        },
+        "post_wait_freezes": 1500,
+        "next": [
+            "抽阁_分享退出",
+            "分享_结束"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 8196,
+                "y": -299
             }
         }
     },
@@ -217,6 +236,74 @@
             "position": {
                 "x": 6047,
                 "y": -123
+            }
+        }
+    },
+    "抽阁_分享Instagram": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    26,
+                    1163,
+                    507,
+                    99
+                ],
+                "expected": [
+                    "LINE"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    99,
+                    2,
+                    -22,
+                    -4
+                ]
+            }
+        },
+        "post_wait_freezes": 500,
+        "timeout": 3000,
+        "next": [
+            "分享_中继"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 7425,
+                "y": 1021
+            }
+        }
+    },
+    "抽阁_分享LINE": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    26,
+                    1163,
+                    507,
+                    99
+                ],
+                "expected": [
+                    "LINE"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 500,
+        "timeout": 3000,
+        "next": [
+            "分享_中继"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 7424,
+                "y": 682
             }
         }
     },
@@ -439,25 +526,6 @@
             "position": {
                 "x": 8189,
                 "y": 213
-            }
-        }
-    },
-    "分享_强制拉回游戏": {
-        "action": {
-            "type": "StartApp",
-            "param": {
-                "package": "com.papegames.nn4.cn"
-            }
-        },
-        "post_wait_freezes": 1500,
-        "next": [
-            "抽阁_分享退出",
-            "分享_结束"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 8196,
-                "y": -299
             }
         }
     }

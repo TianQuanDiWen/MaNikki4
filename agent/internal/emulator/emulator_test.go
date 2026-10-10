@@ -2,6 +2,8 @@ package emulator
 
 import (
 	"encoding/json"
+	"os"
+	"path/filepath"
 	"testing"
 )
 
@@ -87,5 +89,55 @@ func TestParseOtherRunningInstances(t *testing.T) {
 	corrupted := []byte(`invalid json data`)
 	if !parseOtherRunningInstances(corrupted, 0) {
 		t.Errorf("expected true (Fail-Safe) when parsing corrupted JSON")
+	}
+}
+
+func TestDetectServer(t *testing.T) {
+	// 1. 命令行入参测试
+	if res := detectServer(`{"ServerOption":"TW"}`, "官服"); res != "TW" {
+		t.Errorf("expected TW from CLI rawJSON, got %s", res)
+	}
+	if res := detectServer(`{"ServerOption_TW":"Yes"}`, "官服"); res != "TW" {
+		t.Errorf("expected TW from ServerOption_TW, got %s", res)
+	}
+
+	// 2. 环境变量 PI_RESOURCE 测试
+	t.Setenv("PI_RESOURCE", "台服")
+	if res := detectServer("", "官服"); res != "TW" {
+		t.Errorf("expected TW from PI_RESOURCE env var, got %s", res)
+	}
+	t.Setenv("PI_RESOURCE", "")
+
+	// 3. 配置 resource 测试
+	if res := detectServer("", "台服"); res != "TW" {
+		t.Errorf("expected TW from cfgResource, got %s", res)
+	}
+	if res := detectServer("", "官服"); res != "CN" {
+		t.Errorf("expected CN from cfgResource, got %s", res)
+	}
+}
+
+func TestResolveMXUResource(t *testing.T) {
+	tempDir := t.TempDir()
+	cfgDir := filepath.Join(tempDir, "config")
+	if err := os.MkdirAll(cfgDir, 0o755); err != nil {
+		t.Fatal(err)
+	}
+
+	mxuContent := `{
+		"instances": [
+			{
+				"id": "inst_1",
+				"resourceName": "台服"
+			}
+		],
+		"lastActiveInstanceId": "inst_1"
+	}`
+	if err := os.WriteFile(filepath.Join(cfgDir, "mxu-MaNikki4.json"), []byte(mxuContent), 0o644); err != nil {
+		t.Fatal(err)
+	}
+
+	if res := resolveMXUResource(tempDir); res != "台服" {
+		t.Errorf("expected 台服 from mxu-MaNikki4.json, got %s", res)
 	}
 }
