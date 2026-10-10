@@ -3,24 +3,24 @@
         "$__mpe_code": {
             "prefix": "",
             "coordinateMode": "absolute-v1",
-            "lastSyncTime": 1791412823426,
+            "lastSyncTime": 1791671971950,
             "isModifiedExternally": false,
             "isDeleted": false,
             "filePath": "D:\\Projects\\Go\\MaNikki4\\assets\\resource\\pipeline\\任务.json",
             "savedViewport": {
-                "x": -5241,
-                "y": -91,
-                "zoom": 1.01
+                "x": -12088,
+                "y": -1026,
+                "zoom": 1.49
             },
             "filename": "任务",
-            "version": "v2.0.7"
+            "version": "v2.1.0"
         }
     },
     "$__mpe_external_公共：返回主菜单_任务": {
         "$__mpe_code": {
             "position": {
-                "x": 8031,
-                "y": 617
+                "x": 8490,
+                "y": 616
             },
             "extra_positions": [
                 {
@@ -88,6 +88,43 @@
             "position": {
                 "x": 6775,
                 "y": -1230
+            }
+        }
+    },
+    "任务_奖励弹窗关闭": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    220,
+                    94,
+                    302,
+                    643
+                ],
+                "expected": [
+                    "恭喜获得",
+                    "道具详情",
+                    "摸鱼"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    182,
+                    52,
+                    102,
+                    36
+                ]
+            }
+        },
+        "repeat": 2,
+        "repeat_delay": 300,
+        "$__mpe_code": {
+            "position": {
+                "x": 6492,
+                "y": 800
             }
         }
     },
@@ -551,9 +588,10 @@
             }
         }
     },
-    "任务_结束": {
+    "任务_结束中继": {
         "next": [
-            "公共：返回主菜单"
+            "[JumpBack]任务_领取时尚任务",
+            "任务_结束"
         ],
         "$__mpe_code": {
             "position": {
@@ -705,7 +743,7 @@
             "Node.Action.Succeeded": "领取每日任务奖励"
         },
         "next": [
-            "任务_结束"
+            "任务_结束中继"
         ],
         "$__mpe_code": {
             "position": {
@@ -742,7 +780,7 @@
             }
         },
         "next": [
-            "任务_结束"
+            "任务_结束中继"
         ],
         "$__mpe_code": {
             "position": {
@@ -779,40 +817,98 @@
             }
         }
     },
-    "任务_奖励弹窗关闭": {
+    "任务_领取时尚任务": {
+        "max_hit": 1,
         "recognition": {
             "type": "OCR",
             "param": {
                 "roi": [
-                    220,
-                    94,
+                    417,
+                    596,
                     302,
-                    643
+                    107
                 ],
                 "expected": [
-                    "恭喜获得",
-                    "道具详情",
-                    "摸鱼"
+                    "时尚任务"
                 ]
             }
         },
         "action": {
-            "type": "Click",
+            "type": "Click"
+        },
+        "next": [
+            "确认已在时尚任务",
+            "任务_领取时尚任务"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 8021,
+                "y": 884
+            }
+        }
+    },
+    "任务_结束": {
+        "next": [
+            "公共：返回主菜单"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 8079,
+                "y": 587
+            }
+        }
+    },
+    "任务_一键领取时尚任务": {
+        "recognition": {
+            "type": "OCR",
             "param": {
-                "target": [
-                    182,
-                    52,
-                    102,
-                    36
+                "roi": [
+                    176,
+                    1174,
+                    377,
+                    92
+                ],
+                "expected": [
+                    "一键领取",
+                    "领取"
                 ]
             }
+        },
+        "action": {
+            "type": "Click"
         },
         "repeat": 2,
         "repeat_delay": 300,
         "$__mpe_code": {
             "position": {
-                "x": 6492,
-                "y": 800
+                "x": 8666,
+                "y": 879
+            }
+        }
+    },
+    "确认已在时尚任务": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    248,
+                    669,
+                    257,
+                    68
+                ],
+                "expected": [
+                    "每周一5:00刷新",
+                    "周一"
+                ]
+            }
+        },
+        "next": [
+            "任务_一键领取时尚任务"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 8350,
+                "y": 907
             }
         }
     }

@@ -192,7 +192,8 @@
             "entry": "任务_开始",
             "description": "领取每日任务奖励",
             "option": [
-                "TaskPrivilegeOption"
+                "TaskPrivilegeOption",
+                "FashionTaskOption"
             ],
             "default_check": true
         },
@@ -526,6 +527,37 @@
                 }
             ],
             "default_case": "No"
+        },
+        "FashionTaskOption": {
+            "type": "switch",
+            "label": "领取时尚任务",
+            "description": "开启后在领取每日任务奖励后，自动切换至时尚任务页面并一键领取活跃度奖励；默认开启",
+            "cases": [
+                {
+                    "name": "Yes",
+                    "label": "开启",
+                    "pipeline_override": {
+                        "任务_结束中继": {
+                            "next": [
+                                "[JumpBack]任务_领取时尚任务",
+                                "任务_结束"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "No",
+                    "label": "关闭",
+                    "pipeline_override": {
+                        "任务_结束中继": {
+                            "next": [
+                                "任务_结束"
+                            ]
+                        }
+                    }
+                }
+            ],
+            "default_case": "Yes"
         }
     },
     "preset": [
