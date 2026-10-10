@@ -8,17 +8,23 @@ import (
 	"github.com/TianQuanDiWen/MaNikki4/agent/internal/runtimepath"
 )
 
-// Run 启动供 MXU 连接的 MaaFramework AgentServer。
-// MXU 会将通信标识符追加到 child_args 末尾，因此这里要求恰好有一个位置参数。
+// Run 启动供 MXU/MPE/命令行连接的 MaaFramework AgentServer。
 func Run(args []string) error {
 	flags := flag.NewFlagSet("agent", flag.ContinueOnError)
 	root := flags.String("root", ".", "project root containing maafw and resource")
+	identifierFlag := flags.String("identifier", "pi-agent-1", "socket identifier for MaaFramework agent")
 	if err := flags.Parse(args); err != nil {
 		return err
 	}
 	remaining := flags.Args()
-	if len(remaining) != 1 {
-		return fmt.Errorf("agent mode requires the MXU socket identifier")
+	var identifier string
+	switch len(remaining) {
+	case 0:
+		identifier = *identifierFlag
+	case 1:
+		identifier = remaining[0]
+	default:
+		return fmt.Errorf("agent mode accepts at most one socket identifier, got %d", len(remaining))
 	}
 
 	paths, err := runtimepath.Resolve(*root)
@@ -41,7 +47,6 @@ func Run(args []string) error {
 		return err
 	}
 
-	identifier := remaining[0]
 	// 自定义识别和动作必须在启动通信服务前完成注册。
 	if err := maa.AgentServerStartUp(identifier); err != nil {
 		return fmt.Errorf("start AgentServer: %w", err)

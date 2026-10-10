@@ -12,6 +12,7 @@
     "github": "https://github.com/TianQuanDiWen/MaNikki4",
     "version": "0.1.0",
     "agent": {
+        "identifier": "pi-agent-1",
         "child_exec": "go",
         "child_args": [
             "run",
