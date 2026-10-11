@@ -3,17 +3,17 @@
         "$__mpe_code": {
             "prefix": "",
             "coordinateMode": "absolute-v1",
-            "lastSyncTime": 1791409128576,
+            "lastSyncTime": 1791676292239,
             "isModifiedExternally": false,
             "isDeleted": false,
             "filePath": "D:\\Projects\\Go\\MaNikki4\\assets\\resource\\pipeline\\联盟任务.json",
             "savedViewport": {
-                "x": -3864,
-                "y": -75,
-                "zoom": 1.03
+                "x": -5704,
+                "y": 188,
+                "zoom": 1.16
             },
             "filename": "联盟任务",
-            "version": "v2.0.7"
+            "version": "v2.1.0"
         }
     },
     "$__mpe_external_公共：返回主菜单_联盟任务": {
@@ -50,19 +50,22 @@
     "$__mpe_group_联盟捐献_联盟任务": {
         "$__mpe_code": {
             "position": {
-                "x": 4929,
-                "y": -122
+                "x": 4838,
+                "y": -165
             },
             "color": "blue",
             "childrenLabels": [
                 "联盟_免费捐献",
                 "联盟_后面四次",
+                "联盟_捐10粉钻",
+                "联盟_捐50粉钻",
                 "联盟_捐献",
                 "联盟_捐献上限",
+                "联盟_捐献恭喜获得",
                 "联盟_退出捐献"
             ],
-            "width": 1174,
-            "height": 820
+            "width": 1252,
+            "height": 1152
         }
     },
     "$__mpe_group_联盟福利_联盟任务": {
@@ -209,8 +212,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 5304,
-                "y": -46
+                "x": 5229,
+                "y": -116
             }
         }
     },
@@ -240,8 +243,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 5300,
-                "y": 341
+                "x": 5544,
+                "y": -35
             }
         }
     },
@@ -254,6 +257,78 @@
             "position": {
                 "x": 3848,
                 "y": 298
+            }
+        }
+    },
+    "联盟_捐10粉钻": {
+        "max_hit": 1,
+        "recognition": {
+            "type": "Custom",
+            "param": {
+                "custom_recognition": "MatchRowButton",
+                "custom_recognition_param": {
+                    "button": "10",
+                    "keyword": "每日首次捐献",
+                    "y_tolerance": 400
+                },
+                "roi": [
+                    276,
+                    682,
+                    188,
+                    189
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 1000,
+        "focus": {
+            "Node.Action.Succeeded": "联盟捐每日首次10粉钻"
+        },
+        "next": [
+            "联盟_捐献恭喜获得"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 5231,
+                "y": 203
+            }
+        }
+    },
+    "联盟_捐50粉钻": {
+        "max_hit": 1,
+        "recognition": {
+            "type": "Custom",
+            "param": {
+                "custom_recognition": "MatchRowButton",
+                "custom_recognition_param": {
+                    "button": "50",
+                    "keyword": "每日首次捐献",
+                    "y_tolerance": 400
+                },
+                "roi": [
+                    486,
+                    686,
+                    176,
+                    182
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 1000,
+        "focus": {
+            "Node.Action.Succeeded": "联盟捐每日首次50粉钻"
+        },
+        "next": [
+            "联盟_捐献恭喜获得"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 5228,
+                "y": 579
             }
         }
     },
@@ -277,13 +352,13 @@
             "type": "Click"
         },
         "next": [
-            "联盟_免费捐献",
-            "联盟_后面四次"
+            "[JumpBack]联盟_免费捐献",
+            "联盟_退出捐献"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 4969,
-                "y": 202
+                "x": 4878,
+                "y": 159
             }
         }
     },
@@ -305,13 +380,46 @@
         "action": {
             "type": "Click"
         },
-        "next": [
-            "联盟_退出捐献"
-        ],
         "$__mpe_code": {
             "position": {
-                "x": 5566,
-                "y": 171
+                "x": 5828,
+                "y": 10
+            }
+        }
+    },
+    "联盟_捐献恭喜获得": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    79,
+                    168,
+                    555,
+                    589
+                ],
+                "expected": [
+                    "恭喜获得"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    288,
+                    58,
+                    131,
+                    50
+                ]
+            }
+        },
+        "focus": {
+            "Node.Action.Succeeded": "领取每日任务奖励"
+        },
+        "$__mpe_code": {
+            "position": {
+                "x": 5545,
+                "y": 431
             }
         }
     },
@@ -443,8 +551,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 5843,
-                "y": 166
+                "x": 5834,
+                "y": 227
             }
         }
     },

@@ -112,6 +112,9 @@
             "label": "🏛️ 联盟任务",
             "entry": "联盟_开始",
             "description": "完成联盟捐献、机密任务与联盟福利",
+            "option": [
+                "AllianceDonateOption"
+            ],
             "default_check": true
         },
         {
@@ -209,6 +212,66 @@
         }
     ],
     "option": {
+        "AllianceDonateOption": {
+            "type": "select",
+            "label": "粉钻捐献档位",
+            "description": "完成免费与金币捐献后，额外的每日首次粉钻捐献档位；默认不捐",
+            "cases": [
+                {
+                    "name": "None",
+                    "label": "不捐粉钻 (默认)",
+                    "pipeline_override": {
+                        "联盟_捐献": {
+                            "next": [
+                                "[JumpBack]联盟_免费捐献",
+                                "联盟_退出捐献"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Donate10",
+                    "label": "捐 10 粉钻",
+                    "pipeline_override": {
+                        "联盟_捐献": {
+                            "next": [
+                                "[JumpBack]联盟_免费捐献",
+                                "[JumpBack]联盟_捐10粉钻",
+                                "联盟_退出捐献"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Donate50",
+                    "label": "捐 50 粉钻",
+                    "pipeline_override": {
+                        "联盟_捐献": {
+                            "next": [
+                                "[JumpBack]联盟_免费捐献",
+                                "[JumpBack]联盟_捐50粉钻",
+                                "联盟_退出捐献"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "DonateAll",
+                    "label": "捐献 10+50 粉钻",
+                    "pipeline_override": {
+                        "联盟_捐献": {
+                            "next": [
+                                "[JumpBack]联盟_免费捐献",
+                                "[JumpBack]联盟_捐10粉钻",
+                                "[JumpBack]联盟_捐50粉钻",
+                                "联盟_退出捐献"
+                            ]
+                        }
+                    }
+                }
+            ],
+            "default_case": "None"
+        },
         "ContestAutoSubmitOption": {
             "type": "switch",
             "label": "自动投稿参赛",
