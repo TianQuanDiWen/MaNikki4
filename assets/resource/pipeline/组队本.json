@@ -3,17 +3,17 @@
         "$__mpe_code": {
             "prefix": "",
             "coordinateMode": "absolute-v1",
-            "lastSyncTime": 1791402393995,
+            "lastSyncTime": 1791824453107,
             "isModifiedExternally": false,
             "isDeleted": false,
             "filePath": "D:\\Projects\\Go\\MaNikki4\\assets\\resource\\pipeline\\组队本.json",
             "savedViewport": {
-                "x": -4835,
-                "y": -482,
-                "zoom": 0.78
+                "x": -4212,
+                "y": -93,
+                "zoom": 0.91
             },
             "filename": "组队本",
-            "version": "v2.0.7"
+            "version": "v2.1.0"
         }
     },
     "$__mpe_external_公共：返回主菜单_组队本": {
@@ -40,11 +40,11 @@
             "childrenLabels": [
                 "不落的帷幕_取消搭配",
                 "不落的帷幕_快速组队",
+                "不落的帷幕_确认已在",
                 "不落的帷幕_第八幕",
                 "不落的帷幕_结束",
                 "不落的帷幕_返回",
                 "不落的帷幕_选择上演中",
-                "不落的帷幕_确认已在",
                 "不落的帷幕_高难度",
                 "结伴_不落的帷幕",
                 "结伴_不落的帷幕次数"
@@ -62,10 +62,10 @@
             "color": "purple",
             "childrenLabels": [
                 "印象航旅_快速组队",
+                "印象航旅_确认已在",
                 "印象航旅_结束",
                 "印象航旅_虚渊·险",
                 "印象航旅_返回",
-                "印象航旅_确认已在",
                 "印象航旅_高难度",
                 "结伴_印象航旅",
                 "结伴_印象航旅次数"
@@ -84,9 +84,9 @@
             "childrenLabels": [
                 "时光钟表铺_快速组队",
                 "时光钟表铺_点击04",
+                "时光钟表铺_确认已在",
                 "时光钟表铺_结束",
                 "时光钟表铺_返回",
-                "时光钟表铺_确认已在",
                 "结伴_时光钟表铺",
                 "结伴_时光钟表铺次数"
             ],
@@ -150,6 +150,44 @@
             "position": {
                 "x": 6978,
                 "y": 1755
+            }
+        }
+    },
+    "不落的帷幕_确认已在": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    6,
+                    1089,
+                    213,
+                    189
+                ],
+                "expected": [
+                    "剩余次数"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    389,
+                    61,
+                    99,
+                    28
+                ]
+            }
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "不落的帷幕_快速组队",
+            "不落的帷幕_高难度"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 5997,
+                "y": 1743
             }
         }
     },
@@ -279,44 +317,6 @@
             }
         }
     },
-    "不落的帷幕_确认已在": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    6,
-                    1089,
-                    213,
-                    189
-                ],
-                "expected": [
-                    "剩余次数"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    389,
-                    61,
-                    99,
-                    28
-                ]
-            }
-        },
-        "post_wait_freezes": 500,
-        "next": [
-            "不落的帷幕_快速组队",
-            "不落的帷幕_高难度"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 5997,
-                "y": 1743
-            }
-        }
-    },
     "不落的帷幕_高难度": {
         "recognition": {
             "type": "OCR",
@@ -374,6 +374,44 @@
             "position": {
                 "x": 6607,
                 "y": 2285
+            }
+        }
+    },
+    "印象航旅_确认已在": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    13,
+                    1194,
+                    102,
+                    58
+                ],
+                "expected": [
+                    "剩余次数"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    330,
+                    120,
+                    197,
+                    104
+                ]
+            }
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "印象航旅_快速组队",
+            "印象航旅_高难度"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 5795,
+                "y": 2306
             }
         }
     },
@@ -462,46 +500,6 @@
             "position": {
                 "x": 6931,
                 "y": 2323
-            }
-        }
-    },
-    "印象航旅_确认已在": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    57,
-                    72,
-                    304,
-                    107
-                ],
-                "expected": [
-                    "自我",
-                    "率性",
-                    "之旅"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    330,
-                    120,
-                    197,
-                    104
-                ]
-            }
-        },
-        "post_wait_freezes": 500,
-        "next": [
-            "印象航旅_快速组队",
-            "印象航旅_高难度"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 5795,
-                "y": 2306
             }
         }
     },
@@ -594,6 +592,44 @@
             }
         }
     },
+    "时光钟表铺_确认已在": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    17,
+                    1118,
+                    175,
+                    147
+                ],
+                "expected": [
+                    "剩余次数"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    169,
+                    49,
+                    71,
+                    30
+                ]
+            }
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "时光钟表铺_快速组队",
+            "时光钟表铺_点击04"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 5751,
+                "y": 1095
+            }
+        }
+    },
     "时光钟表铺_结束": {
         "recognition": {
             "type": "OCR",
@@ -650,38 +686,6 @@
             "position": {
                 "x": 6893,
                 "y": 1069
-            }
-        }
-    },
-    "时光钟表铺_确认已在": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "expected": [
-                    "决胜时刻"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    585,
-                    61,
-                    93,
-                    66
-                ]
-            }
-        },
-        "post_wait_freezes": 500,
-        "next": [
-            "时光钟表铺_快速组队",
-            "时光钟表铺_点击04"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 5751,
-                "y": 1095
             }
         }
     },
