@@ -3,14 +3,14 @@
         "$__mpe_code": {
             "prefix": "",
             "coordinateMode": "absolute-v1",
-            "lastSyncTime": 1791777725337,
+            "lastSyncTime": 1791848317571,
             "isModifiedExternally": false,
             "isDeleted": false,
             "filePath": "D:\\Projects\\Go\\MaNikki4\\assets\\resource\\pipeline\\忆海心阶.json",
             "savedViewport": {
-                "x": -8923,
-                "y": 184,
-                "zoom": 1.33
+                "x": -7261,
+                "y": 64,
+                "zoom": 1.17
             },
             "filename": "忆海心阶",
             "version": "v2.1.0"
@@ -470,7 +470,8 @@
             "Node.Action.Succeeded": "忆海快速挑战成功"
         },
         "next": [
-            "忆海_真我之境"
+            "忆海_真我之境",
+            "忆海_快速挑战结算"
         ],
         "$__mpe_code": {
             "position": {

@@ -3,14 +3,14 @@
         "$__mpe_code": {
             "prefix": "",
             "coordinateMode": "absolute-v1",
-            "lastSyncTime": 1791824453107,
+            "lastSyncTime": 1791831294523,
             "isModifiedExternally": false,
             "isDeleted": false,
             "filePath": "D:\\Projects\\Go\\MaNikki4\\assets\\resource\\pipeline\\组队本.json",
             "savedViewport": {
-                "x": -4212,
-                "y": -93,
-                "zoom": 0.91
+                "x": -6530,
+                "y": -95,
+                "zoom": 1.17
             },
             "filename": "组队本",
             "version": "v2.1.0"
@@ -449,13 +449,14 @@
             "type": "OCR",
             "param": {
                 "roi": [
-                    558,
-                    737,
-                    124,
-                    113
+                    220,
+                    587,
+                    488,
+                    545
                 ],
                 "expected": [
-                    "虚渊·险"
+                    "虚渊·险",
+                    "虚渊"
                 ]
             }
         },
@@ -1046,8 +1047,7 @@
             "结伴_时光钟表铺次数",
             "结伴_不落的帷幕次数",
             "结伴_印象航旅次数",
-            "结伴_结束",
-            "结伴_页面中继"
+            "结伴_结束"
         ],
         "$__mpe_code": {
             "position": {
