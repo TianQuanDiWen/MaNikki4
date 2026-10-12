@@ -3,17 +3,17 @@
         "$__mpe_code": {
             "prefix": "",
             "coordinateMode": "absolute-v1",
-            "lastSyncTime": 1791193818682,
+            "lastSyncTime": 1791776308125,
             "isModifiedExternally": false,
             "isDeleted": false,
             "filePath": "D:\\Projects\\Go\\MaNikki4\\assets\\resource\\pipeline\\竞技场.json",
             "savedViewport": {
-                "x": -4831,
-                "y": -291,
-                "zoom": 1.13
+                "x": -7560,
+                "y": -711,
+                "zoom": 1.03
             },
             "filename": "竞技场",
-            "version": "v2.0.6"
+            "version": "v2.1.0"
         }
     },
     "$__mpe_external_公共：返回主菜单_竞技场": {
@@ -365,8 +365,8 @@
             "[JumpBack]竞技场_挑战结果面板",
             "竞技场_体力不足",
             "竞技场_循环检查",
-            "竞技场_挑战结算",
-            "[JumpBack]竞技场_挑战排名提升"
+            "[JumpBack]竞技场_挑战排名提升",
+            "竞技场_挑战结算"
         ],
         "$__mpe_code": {
             "position": {
@@ -680,8 +680,8 @@
         "post_wait_freezes": 800,
         "$__mpe_code": {
             "position": {
-                "x": 8169,
-                "y": 1427
+                "x": 8168,
+                "y": 1715
             }
         }
     },
@@ -884,6 +884,7 @@
             "竞技场_挑战对手1",
             "竞技场_挑战对手2",
             "竞技场_挑战对手3",
+            "[JumpBack]竞技场_晋级弹窗",
             "[JumpBack]竞技场_点击换一批"
         ],
         "$__mpe_code": {
@@ -923,6 +924,43 @@
             "position": {
                 "x": 5233,
                 "y": 474
+            }
+        }
+    },
+    "竞技场_晋级弹窗": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    175,
+                    98,
+                    408,
+                    295
+                ],
+                "expected": [
+                    "晋级"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    288,
+                    58,
+                    131,
+                    50
+                ]
+            }
+        },
+        "post_wait_freezes": 800,
+        "focus": {
+            "Node.Action.Succeeded": "段位晋级~"
+        },
+        "$__mpe_code": {
+            "position": {
+                "x": 8167,
+                "y": 1410
             }
         }
     }
