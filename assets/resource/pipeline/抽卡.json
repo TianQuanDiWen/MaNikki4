@@ -3,29 +3,117 @@
         "$__mpe_code": {
             "prefix": "",
             "coordinateMode": "absolute-v1",
-            "lastSyncTime": 1791668900219,
+            "lastSyncTime": 1792044324112,
             "isModifiedExternally": false,
             "isDeleted": false,
             "filePath": "D:\\Projects\\Go\\MaNikki4\\assets\\resource\\pipeline\\抽卡.json",
             "savedViewport": {
-                "x": -3806,
-                "y": -138,
-                "zoom": 0.7
+                "x": -4576,
+                "y": 93,
+                "zoom": 0.8
             },
             "filename": "抽卡",
             "version": "v2.1.0"
         }
     },
+    "抽阁_左滑退出谜之海": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    0,
+                    108,
+                    345,
+                    465
+                ],
+                "expected": [
+                    "谜之海"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    15,
+                    466,
+                    74,
+                    139
+                ]
+            }
+        },
+        "post_wait_freezes": 1000,
+        "$__mpe_code": {
+            "position": {
+                "x": 6707,
+                "y": 108
+            }
+        }
+    },
+    "抽阁_确认阁UI加载完": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    539,
+                    55,
+                    180,
+                    76
+                ],
+                "expected": [
+                    "感应详情"
+                ]
+            }
+        },
+        "post_wait_freezes": 200,
+        "next": [
+            "[JumpBack]抽阁_其他免费的",
+            "抽阁_确认回到谜之海",
+            "抽阁_左滑寻找其他免费"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 6998,
+                "y": 784
+            }
+        }
+    },
+    "抽阁_确保不在谜之海": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    0,
+                    108,
+                    345,
+                    465
+                ],
+                "expected": [
+                    "谜之海"
+                ]
+            }
+        },
+        "inverse": true,
+        "next": [
+            "抽阁_确认阁UI加载完"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 6706,
+                "y": 429
+            }
+        }
+    },
     "$__mpe_external_公共：返回主菜单_抽卡": {
         "$__mpe_code": {
             "position": {
-                "x": 7892,
-                "y": 839
+                "x": 8568,
+                "y": 687
             },
             "extra_positions": [
                 {
-                    "x": 4800,
-                    "y": 750
+                    "x": 4723,
+                    "y": 773
                 }
             ]
         }
@@ -81,13 +169,16 @@
             }
         },
         "post_wait_freezes": 200,
+        "focus": {
+            "Node.Action.Succeeded": "首次抽取金币阁"
+        },
         "next": [
             "抽阁_单抽退出"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 6215,
-                "y": 133
+                "x": 6113,
+                "y": 254
             }
         }
     },
@@ -121,8 +212,8 @@
         "post_wait_freezes": 200,
         "$__mpe_code": {
             "position": {
-                "x": 6350,
-                "y": 813
+                "x": 7606,
+                "y": 801
             }
         }
     },
@@ -145,14 +236,15 @@
             "type": "Click"
         },
         "post_wait_freezes": 200,
+        "focus": "抽非金币阁免费次数",
         "next": [
             "抽阁_免费单抽退出",
             "抽阁_其他免费的"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 5973,
-                "y": 801
+                "x": 7302,
+                "y": 800
             }
         }
     },
@@ -183,14 +275,15 @@
             }
         },
         "repeat": 2,
-        "post_wait_freezes": 200,
+        "post_delay": 200,
         "next": [
-            "抽阁_左滑寻找其他免费"
+            "[JumpBack]抽阁_左滑退出谜之海",
+            "抽阁_确保不在谜之海"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 6597,
-                "y": 132
+                "x": 6391,
+                "y": 254
             }
         }
     },
@@ -219,6 +312,21 @@
         }
     },
     "抽阁_左滑寻找其他免费": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    0,
+                    108,
+                    345,
+                    465
+                ],
+                "expected": [
+                    "谜之海"
+                ]
+            }
+        },
+        "inverse": true,
         "action": {
             "type": "Click",
             "param": {
@@ -230,16 +338,13 @@
                 ]
             }
         },
-        "post_wait_freezes": 1000,
         "next": [
-            "[JumpBack]抽阁_其他免费的",
-            "抽阁_确认回到谜之海",
-            "抽阁_左滑寻找其他免费"
+            "抽阁_确认阁UI加载完"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 5509,
-                "y": 834
+                "x": 6999,
+                "y": 1168
             }
         }
     },
@@ -307,12 +412,12 @@
             "Node.Action.Succeeded": "谜之阁已无每日免费，判断当日已抽过免费，直接退出流程"
         },
         "next": [
-            "抽阁_退出"
+            "抽阁_结束"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 6218,
-                "y": 534
+                "x": 6116,
+                "y": 655
             }
         }
     },
@@ -330,8 +435,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 5994,
-                "y": 1186
+                "x": 7324,
+                "y": 1209
             }
         }
     },
@@ -413,24 +518,13 @@
         }
     },
     "抽阁_结束": {
-        "recognition": {
-            "type": "DirectHit",
-            "param": {
-                "roi": [
-                    302,
-                    1112,
-                    133,
-                    110
-                ]
-            }
-        },
         "next": [
             "公共：返回主菜单"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 7559,
-                "y": 843
+                "x": 8230,
+                "y": 664
             }
         }
     },
@@ -453,13 +547,14 @@
             "type": "Click"
         },
         "post_wait_freezes": 200,
+        "focus": "第二次抽金币阁",
         "next": [
             "抽阁_谜之海金币单抽退出"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 6372,
-                "y": 1209
+                "x": 7623,
+                "y": 1187
             }
         }
     },
@@ -492,45 +587,12 @@
         "repeat": 2,
         "post_wait_freezes": 200,
         "next": [
-            "抽阁_退出"
+            "抽阁_结束"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 6765,
-                "y": 1193
-            }
-        }
-    },
-    "抽阁_退出": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "roi": [
-                    0,
-                    14,
-                    128,
-                    131
-                ],
-                "template": [
-                    "闪暖-返回箭头.png"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_wait_freezes": 300,
-        "focus": {
-            "Node.Recognition.Succeeded": ""
-        },
-        "next": [
-            "抽阁_结束",
-            "抽阁_退出"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 7162,
-                "y": 813
+                "x": 7919,
+                "y": 1186
             }
         }
     }
