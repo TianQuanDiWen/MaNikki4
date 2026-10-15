@@ -3,14 +3,14 @@
         "$__mpe_code": {
             "prefix": "",
             "coordinateMode": "absolute-v1",
-            "lastSyncTime": 1791831294523,
+            "lastSyncTime": 1792039119791,
             "isModifiedExternally": false,
             "isDeleted": false,
             "filePath": "D:\\Projects\\Go\\MaNikki4\\assets\\resource\\pipeline\\组队本.json",
             "savedViewport": {
-                "x": -6530,
-                "y": -95,
-                "zoom": 1.17
+                "x": -5673,
+                "y": -986,
+                "zoom": 1.11
             },
             "filename": "组队本",
             "version": "v2.1.0"
@@ -158,10 +158,10 @@
             "type": "OCR",
             "param": {
                 "roi": [
-                    6,
-                    1089,
-                    213,
-                    189
+                    0,
+                    1115,
+                    252,
+                    157
                 ],
                 "expected": [
                     "剩余次数"
@@ -382,10 +382,10 @@
             "type": "OCR",
             "param": {
                 "roi": [
-                    13,
-                    1194,
-                    102,
-                    58
+                    0,
+                    1115,
+                    252,
+                    157
                 ],
                 "expected": [
                     "剩余次数"
@@ -598,10 +598,10 @@
             "type": "OCR",
             "param": {
                 "roi": [
-                    17,
-                    1118,
-                    175,
-                    147
+                    0,
+                    1115,
+                    252,
+                    157
                 ],
                 "expected": [
                     "剩余次数"
