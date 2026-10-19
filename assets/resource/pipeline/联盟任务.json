@@ -3,14 +3,14 @@
         "$__mpe_code": {
             "prefix": "",
             "coordinateMode": "absolute-v1",
-            "lastSyncTime": 1791676292239,
+            "lastSyncTime": 1792367662745,
             "isModifiedExternally": false,
             "isDeleted": false,
             "filePath": "D:\\Projects\\Go\\MaNikki4\\assets\\resource\\pipeline\\联盟任务.json",
             "savedViewport": {
-                "x": -5704,
-                "y": 188,
-                "zoom": 1.16
+                "x": -6106,
+                "y": 82,
+                "zoom": 1.02
             },
             "filename": "联盟任务",
             "version": "v2.1.0"
@@ -41,7 +41,8 @@
                 "机密任务",
                 "机密任务_执行五次",
                 "机密任务_返回",
-                "联盟_确认在机密任务"
+                "联盟_确认在机密任务",
+                "联盟_未检测到机密任务"
             ],
             "width": 1084,
             "height": 701
@@ -136,13 +137,16 @@
         },
         "repeat": 2,
         "repeat_delay": 500,
+        "focus": {
+            "Node.Action.Succeeded": "联盟机密任务执行五次"
+        },
         "next": [
             "机密任务_返回"
         ],
         "$__mpe_code": {
             "position": {
                 "x": 6729,
-                "y": -50
+                "y": -85
             }
         }
     },
@@ -207,13 +211,14 @@
         },
         "repeat": 2,
         "repeat_delay": 1000,
+        "focus": "联盟捐每日五次金币",
         "next": [
             "联盟_后面四次"
         ],
         "$__mpe_code": {
             "position": {
                 "x": 5229,
-                "y": -116
+                "y": -136
             }
         }
     },
@@ -505,9 +510,12 @@
             "type": "Click"
         },
         "timeout": 5000,
+        "focus": "",
         "next": [
-            "机密任务_执行五次",
-            "机密任务_返回"
+            "机密任务_执行五次"
+        ],
+        "on_error": [
+            "联盟_未检测到机密任务"
         ],
         "$__mpe_code": {
             "position": {
@@ -607,6 +615,9 @@
         },
         "repeat": 2,
         "repeat_delay": 200,
+        "focus": {
+            "Node.Action.Succeeded": "领取联盟福利"
+        },
         "next": [
             "联盟福利_关闭弹窗"
         ],
@@ -652,7 +663,7 @@
         "$__mpe_code": {
             "position": {
                 "x": 8201,
-                "y": -59
+                "y": -69
             }
         }
     },
@@ -729,13 +740,30 @@
         "action": {
             "type": "Click"
         },
+        "focus": {
+            "Node.Action.Succeeded": "不存在可领取联盟福利"
+        },
         "next": [
             "联盟福利_返回"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 8180,
-                "y": 339
+                "x": 8203,
+                "y": 297
+            }
+        }
+    },
+    "联盟_未检测到机密任务": {
+        "focus": {
+            "Node.Action.Succeeded": "未检测到联盟机密任务"
+        },
+        "next": [
+            "机密任务_返回"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 6735,
+                "y": 334
             }
         }
     }
