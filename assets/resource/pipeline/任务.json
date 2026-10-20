@@ -3,14 +3,14 @@
         "$__mpe_code": {
             "prefix": "",
             "coordinateMode": "absolute-v1",
-            "lastSyncTime": 1791848987382,
+            "lastSyncTime": 1792483246099,
             "isModifiedExternally": false,
             "isDeleted": false,
             "filePath": "D:\\Projects\\Go\\MaNikki4\\assets\\resource\\pipeline\\任务.json",
             "savedViewport": {
-                "x": -5752,
-                "y": 1357,
-                "zoom": 0.91
+                "x": -4351,
+                "y": 160,
+                "zoom": 0.79
             },
             "filename": "任务",
             "version": "v2.1.0"
@@ -115,8 +115,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 6775,
-                "y": -1230
+                "x": 6780,
+                "y": -1255
             }
         }
     },
@@ -213,9 +213,6 @@
                     "领取"
                 ]
             }
-        },
-        "action": {
-            "type": "Click"
         },
         "next": [
             "任务_一键领取"
@@ -494,10 +491,12 @@
                 ]
             }
         },
+        "repeat": 2,
+        "post_delay": 300,
         "$__mpe_code": {
             "position": {
-                "x": 7247,
-                "y": -476
+                "x": 7244,
+                "y": -567
             }
         }
     },

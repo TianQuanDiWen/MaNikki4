@@ -3,105 +3,17 @@
         "$__mpe_code": {
             "prefix": "",
             "coordinateMode": "absolute-v1",
-            "lastSyncTime": 1792044324112,
+            "lastSyncTime": 1792482229591,
             "isModifiedExternally": false,
             "isDeleted": false,
             "filePath": "D:\\Projects\\Go\\MaNikki4\\assets\\resource\\pipeline\\抽卡.json",
             "savedViewport": {
-                "x": -4576,
-                "y": 93,
-                "zoom": 0.8
+                "x": -3544,
+                "y": -36,
+                "zoom": 0.65
             },
             "filename": "抽卡",
             "version": "v2.1.0"
-        }
-    },
-    "抽阁_左滑退出谜之海": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    0,
-                    108,
-                    345,
-                    465
-                ],
-                "expected": [
-                    "谜之海"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    15,
-                    466,
-                    74,
-                    139
-                ]
-            }
-        },
-        "post_wait_freezes": 1000,
-        "$__mpe_code": {
-            "position": {
-                "x": 6707,
-                "y": 108
-            }
-        }
-    },
-    "抽阁_确认阁UI加载完": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    539,
-                    55,
-                    180,
-                    76
-                ],
-                "expected": [
-                    "感应详情"
-                ]
-            }
-        },
-        "post_wait_freezes": 200,
-        "next": [
-            "[JumpBack]抽阁_其他免费的",
-            "抽阁_确认回到谜之海",
-            "抽阁_左滑寻找其他免费"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 6998,
-                "y": 784
-            }
-        }
-    },
-    "抽阁_确保不在谜之海": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    0,
-                    108,
-                    345,
-                    465
-                ],
-                "expected": [
-                    "谜之海"
-                ]
-            }
-        },
-        "inverse": true,
-        "next": [
-            "抽阁_确认阁UI加载完"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 6706,
-                "y": 429
-            }
         }
     },
     "$__mpe_external_公共：返回主菜单_抽卡": {
@@ -210,6 +122,10 @@
         },
         "repeat": 2,
         "post_wait_freezes": 200,
+        "next": [
+            "抽阁_确认单抽退出",
+            "[JumpBack]抽阁_点击空白"
+        ],
         "$__mpe_code": {
             "position": {
                 "x": 7606,
@@ -348,6 +264,40 @@
             }
         }
     },
+    "抽阁_左滑退出谜之海": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    0,
+                    108,
+                    345,
+                    465
+                ],
+                "expected": [
+                    "谜之海"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    15,
+                    466,
+                    74,
+                    139
+                ]
+            }
+        },
+        "post_wait_freezes": 1000,
+        "$__mpe_code": {
+            "position": {
+                "x": 6707,
+                "y": 108
+            }
+        }
+    },
     "抽阁_心之门": {
         "recognition": {
             "type": "OCR",
@@ -418,6 +368,32 @@
             "position": {
                 "x": 6116,
                 "y": 655
+            }
+        }
+    },
+    "抽阁_确保不在谜之海": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    0,
+                    108,
+                    345,
+                    465
+                ],
+                "expected": [
+                    "谜之海"
+                ]
+            }
+        },
+        "inverse": true,
+        "next": [
+            "抽阁_确认阁UI加载完"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 6706,
+                "y": 429
             }
         }
     },
@@ -517,6 +493,34 @@
             }
         }
     },
+    "抽阁_确认阁UI加载完": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    539,
+                    55,
+                    180,
+                    76
+                ],
+                "expected": [
+                    "感应详情"
+                ]
+            }
+        },
+        "post_wait_freezes": 200,
+        "next": [
+            "[JumpBack]抽阁_其他免费的",
+            "抽阁_确认回到谜之海",
+            "抽阁_左滑寻找其他免费"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 6998,
+                "y": 784
+            }
+        }
+    },
     "抽阁_结束": {
         "next": [
             "公共：返回主菜单"
@@ -593,6 +597,48 @@
             "position": {
                 "x": 7919,
                 "y": 1186
+            }
+        }
+    },
+    "抽阁_确认单抽退出": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    539,
+                    55,
+                    180,
+                    76
+                ],
+                "expected": [
+                    "感应详情"
+                ]
+            }
+        },
+        "post_wait_freezes": 200,
+        "$__mpe_code": {
+            "position": {
+                "x": 7918,
+                "y": 733
+            }
+        }
+    },
+    "抽阁_点击空白": {
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    158,
+                    10,
+                    12,
+                    15
+                ]
+            }
+        },
+        "$__mpe_code": {
+            "position": {
+                "x": 7921,
+                "y": 992
             }
         }
     }

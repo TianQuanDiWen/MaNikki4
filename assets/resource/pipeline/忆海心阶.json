@@ -3,14 +3,14 @@
         "$__mpe_code": {
             "prefix": "",
             "coordinateMode": "absolute-v1",
-            "lastSyncTime": 1791848317571,
+            "lastSyncTime": 1792483380655,
             "isModifiedExternally": false,
             "isDeleted": false,
             "filePath": "D:\\Projects\\Go\\MaNikki4\\assets\\resource\\pipeline\\忆海心阶.json",
             "savedViewport": {
-                "x": -7261,
-                "y": 64,
-                "zoom": 1.17
+                "x": -7615,
+                "y": 430,
+                "zoom": 1.15
             },
             "filename": "忆海心阶",
             "version": "v2.1.0"
@@ -471,7 +471,8 @@
         },
         "next": [
             "忆海_真我之境",
-            "忆海_快速挑战结算"
+            "忆海_快速挑战结算",
+            "[JumpBack]忆海_快速挑战结算点击空白"
         ],
         "$__mpe_code": {
             "position": {
@@ -644,6 +645,34 @@
             "position": {
                 "x": 7853,
                 "y": 477
+            }
+        }
+    },
+    "忆海_新赛季": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    88,
+                    441,
+                    572,
+                    539
+                ],
+                "expected": [
+                    "我知道了"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "focus": {
+            "Node.Action.Succeeded": "识别到忆海新赛季"
+        },
+        "$__mpe_code": {
+            "position": {
+                "x": 6248,
+                "y": 690
             }
         }
     },
@@ -1046,31 +1075,22 @@
             }
         }
     },
-    "忆海_新赛季": {
-        "recognition": {
-            "type": "OCR",
+    "忆海_快速挑战结算点击空白": {
+        "action": {
+            "type": "Click",
             "param": {
-                "roi": [
-                    88,
-                    441,
-                    572,
-                    539
-                ],
-                "expected": [
-                    "我知道了"
+                "target": [
+                    297,
+                    66,
+                    13,
+                    7
                 ]
             }
         },
-        "action": {
-            "type": "Click"
-        },
-        "focus": {
-            "Node.Action.Succeeded": "识别到忆海新赛季"
-        },
         "$__mpe_code": {
             "position": {
-                "x": 6248,
-                "y": 690
+                "x": 7231,
+                "y": -256
             }
         }
     }
