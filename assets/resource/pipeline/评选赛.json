@@ -3,14 +3,14 @@
         "$__mpe_code": {
             "prefix": "",
             "coordinateMode": "absolute-v1",
-            "lastSyncTime": 1791676925296,
+            "lastSyncTime": 1792916191186,
             "isModifiedExternally": false,
             "isDeleted": false,
             "filePath": "D:\\Projects\\Go\\MaNikki4\\assets\\resource\\pipeline\\评选赛.json",
             "savedViewport": {
-                "x": -11266,
-                "y": -1135,
-                "zoom": 1.32
+                "x": -12442,
+                "y": -1372,
+                "zoom": 1.71
             },
             "filename": "评选赛",
             "version": "v2.1.0"
@@ -261,11 +261,12 @@
         "action": {
             "type": "Click"
         },
-        "post_wait_freezes": 200,
+        "post_wait_freezes": 500,
         "focus": "",
         "next": [
             "评选赛_没选到",
-            "评选赛_投稿参赛"
+            "评选赛_投稿参赛",
+            "评选赛_换好了"
         ],
         "$__mpe_code": {
             "position": {
