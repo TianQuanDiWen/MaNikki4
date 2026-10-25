@@ -3,13 +3,13 @@
         "$__mpe_code": {
             "prefix": "",
             "coordinateMode": "absolute-v1",
-            "lastSyncTime": 1791776308125,
+            "lastSyncTime": 1792912874642,
             "isModifiedExternally": false,
             "isDeleted": false,
             "filePath": "D:\\Projects\\Go\\MaNikki4\\assets\\resource\\pipeline\\竞技场.json",
             "savedViewport": {
-                "x": -7560,
-                "y": -711,
+                "x": -8235,
+                "y": -1181,
                 "zoom": 1.03
             },
             "filename": "竞技场",
@@ -601,6 +601,43 @@
             }
         }
     },
+    "竞技场_晋级弹窗": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    175,
+                    98,
+                    408,
+                    295
+                ],
+                "expected": [
+                    "晋级"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    288,
+                    58,
+                    131,
+                    50
+                ]
+            }
+        },
+        "post_wait_freezes": 800,
+        "focus": {
+            "Node.Action.Succeeded": "段位晋级~"
+        },
+        "$__mpe_code": {
+            "position": {
+                "x": 8167,
+                "y": 1410
+            }
+        }
+    },
     "竞技场_次数已用尽": {
         "recognition": {
             "type": "OCR",
@@ -678,6 +715,10 @@
             "type": "Click"
         },
         "post_wait_freezes": 800,
+        "next": [
+            "竞技场_换一批结束",
+            "竞技场_换一批超限"
+        ],
         "$__mpe_code": {
             "position": {
                 "x": 8168,
@@ -927,40 +968,27 @@
             }
         }
     },
-    "竞技场_晋级弹窗": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    175,
-                    98,
-                    408,
-                    295
-                ],
-                "expected": [
-                    "晋级"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    288,
-                    58,
-                    131,
-                    50
-                ]
-            }
-        },
-        "post_wait_freezes": 800,
-        "focus": {
-            "Node.Action.Succeeded": "段位晋级~"
-        },
+    "竞技场_换一批结束": {
+        "max_hit": 100,
         "$__mpe_code": {
             "position": {
-                "x": 8167,
-                "y": 1410
+                "x": 8563,
+                "y": 1848
+            }
+        }
+    },
+    "竞技场_换一批超限": {
+        "max_hit": 100,
+        "focus": {
+            "Node.Action.Succeeded": "竞技场更换对手次数超过限制（100次）可能流程异常结束竞技场挑战"
+        },
+        "next": [
+            "竞技场_结束"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 8556,
+                "y": 1587
             }
         }
     }
