@@ -3,14 +3,14 @@
         "$__mpe_code": {
             "prefix": "",
             "coordinateMode": "absolute-v1",
-            "lastSyncTime": 1792483246099,
+            "lastSyncTime": 1793116150238,
             "isModifiedExternally": false,
             "isDeleted": false,
             "filePath": "D:\\Projects\\Go\\MaNikki4\\assets\\resource\\pipeline\\任务.json",
             "savedViewport": {
-                "x": -4351,
-                "y": 160,
-                "zoom": 0.79
+                "x": -7462,
+                "y": 1351,
+                "zoom": 1.17
             },
             "filename": "任务",
             "version": "v2.1.0"
@@ -107,7 +107,7 @@
         },
         "post_wait_freezes": 200,
         "focus": {
-            "Node.Action.Succeeded": "领取特权特权"
+            "Node.Action.Succeeded": "领取充值特权"
         },
         "next": [
             "任务_查看特权",
@@ -411,6 +411,9 @@
             "type": "Click"
         },
         "post_wait_freezes": 1000,
+        "focus": {
+            "Node.Recognition.Succeeded": "前往领取月卡"
+        },
         "next": [
             "[JumpBack]任务_钻石卡",
             "[JumpBack]任务_特权卡",
@@ -595,7 +598,7 @@
         },
         "pre_wait_freezes": 200,
         "next": [
-            "[JumpBack]任务_每日返钻",
+            "[JumpBack]任务_检测是否开了月卡",
             "[JumpBack]任务_检查存在可领取",
             "[JumpBack]任务_每日签到",
             "[JumpBack]任务_奖励弹窗关闭",
@@ -909,6 +912,33 @@
             "position": {
                 "x": 8350,
                 "y": 907
+            }
+        }
+    },
+    "任务_检测是否开了月卡": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    10,
+                    605,
+                    695,
+                    667
+                ],
+                "expected": [
+                    "月卡福利尚未激活"
+                ]
+            }
+        },
+        "inverse": true,
+        "focus": "",
+        "next": [
+            "任务_每日返钻"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 6214,
+                "y": -210
             }
         }
     }
