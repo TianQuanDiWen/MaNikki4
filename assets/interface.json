@@ -155,36 +155,13 @@
             "default_check": true
         },
         {
-            "name": "时空回廊",
-            "label": "👗 时空回廊",
+            "name": "制衣",
+            "label": "🧵 制衣",
             "entry": "制衣_开始",
-            "description": "挑战时空回廊，请将时空回廊套装配置到制衣引导第一套",
-            "pipeline_override": {
-                "制衣_分发目标": {
-                    "next": [
-                        "制衣_第1套"
-                    ]
-                }
-            },
+            "description": "通用制衣任务，可选择制衣引导第1~5套，可自行添加额外的制衣任务",
             "option": [
-                "ShikongMainStageOption",
-                "StoreOption"
-            ],
-            "default_check": true
-        },
-        {
-            "name": "主线制衣",
-            "label": "🧵 主线制衣",
-            "entry": "制衣_开始",
-            "description": "挑战普通主线材料关卡，请将需要制作的套装配置到制衣引导第二套",
-            "pipeline_override": {
-                "制衣_分发目标": {
-                    "next": [
-                        "制衣_第2套"
-                    ]
-                }
-            },
-            "option": [
+                "ClothSlotOption",
+                "ClothMainStageOption",
                 "StoreOption"
             ],
             "default_check": true
@@ -358,10 +335,88 @@
                 }
             ]
         },
-        "ShikongMainStageOption": {
+        "ClothSlotOption": {
+            "type": "select",
+            "label": "制衣套装",
+            "description": "选择制衣引导中要处理的目标套装",
+            "cases": [
+                {
+                    "name": "Slot1",
+                    "label": "第1套",
+                    "pipeline_override": {
+                        "制衣_分发目标": {
+                            "next": [
+                                "制衣_选择第1套全部材料"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Slot2",
+                    "label": "第2套",
+                    "pipeline_override": {
+                        "制衣_分发目标": {
+                            "next": [
+                                "制衣_选择第2套全部材料"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Slot3",
+                    "label": "第3套",
+                    "pipeline_override": {
+                        "制衣_分发目标": {
+                            "next": [
+                                "制衣_左滑"
+                            ]
+                        },
+                        "制衣_左滑": {
+                            "next": [
+                                "制衣_选择第3套全部材料"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Slot4",
+                    "label": "第4套",
+                    "pipeline_override": {
+                        "制衣_分发目标": {
+                            "next": [
+                                "制衣_左滑"
+                            ]
+                        },
+                        "制衣_左滑": {
+                            "next": [
+                                "制衣_选择第4套全部材料"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Slot5",
+                    "label": "第5套",
+                    "pipeline_override": {
+                        "制衣_分发目标": {
+                            "next": [
+                                "制衣_左滑"
+                            ]
+                        },
+                        "制衣_左滑": {
+                            "next": [
+                                "制衣_选择第5套全部材料"
+                            ]
+                        }
+                    }
+                }
+            ],
+            "default_case": "Slot1"
+        },
+        "ClothMainStageOption": {
             "type": "switch",
-            "label": "时空回廊挑战主线关卡",
-            "description": "开启时若时空回廊套装包含普通主线材料，在打完时空回廊后前往挑战；关闭时仅刷时空回廊专属关卡",
+            "label": "挑战主线关卡",
+            "description": "开启后，有次数限制关卡刷完后继续挑战普通主线材料关卡；关闭时仅处理有次数限制关卡，次数用尽后直接结束",
             "cases": [
                 {
                     "name": "Yes",
@@ -386,7 +441,7 @@
                         },
                         "制衣_关卡_次数不足取消": {
                             "next": [
-                                "制衣_时空回廊直接结束"
+                                "制衣_次数不足结束"
                             ]
                         }
                     }
@@ -627,7 +682,7 @@
         {
             "name": "默认配置",
             "label": "默认配置",
-            "description": "自动勾选已就绪的日常任务（启动模拟器与游戏、送礼、组队本、抽卡、联盟任务、忆海心阶、美甲）",
+            "description": "自动勾选已就绪的日常任务（启动模拟器与游戏、送礼、组队本、抽卡、联盟任务、忆海心阶、美甲、两次制衣）",
             "task": [
                 {
                     "name": "__MXU_PRETASK__启动模拟器与游戏",
@@ -674,14 +729,23 @@
                     "enabled": true
                 },
                 {
-                    "name": "时空回廊",
-                    "enabled": true
+                    "name": "制衣",
+                    "enabled": true,
+                    "option": {
+                        "ClothSlotOption": "Slot1",
+                        "ClothMainStageOption": "No",
+                        "StoreOption": "Yes"
+                    }
                 },
                 {
-                    "name": "主线制衣",
-                    "enabled": true
+                    "name": "制衣",
+                    "enabled": true,
+                    "option": {
+                        "ClothSlotOption": "Slot2",
+                        "ClothMainStageOption": "Yes",
+                        "StoreOption": "Yes"
+                    }
                 },
-                
                 {
                     "name": "任务",
                     "enabled": true

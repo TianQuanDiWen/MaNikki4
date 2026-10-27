@@ -3,17 +3,17 @@
         "$__mpe_code": {
             "prefix": "",
             "coordinateMode": "absolute-v1",
-            "lastSyncTime": 1791406812100,
+            "lastSyncTime": 1793126918538,
             "isModifiedExternally": false,
-            "isDeleted": false,
+            "isDeleted": true,
             "filePath": "D:\\Projects\\Go\\MaNikki4\\assets\\resource\\pipeline\\制衣.json",
             "savedViewport": {
-                "x": -3408,
-                "y": -1423,
-                "zoom": 0.9
+                "x": -335,
+                "y": -948,
+                "zoom": 0.71
             },
             "filename": "制衣",
-            "version": "v2.0.7"
+            "version": "v2.1.0"
         }
     },
     "$__mpe_anchor_制衣引导_制衣": {
@@ -45,7 +45,8 @@
     "制衣_关卡_中继": {
         "next": [
             "制衣_关卡_点击挑战",
-            "制衣_关卡_体力不足取消"
+            "制衣_关卡_体力不足取消",
+            "[JumpBack]制衣_初次进入关闭弹窗"
         ],
         "$__mpe_code": {
             "position": {
@@ -231,42 +232,17 @@
     },
     "制衣_分发目标": {
         "next": [
-            "制衣_第1套",
-            "制衣_第2套"
+            "制衣_选择第1套全部材料",
+            "制衣_选择第2套全部材料",
+            "制衣_左滑"
+        ],
+        "on_error": [
+            "制衣_目标未设定结束"
         ],
         "$__mpe_code": {
             "position": {
                 "x": 898,
                 "y": 992
-            }
-        }
-    },
-    "制衣_制衣已完成": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    215,
-                    532,
-                    296,
-                    85
-                ],
-                "expected": [
-                    "材料已收集完毕",
-                    "前往制作"
-                ]
-            }
-        },
-        "focus": {
-            "Node.Action.Succeeded": "当前套装已收集全部材料"
-        },
-        "next": [
-            "制衣_未正常结束"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 2278,
-                "y": 1848
             }
         }
     },
@@ -293,7 +269,7 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 2652,
+                "x": 2642,
                 "y": 1844
             }
         }
@@ -311,7 +287,10 @@
             }
         }
     },
-    "制衣_时空回廊直接结束": {
+    "制衣_次数不足结束": {
+        "focus": {
+            "Node.Action.Succeeded": "次数不足，未配置主线挑战，任务结束"
+        },
         "next": [
             "制衣_结束"
         ],
@@ -352,6 +331,17 @@
             }
         }
     },
+    "制衣_未正常结束": {
+        "next": [
+            "公共：返回主菜单"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 3001,
+                "y": 2252
+            }
+        }
+    },
     "制衣_材料_主线": {
         "recognition": {
             "type": "Custom",
@@ -379,7 +369,7 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 2638,
+                "x": 2642,
                 "y": 905
             }
         }
@@ -411,12 +401,12 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 2640,
+                "x": 2642,
                 "y": 1259
             }
         }
     },
-    "制衣_材料_时空回廊": {
+    "制衣_材料_时空回廊/心灵迷宫": {
         "max_hit": 1,
         "recognition": {
             "type": "Custom",
@@ -424,7 +414,7 @@
                 "custom_recognition": "MatchRowButton",
                 "custom_recognition_param": {
                     "button": "前往",
-                    "keyword": "时空回廊",
+                    "keyword": "时空回廊|心灵迷宫",
                     "y_tolerance": 60
                 },
                 "roi": [
@@ -444,34 +434,20 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 2632,
+                "x": 2642,
                 "y": 470
             }
         }
     },
     "制衣_材料中继": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    292,
-                    293,
-                    133,
-                    59
-                ],
-                "expected": [
-                    "材料"
-                ]
-            }
-        },
         "next": [
             "制衣_确认在材料弹窗",
             "制衣_制衣已完成"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 1923,
-                "y": 1034
+                "x": 1995,
+                "y": 1212
             }
         }
     },
@@ -510,6 +486,20 @@
             "position": {
                 "x": 10,
                 "y": 987
+            }
+        }
+    },
+    "制衣_目标未设定结束": {
+        "focus": {
+            "Node.Action.Succeeded": "⚠制衣目标未设定"
+        },
+        "next": [
+            "制衣_未正常结束"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 2010,
+                "y": 2038
             }
         }
     },
@@ -581,13 +571,13 @@
         },
         "next": [
             "制衣_材料_商店",
-            "制衣_材料_时空回廊",
+            "制衣_材料_时空回廊/心灵迷宫",
             "制衣_材料_主线",
             "制衣_安全退出"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 2275,
+                "x": 2277,
                 "y": 1000
             }
         }
@@ -701,13 +691,17 @@
             "type": "Click"
         },
         "post_wait_freezes": 800,
+        "timeout": 500,
+        "focus": {
+            "Node.Action.Succeeded": "制衣：第1套"
+        },
         "next": [
             "制衣_材料中继"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 1619,
-                "y": 525
+                "x": 1617,
+                "y": 491
             }
         }
     },
@@ -730,116 +724,223 @@
             "type": "Click"
         },
         "post_wait_freezes": 800,
+        "timeout": 500,
+        "focus": {
+            "Node.Action.Succeeded": "制衣：第2套"
+        },
         "next": [
             "制衣_材料中继"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 1611,
-                "y": 1169
+                "x": 1617,
+                "y": 897
             }
         }
     },
-    "制衣_第1套未设定": {
-        "recognition": {
-            "type": "OCR",
+    "制衣_左滑": {
+        "action": {
+            "type": "Swipe",
             "param": {
-                "roi": [
-                    26,
-                    624,
-                    304,
-                    606
+                "begin": [
+                    643,
+                    887,
+                    37,
+                    48
                 ],
-                "expected": [
-                    "尚未设定目标"
+                "end": [
+                    [
+                        62,
+                        878,
+                        51,
+                        70
+                    ]
                 ]
             }
         },
         "post_wait_freezes": 800,
-        "focus": "",
         "next": [
+            "制衣_选择第3套全部材料",
+            "制衣_选择第4套全部材料",
+            "制衣_选择第5套全部材料"
+        ],
+        "on_error": [
             "制衣_目标未设定结束"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 1615,
-                "y": 822
+                "x": 1219,
+                "y": 1541
             }
         }
     },
-    "制衣_第1套": {
-        "next": [
-            "制衣_选择第1套全部材料",
-            "制衣_第1套未设定"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 1224,
-                "y": 715
-            }
-        }
-    },
-    "制衣_第2套": {
-        "next": [
-            "制衣_选择第2套全部材料",
-            "制衣_第2套未设定"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 1225,
-                "y": 1103
-            }
-        }
-    },
-    "制衣_第2套未设定": {
+    "制衣_选择第4套全部材料": {
         "recognition": {
             "type": "OCR",
             "param": {
                 "roi": [
-                    331,
-                    624,
-                    295,
-                    596
+                    73,
+                    617,
+                    299,
+                    613
                 ],
                 "expected": [
-                    "尚未设定目标"
+                    "全部材料"
                 ]
             }
         },
+        "action": {
+            "type": "Click"
+        },
         "post_wait_freezes": 800,
-        "focus": "",
-        "next": [
-            "制衣_目标未设定结束"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 1616,
-                "y": 1501
-            }
-        }
-    },
-    "制衣_目标未设定结束": {
+        "timeout": 500,
         "focus": {
-            "Node.Action.Succeeded": "⚠制衣目标未设定"
+            "Node.Action.Succeeded": "制衣：第4套"
+        },
+        "next": [
+            "制衣_材料中继"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1617,
+                "y": 1713
+            }
+        }
+    },
+    "制衣_选择第5套全部材料": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    391,
+                    619,
+                    299,
+                    609
+                ],
+                "expected": [
+                    "全部材料"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 800,
+        "timeout": 500,
+        "focus": {
+            "Node.Action.Succeeded": "制衣：第5套"
+        },
+        "next": [
+            "制衣_材料中继"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1617,
+                "y": 2152
+            }
+        }
+    },
+    "制衣_选择第3套全部材料": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    5,
+                    807,
+                    49,
+                    424
+                ],
+                "expected": [
+                    "料"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 800,
+        "timeout": 500,
+        "focus": {
+            "Node.Action.Succeeded": "制衣：第3套"
+        },
+        "next": [
+            "制衣_材料中继"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1617,
+                "y": 1293
+            }
+        }
+    },
+    "制衣_初次进入关闭弹窗": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    73,
+                    227,
+                    539,
+                    203
+                ],
+                "expected": [
+                    "规则"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    305,
+                    80,
+                    48,
+                    31
+                ]
+            }
+        },
+        "focus": {
+            "Node.Action.Succeeded": "识别到规则讲解弹窗点击空白关闭"
+        },
+        "$__mpe_code": {
+            "position": {
+                "x": 3353,
+                "y": 1222
+            }
+        }
+    },
+    "制衣_制衣已完成": {
+        "recognition": {
+            "type": "Custom",
+            "param": {
+                "custom_recognition": "MatchRowButton",
+                "custom_recognition_param": {
+                    "button": "前往制作",
+                    "keyword": "材料已收集完毕",
+                    "y_tolerance": 200
+                },
+                "roi": [
+                    99,
+                    514,
+                    536,
+                    257
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 1200,
+        "focus": {
+            "Node.Action.Succeeded": "目标套装材料已收集完毕，任务结束"
         },
         "next": [
             "制衣_未正常结束"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 1996,
-                "y": 1828
-            }
-        }
-    },
-    "制衣_未正常结束": {
-        "next": [
-            "公共：返回主菜单"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 3001,
-                "y": 2252
+                "x": 2276,
+                "y": 1517
             }
         }
     }
